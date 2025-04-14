@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #3498db; /* Hellblau */
+  --primary-light: #5dade2; /* Hellere Variante des Hellblau */
+  --accent: #e67e22; /* Moderneres, dezenteres Orange */
+  --accent-light: #f39c12; /* Hellere Variante des Orange */
+  --background: #ffffff;
+  --foreground: #333333;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  overflow-x: hidden;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+}
+
+.section-padding {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.container-padding {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .container-padding {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.section-title {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #3498db; /* Hellblau */
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #3498db; /* Hellblau */
+}
+
+@media (min-width: 768px) {
+  .section-subtitle {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 1.25rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 1.5rem;
+  }
+}
+
+.card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Responsive Typografie */
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* Responsive Bilder */
+.responsive-image-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  overflow: hidden;
+}
+
+.responsive-image-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive Buttons */
+.btn {
+  @apply font-medium py-2 px-4 rounded-md transition-all duration-300;
+}
+
+.btn-primary {
+  @apply bg-accent hover:bg-accent-light text-white;
+}
+
+.btn-secondary {
+  @apply bg-white border border-primary text-primary hover:bg-primary/5;
+}
+
+@media (min-width: 768px) {
+  .btn {
+    @apply py-3 px-6;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
