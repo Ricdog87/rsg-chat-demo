@@ -46,7 +46,7 @@ const PartnersSection = () => {
           </p>
         </div>
 
-        <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
           {partners.map((partner, index) => (
             <div
               key={index}
@@ -55,7 +55,7 @@ const PartnersSection = () => {
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              <div className="h-24 sm:h-28 md:h-32 flex items-center justify-center mb-4 md:mb-6 p-3 md:p-4">
+              <div className="h-16 sm:h-20 md:h-24 lg:h-32 flex items-center justify-center mb-3 sm:mb-4 md:mb-5 lg:mb-6 p-2 sm:p-3 md:p-4">
                 <Image
                   src={partner.logo || "/placeholder.svg"}
                   alt={`${partner.name} - Partner von Lacar Associate`}
@@ -64,15 +64,17 @@ const PartnersSection = () => {
                   className="h-auto w-auto max-h-full max-w-full object-contain"
                 />
               </div>
-              <h3 className="text-lg md:text-xl font-bold mb-2 text-center">{partner.name}</h3>
-              <p className="text-gray-600 text-center mb-4 md:mb-6 text-sm md:text-base">{partner.description}</p>
+              <h3 className="text-base sm:text-lg md:text-xl font-bold mb-1.5 sm:mb-2 text-center">{partner.name}</h3>
+              <p className="text-gray-600 text-center mb-3 sm:mb-4 md:mb-5 lg:mb-6 text-xs sm:text-sm md:text-base">
+                {partner.description}
+              </p>
               <div className="text-center">
                 <Link
                   href={partner.link}
                   target="_blank"
-                  className="inline-flex items-center text-accent hover:text-accent-light font-semibold transition-colors text-sm md:text-base"
+                  className="inline-flex items-center text-accent hover:text-accent-light font-semibold transition-colors text-xs sm:text-sm md:text-base"
                 >
-                  Mehr erfahren <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
+                  Mehr erfahren <ArrowRight className="ml-1.5 h-3.5 w-3.5 sm:ml-2 sm:h-4 sm:w-4 md:h-5 md:w-5" />
                 </Link>
               </div>
             </div>

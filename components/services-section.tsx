@@ -77,7 +77,7 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
+        <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
           {services.map((service, index) => (
             <div
               key={index}
@@ -87,29 +87,33 @@ const ServicesSection = () => {
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="flex flex-col md:flex-row md:items-start">
-                <div className="flex justify-center md:justify-start mb-3 md:mb-0 md:mr-4 md:mt-1">{service.icon}</div>
+                <div className="flex justify-center md:justify-start mb-2 sm:mb-3 md:mb-0 md:mr-4 md:mt-1">
+                  {service.icon}
+                </div>
                 <div>
-                  <h3 className="text-lg md:text-xl font-bold mb-2 text-center md:text-left">{service.title}</h3>
-                  <p className="text-gray-600 mb-3 md:mb-4 text-sm md:text-base text-center md:text-left">
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold mb-1.5 sm:mb-2 text-center md:text-left">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 mb-2 sm:mb-3 md:mb-4 text-xs sm:text-sm md:text-base text-center md:text-left">
                     {service.description}
                   </p>
                   <ul className="space-y-1 md:space-y-2 mb-3 md:mb-4">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center">
                         <span className="h-1.5 w-1.5 rounded-full bg-accent mr-2 flex-shrink-0"></span>
-                        <span className="text-sm md:text-base">{feature}</span>
+                        <span className="text-xs sm:text-sm md:text-base">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <div className="text-center md:text-left">
                     <Link
                       href={service.link}
-                      className="text-accent hover:text-accent-light font-medium inline-flex items-center text-sm md:text-base"
+                      className="text-accent hover:text-accent-light font-medium inline-flex items-center text-xs sm:text-sm md:text-base"
                     >
                       Mehr erfahren
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 ml-1"
+                        className="h-3 w-3 sm:h-4 sm:w-4 ml-1"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -124,18 +128,18 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        <div className="mt-10 md:mt-16 bg-gray-50 rounded-lg p-6 md:p-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
+        <div className="mt-8 sm:mt-10 md:mt-12 lg:mt-16 bg-gray-50 rounded-lg p-4 sm:p-5 md:p-6 lg:p-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 md:gap-8 items-center">
             <div>
-              <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 md:mb-4">
                 Maßgeschneiderte Recruiting-Lösungen für Ihren Erfolg
               </h3>
-              <p className="text-gray-600 mb-3 md:mb-4 text-sm md:text-base">
+              <p className="text-gray-600 mb-2 sm:mb-3 md:mb-4 text-xs sm:text-sm md:text-base">
                 Jedes Unternehmen ist einzigartig – deshalb passen wir unsere Recruiting-Strategie individuell an Ihre
                 Bedürfnisse an. Vom ersten Gespräch bis zur erfolgreichen Einstellung begleiten wir Sie durch den
                 gesamten Prozess und sorgen für eine optimale Besetzung Ihrer offenen Positionen.
               </p>
-              <p className="text-gray-600 mb-4 text-sm md:text-base">
+              <p className="text-gray-600 mb-3 sm:mb-4 text-xs sm:text-sm md:text-base">
                 Unsere erfahrenen Headhunter und Recruiter verfügen über umfangreiche Branchenkenntnisse und ein
                 weitreichendes Netzwerk, um die besten Talente für Ihr Unternehmen zu finden – und das zum Festpreis
                 ohne versteckte Kosten.

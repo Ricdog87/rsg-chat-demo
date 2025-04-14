@@ -21,30 +21,30 @@ const BusinessModelSection = () => {
           </p>
         </div>
 
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
           {/* Price Model Card */}
           <div
             className={`card transform transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             style={{ transitionDelay: "100ms" }}
           >
-            <div className="flex items-center justify-center h-14 w-14 md:h-16 md:w-16 rounded-full bg-primary/10 text-primary mb-4 mx-auto">
-              <Euro className="h-7 w-7 md:h-8 md:w-8" />
+            <div className="flex items-center justify-center h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 rounded-full bg-primary/10 text-primary mb-3 sm:mb-4 mx-auto">
+              <Euro className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8" />
             </div>
-            <h3 className="text-lg md:text-xl font-bold text-center mb-3 md:mb-4">Projektpreis</h3>
-            <p className="text-3xl md:text-4xl font-bold text-center text-accent mb-2">9.999 €</p>
-            <p className="text-center text-gray-500 mb-4">netto pro Projekt</p>
-            <ul className="space-y-2">
+            <h3 className="text-base sm:text-lg md:text-xl font-bold text-center mb-2 sm:mb-3 md:mb-4">Projektpreis</h3>
+            <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-accent mb-1 sm:mb-2">9.999 €</p>
+            <p className="text-center text-gray-500 mb-3 sm:mb-4 text-sm">netto pro Projekt</p>
+            <ul className="space-y-1.5 sm:space-y-2">
               <li className="flex items-start">
-                <CheckCircle className="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" />
-                <span className="text-sm md:text-base">Transparente Kosten ohne versteckte Gebühren</span>
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-accent mr-1.5 sm:mr-2 mt-0.5 flex-shrink-0" />
+                <span className="text-xs sm:text-sm md:text-base">Transparente Kosten ohne versteckte Gebühren</span>
               </li>
               <li className="flex items-start">
-                <CheckCircle className="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" />
-                <span className="text-sm md:text-base">Keine Erfolgsprovision auf das Jahresgehalt</span>
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-accent mr-1.5 sm:mr-2 mt-0.5 flex-shrink-0" />
+                <span className="text-xs sm:text-sm md:text-base">Keine Erfolgsprovision auf das Jahresgehalt</span>
               </li>
               <li className="flex items-start">
-                <CheckCircle className="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" />
-                <span className="text-sm md:text-base">Planbare Kosten für Ihr Recruiting-Budget</span>
+                <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-accent mr-1.5 sm:mr-2 mt-0.5 flex-shrink-0" />
+                <span className="text-xs sm:text-sm md:text-base">Planbare Kosten für Ihr Recruiting-Budget</span>
               </li>
             </ul>
           </div>
@@ -116,11 +116,11 @@ const BusinessModelSection = () => {
           </div>
         </div>
 
-        <div className="mt-8 md:mt-12 text-center">
+        <div className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 text-center">
           <Link
             href="https://meetings-eu1.hubspot.com/meetings/serrano/lead-kalender?uuid=656818da-bec4-434f-8209-e2b8ac089a5c"
             target="_blank"
-            className="bg-accent hover:bg-accent-light text-white font-medium py-2 px-4 md:py-3 md:px-6 rounded-md transition-all duration-300 inline-flex items-center justify-center text-sm md:text-base"
+            className="bg-accent hover:bg-accent-light text-white font-medium py-2.5 px-4 sm:py-3 sm:px-5 md:px-6 rounded-md transition-all duration-300 inline-flex items-center justify-center text-xs sm:text-sm md:text-base"
           >
             Unverbindliches Beratungsgespräch vereinbaren
           </Link>

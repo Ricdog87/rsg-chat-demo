@@ -45,24 +45,24 @@ const HeroSection = () => {
         <div
           className={`max-w-3xl transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-3 md:mb-4">
             Personalvermittlung und Headhunting zum Fixpreis. Null Risiko.
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-6 md:mb-8">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-4 md:mb-6 lg:mb-8">
             Professionelles Headhunting und Recruiting zum Festpreis – 9.999&nbsp;€ netto pro Projekt. Keine versteckten
             Kosten, keine Überraschungen.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Link
               href="https://meetings-eu1.hubspot.com/meetings/serrano/lead-kalender?uuid=656818da-bec4-434f-8209-e2b8ac089a5c"
               target="_blank"
-              className="bg-accent hover:bg-accent-light text-white font-medium py-3 px-6 rounded-md transition-all duration-300 inline-flex items-center justify-center text-base sm:text-lg"
+              className="bg-accent hover:bg-accent-light text-white font-medium py-2.5 sm:py-3 px-4 sm:px-6 rounded-md transition-all duration-300 inline-flex items-center justify-center text-sm sm:text-base lg:text-lg text-center"
             >
-              Jetzt Termin buchen <ArrowRight className="ml-2 h-5 w-5" />
+              Jetzt Termin buchen <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
             </Link>
             <button
               onClick={scrollToNextSection}
-              className="bg-white/90 hover:bg-white text-primary border border-primary/20 font-medium py-3 px-6 rounded-md transition-all duration-300 inline-flex items-center justify-center text-base sm:text-lg"
+              className="bg-white/90 hover:bg-white text-primary border border-primary/20 font-medium py-2.5 sm:py-3 px-4 sm:px-6 rounded-md transition-all duration-300 inline-flex items-center justify-center text-sm sm:text-base lg:text-lg"
             >
               Mehr erfahren
             </button>

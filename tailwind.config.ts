@@ -19,6 +19,9 @@ const config = {
       },
     },
     extend: {
+      screens: {
+        xs: "480px", // Extra small screen breakpoint
+      },
       colors: {
         primary: {
           DEFAULT: "#3498db", // Hellblau

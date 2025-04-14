@@ -6,13 +6,13 @@ import { Linkedin, Mail, Phone, Instagram } from "lucide-react"
 const Footer = () => {
   return (
     <footer className="bg-primary text-white">
-      <div className="container mx-auto container-padding py-10 md:py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="container mx-auto container-padding py-8 sm:py-10 md:py-12">
+        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           <div className="md:col-span-1">
-            <Link href="/" className="text-white font-bold text-xl mb-3 md:mb-4 inline-block">
+            <Link href="/" className="text-white font-bold text-lg sm:text-xl mb-2 sm:mb-3 md:mb-4 inline-block">
               Lacar Associate
             </Link>
-            <p className="text-white/80 mb-4 text-sm md:text-base">
+            <p className="text-white/80 mb-3 sm:mb-4 text-xs sm:text-sm md:text-base">
               Professionelle Personalvermittlung zum Festpreis. Headhunting und Recruiting ohne Risiko für Unternehmen
               aller Größen und Branchen.
             </p>
@@ -24,7 +24,7 @@ const Footer = () => {
                 className="text-white hover:text-accent transition-colors"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className="h-4 w-4 sm:h-5 sm:w-5" />
               </a>
               <a
                 href="https://www.instagram.com/lacar.associate/"
@@ -33,14 +33,14 @@ const Footer = () => {
                 className="text-white hover:text-accent transition-colors"
                 aria-label="Instagram"
               >
-                <Instagram className="h-5 w-5" />
+                <Instagram className="h-4 w-4 sm:h-5 sm:w-5" />
               </a>
             </div>
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-3 md:mb-4">Navigation</h4>
-            <ul className="space-y-2">
+            <h4 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 md:mb-4">Navigation</h4>
+            <ul className="space-y-1 sm:space-y-2">
               <li>
                 <Link
                   href="/"
@@ -129,8 +129,8 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-3 md:mb-4">Rechtliches</h4>
-            <ul className="space-y-2">
+            <h4 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 md:mb-4">Rechtliches</h4>
+            <ul className="space-y-1 sm:space-y-2">
               <li>
                 <Link
                   href="/impressum"
@@ -156,8 +156,8 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-3 md:mb-4">Kontakt</h4>
-            <ul className="space-y-2 md:space-y-3">
+            <h4 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 md:mb-4">Kontakt</h4>
+            <ul className="space-y-1 sm:space-y-2">
               <li className="flex items-center">
                 <Phone className="h-5 w-5 mr-2 text-accent flex-shrink-0" />
                 <a
@@ -180,7 +180,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/20 mt-8 pt-6 md:pt-8 text-center text-white/60 text-xs md:text-sm">
+        <div className="border-t border-white/20 mt-6 sm:mt-8 pt-4 sm:pt-6 md:pt-8 text-center text-white/60 text-xxs xs:text-xs sm:text-sm">
           <p>
             &copy; 2020 - 2025 Lacar Associate. Alle Rechte vorbehalten. Headhunting und Personalvermittlung zum
             Festpreis.

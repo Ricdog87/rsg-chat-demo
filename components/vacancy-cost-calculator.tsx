@@ -146,11 +146,11 @@ const VacancyCostCalculator = () => {
               </h3>
             </div>
 
-            <div className="p-6 md:p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <div className="p-4 sm:p-5 md:p-6 lg:p-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 md:gap-8">
                 <div>
-                  <div className="mb-6">
-                    <label htmlFor="position" className="block text-sm font-medium text-gray-700 mb-1">
+                  <div className="mb-5">
+                    <label htmlFor="position" className="block text-sm font-medium text-gray-700 mb-1.5">
                       Position
                     </label>
                     <select
@@ -158,7 +158,7 @@ const VacancyCostCalculator = () => {
                       name="position"
                       value={inputs.position}
                       onChange={handleInputChange}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-primary focus:border-primary"
+                      className="w-full px-3 py-2.5 text-base border border-gray-300 rounded-md focus:outline-none focus:ring-primary focus:border-primary"
                     >
                       {positionOptions.map((option) => (
                         <option key={option.value} value={option.value}>
@@ -168,8 +168,8 @@ const VacancyCostCalculator = () => {
                     </select>
                   </div>
 
-                  <div className="mb-6">
-                    <label htmlFor="salary" className="block text-sm font-medium text-gray-700 mb-1">
+                  <div className="mb-5">
+                    <label htmlFor="salary" className="block text-sm font-medium text-gray-700 mb-1.5">
                       Jahresgehalt (brutto)
                     </label>
                     <div className="relative">
@@ -181,7 +181,7 @@ const VacancyCostCalculator = () => {
                         onChange={handleInputChange}
                         pattern="[0-9]*"
                         inputMode="numeric"
-                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-primary focus:border-primary"
+                        className="w-full px-3 py-2.5 text-base border border-gray-300 rounded-md focus:outline-none focus:ring-primary focus:border-primary"
                       />
                       <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                         <span className="text-gray-500">€</span>
@@ -302,59 +302,68 @@ const VacancyCostCalculator = () => {
 
               {showResults && results && (
                 <div className="mt-8 pt-8 border-t border-gray-200">
-                  <h4 className="text-xl font-bold text-primary mb-4">Ergebnis der Berechnung</h4>
+                  <h4 className="text-lg sm:text-xl font-bold text-primary mb-4">Ergebnis der Berechnung</h4>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <p className="text-sm text-gray-600 mb-1">Direkte Vakanzkosten</p>
-                      <p className="text-xl font-bold text-primary">{formatCurrency(results.directVacancyCost)}</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 mb-5 sm:mb-6">
+                    <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
+                      <p className="text-xs sm:text-sm text-gray-600 mb-1">Direkte Vakanzkosten</p>
+                      <p className="text-lg sm:text-xl font-bold text-primary">
+                        {formatCurrency(results.directVacancyCost)}
+                      </p>
                     </div>
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <p className="text-sm text-gray-600 mb-1">Rekrutierungskosten</p>
-                      <p className="text-xl font-bold text-primary">{formatCurrency(results.recruitingCost)}</p>
+                    <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
+                      <p className="text-xs sm:text-sm text-gray-600 mb-1">Rekrutierungskosten</p>
+                      <p className="text-lg sm:text-xl font-bold text-primary">
+                        {formatCurrency(results.recruitingCost)}
+                      </p>
                     </div>
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <p className="text-sm text-gray-600 mb-1">Einarbeitungskosten</p>
-                      <p className="text-xl font-bold text-primary">{formatCurrency(results.onboardingCost)}</p>
+                    <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
+                      <p className="text-xs sm:text-sm text-gray-600 mb-1">Einarbeitungskosten</p>
+                      <p className="text-lg sm:text-xl font-bold text-primary">
+                        {formatCurrency(results.onboardingCost)}
+                      </p>
                     </div>
                   </div>
 
-                  <div className="bg-primary/10 p-6 rounded-lg mb-6">
+                  <div className="bg-primary/10 p-4 sm:p-5 md:p-6 rounded-lg mb-5 sm:mb-6">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                      <div>
-                        <p className="text-sm text-primary mb-1">Gesamtkosten der unbesetzten Stelle</p>
-                        <p className="text-2xl md:text-3xl font-bold text-primary">
+                      <div className="mb-3 md:mb-0">
+                        <p className="text-xs sm:text-sm text-primary mb-1">Gesamtkosten der unbesetzten Stelle</p>
+                        <p className="text-xl sm:text-2xl md:text-3xl font-bold text-primary">
                           {formatCurrency(results.totalCost)}
                         </p>
                       </div>
-                      <div className="mt-4 md:mt-0 md:text-right">
-                        <p className="text-sm text-gray-600 mb-1">Das entspricht pro</p>
-                        <p className="text-base font-medium">
-                          Monat: <span className="font-bold">{formatCurrency(results.monthlyCost)}</span> | Tag:{" "}
+                      <div className="mt-2 md:mt-0 md:text-right">
+                        <p className="text-xs sm:text-sm text-gray-600 mb-1">Das entspricht pro</p>
+                        <p className="text-sm sm:text-base font-medium">
+                          Monat: <span className="font-bold">{formatCurrency(results.monthlyCost)}</span>
+                          <br className="inline md:hidden" /> Tag:{" "}
                           <span className="font-bold">{formatCurrency(results.dailyCost)}</span>
                         </p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-accent/10 p-6 rounded-lg">
+                  <div className="bg-accent/10 p-4 sm:p-5 md:p-6 rounded-lg">
                     <div className="flex items-start">
-                      <div className="bg-accent rounded-full p-2 mr-4 flex-shrink-0">
-                        <Info className="h-5 w-5 text-white" />
+                      <div className="bg-accent rounded-full p-1.5 sm:p-2 mr-3 sm:mr-4 flex-shrink-0 mt-0.5">
+                        <Info className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                       </div>
                       <div>
-                        <h5 className="text-lg font-bold text-accent mb-2">Ihr Sparpotenzial mit Lacar Associate</h5>
-                        <p className="mb-3">
+                        <h5 className="text-base sm:text-lg font-bold text-accent mb-2">
+                          Ihr Sparpotenzial mit Lacar Associate
+                        </h5>
+                        <p className="mb-2 sm:mb-3 text-sm sm:text-base">
                           Mit unserem Festpreis-Modell von nur <span className="font-bold">9.999 € netto</span> für die
                           erfolgreiche Besetzung Ihrer Vakanz sparen Sie:
                         </p>
-                        <p className="text-xl md:text-2xl font-bold text-accent">
+                        <p className="text-lg sm:text-xl md:text-2xl font-bold text-accent">
                           {formatCurrency(results.fixedPriceAdvantage)}
                         </p>
-                        <p className="mt-4">
+                        <p className="mt-3 sm:mt-4">
                           <a
                             href="#model"
-                            className="text-accent hover:text-accent-light font-medium inline-flex items-center"
+                            className="text-accent hover:text-accent-light font-medium inline-flex items-center text-sm sm:text-base"
                             onClick={(e) => {
                               e.preventDefault()
                               const element = document.getElementById("model")
@@ -369,7 +378,8 @@ const VacancyCostCalculator = () => {
                               }
                             }}
                           >
-                            Mehr über unser Festpreis-Modell erfahren <ArrowRight className="ml-1 h-4 w-4" />
+                            Mehr über unser Festpreis-Modell erfahren{" "}
+                            <ArrowRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4" />
                           </a>
                         </p>
                       </div>
