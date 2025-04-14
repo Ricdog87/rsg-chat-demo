@@ -20,7 +20,7 @@ const defaultValues: CalculatorInputs = {
   salary: "80000",
   workdays: "220",
   vacancyDuration: "90",
-  recruitingCosts: "15",
+  recruitingCosts: "25",
   onboardingTime: "90",
   productivityLoss: "30",
 }
