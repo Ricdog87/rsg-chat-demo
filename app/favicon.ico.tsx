@@ -23,11 +23,10 @@ export default function Icon() {
         borderRadius: "50%",
       }}
     >
-      JF
+      EL
     </div>,
     {
       ...size,
     },
   )
 }
-

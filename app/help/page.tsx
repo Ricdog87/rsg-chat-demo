@@ -5,58 +5,17 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { Search, MessageSquare, FileText, Video, BookOpen, LifeBuoy, ChevronRight } from "lucide-react"
+import type { ReactNode } from "react"
 
 export default function HelpCenterPage() {
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Navigation */}
-      <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Link href="/" className="flex items-center">
-                <div className="h-10 w-10 rounded-full bg-gradient-to-r from-pink-500 to-yellow-300 flex items-center justify-center text-white font-bold text-xl mr-2">
-                  E
-                </div>
-                <span className="text-xl font-bold bg-gradient-to-r from-pink-500 to-yellow-300 text-transparent bg-clip-text">
-                  Eluma
-                </span>
-              </Link>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/features" className="text-gray-700 hover:text-pink-500 transition-colors">
-                Features
-              </Link>
-              <Link href="/pricing" className="text-gray-700 hover:text-pink-500 transition-colors">
-                Preise
-              </Link>
-              <Link href="/about" className="text-gray-700 hover:text-pink-500 transition-colors">
-                Über uns
-              </Link>
-              <Link href="/contact" className="text-gray-700 hover:text-pink-500 transition-colors">
-                Kontakt
-              </Link>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Link href="/login" className="text-gray-700 hover:text-pink-500 transition-colors">
-                Login
-              </Link>
-              <Link href="/signup">
-                <Button className="bg-gradient-to-r from-pink-500 to-yellow-300 hover:from-pink-600 hover:to-yellow-400">
-                  Kostenlos starten
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-
+    <>
       {/* Header */}
       <header className="bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">Hilfe-Center</h1>
           <p className="text-xl text-white mb-8 max-w-3xl mx-auto">
-            Finde Antworten auf deine Fragen und lerne, wie du das Beste aus Eluma herausholst.
+            Finde Antworten auf deine Fragen und lerne, wie du das Beste aus Elumalab herausholst.
           </p>
           <div className="max-w-2xl mx-auto relative">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -123,9 +82,9 @@ export default function HelpCenterPage() {
                     <h3 className="text-xl font-semibold mb-4 text-gray-800">Allgemeine Fragen</h3>
                     <Accordion type="single" collapsible className="w-full">
                       <AccordionItem value="item-1">
-                        <AccordionTrigger>Was ist Eluma?</AccordionTrigger>
+                        <AccordionTrigger>Was ist Elumalab?</AccordionTrigger>
                         <AccordionContent>
-                          Eluma ist eine smarte Messaging-Plattform, die alle deine Kommunikationskanäle (WhatsApp,
+                          Elumalab ist eine smarte Messaging-Plattform, die alle deine Kommunikationskanäle (WhatsApp,
                           Instagram, Facebook, etc.) in einem einheitlichen Posteingang zusammenführt. So kannst du
                           effizienter mit deinen Kunden kommunizieren und deine Kundenzufriedenheit steigern.
                         </AccordionContent>
@@ -134,16 +93,16 @@ export default function HelpCenterPage() {
                       <AccordionItem value="item-2">
                         <AccordionTrigger>Wie funktioniert die kostenlose Testphase?</AccordionTrigger>
                         <AccordionContent>
-                          Du kannst Eluma 14 Tage lang kostenlos mit allen Funktionen des Business-Pakets testen. Keine
-                          Kreditkarte erforderlich. Nach Ablauf der Testphase kannst du dich für ein Paket entscheiden
-                          oder dein Konto wird automatisch auf die kostenlose Version herabgestuft.
+                          Du kannst Elumalab 14 Tage lang kostenlos mit allen Funktionen des Business-Pakets testen.
+                          Keine Kreditkarte erforderlich. Nach Ablauf der Testphase kannst du dich für ein Paket
+                          entscheiden oder dein Konto wird automatisch auf die kostenlose Version herabgestuft.
                         </AccordionContent>
                       </AccordionItem>
 
                       <AccordionItem value="item-3">
                         <AccordionTrigger>Welche Messaging-Kanäle werden unterstützt?</AccordionTrigger>
                         <AccordionContent>
-                          Eluma unterstützt aktuell WhatsApp Business API, Instagram Direct, Facebook Messenger,
+                          Elumalab unterstützt aktuell WhatsApp Business API, Instagram Direct, Facebook Messenger,
                           Telegram, E-Mail und Webchat. Wir arbeiten kontinuierlich daran, weitere Kanäle zu
                           integrieren.
                         </AccordionContent>
@@ -164,27 +123,27 @@ export default function HelpCenterPage() {
                     <h3 className="text-xl font-semibold mb-4 text-gray-800">Technische Fragen</h3>
                     <Accordion type="single" collapsible className="w-full">
                       <AccordionItem value="item-5">
-                        <AccordionTrigger>Wie verbinde ich WhatsApp Business mit Eluma?</AccordionTrigger>
+                        <AccordionTrigger>Wie verbinde ich WhatsApp Business mit Elumalab?</AccordionTrigger>
                         <AccordionContent>
-                          Um WhatsApp Business mit Eluma zu verbinden, benötigst du einen WhatsApp Business API-Zugang.
-                          In deinem Eluma-Dashboard findest du unter "Einstellungen" &gt; "Kanäle" eine
+                          Um WhatsApp Business mit Elumalab zu verbinden, benötigst du einen WhatsApp Business
+                          API-Zugang. In deinem Elumalab-Dashboard findest du unter "Einstellungen" &gt; "Kanäle" eine
                           Schritt-für-Schritt-Anleitung zur Verbindung.
                         </AccordionContent>
                       </AccordionItem>
 
                       <AccordionItem value="item-6">
-                        <AccordionTrigger>Ist Eluma DSGVO-konform?</AccordionTrigger>
+                        <AccordionTrigger>Ist Elumalab DSGVO-konform?</AccordionTrigger>
                         <AccordionContent>
-                          Ja, Eluma ist vollständig DSGVO-konform. Wir speichern alle Daten auf Servern in der EU und
+                          Ja, Elumalab ist vollständig DSGVO-konform. Wir speichern alle Daten auf Servern in der EU und
                           haben umfassende Maßnahmen zum Schutz personenbezogener Daten implementiert. Detaillierte
                           Informationen findest du in unserer Datenschutzerklärung.
                         </AccordionContent>
                       </AccordionItem>
 
                       <AccordionItem value="item-7">
-                        <AccordionTrigger>Kann ich Eluma mit meinem CRM-System verbinden?</AccordionTrigger>
+                        <AccordionTrigger>Kann ich Elumalab mit meinem CRM-System verbinden?</AccordionTrigger>
                         <AccordionContent>
-                          Ja, Eluma bietet Integrationen mit gängigen CRM-Systemen wie Salesforce, HubSpot und mehr.
+                          Ja, Elumalab bietet Integrationen mit gängigen CRM-Systemen wie Salesforce, HubSpot und mehr.
                           Zudem stellen wir eine API zur Verfügung, mit der du individuelle Integrationen entwickeln
                           kannst.
                         </AccordionContent>
@@ -193,7 +152,7 @@ export default function HelpCenterPage() {
                       <AccordionItem value="item-8">
                         <AccordionTrigger>Wie funktionieren die Automatisierungen?</AccordionTrigger>
                         <AccordionContent>
-                          Mit Eluma kannst du verschiedene Automatisierungen einrichten, wie z.B. automatische
+                          Mit Elumalab kannst du verschiedene Automatisierungen einrichten, wie z.B. automatische
                           Antworten, Chatbots und Workflow-Automatisierungen. Diese werden über einen visuellen Editor
                           konfiguriert, der keine Programmierkenntnisse erfordert.
                         </AccordionContent>
@@ -216,8 +175,8 @@ export default function HelpCenterPage() {
 
                 <div className="grid md:grid-cols-2 gap-8">
                   <GuideCard
-                    title="Erste Schritte mit Eluma"
-                    description="Lerne, wie du dein Eluma-Konto einrichtest und mit der Nutzung beginnst."
+                    title="Erste Schritte mit Elumalab"
+                    description="Lerne, wie du dein Elumalab-Konto einrichtest und mit der Nutzung beginnst."
                     category="Einführung"
                     readTime="5 Min."
                   />
@@ -245,7 +204,7 @@ export default function HelpCenterPage() {
 
                   <GuideCard
                     title="Berichte und Analysen nutzen"
-                    description="Verstehe, wie du die Analyse-Tools von Eluma für bessere Entscheidungen nutzt."
+                    description="Verstehe, wie du die Analyse-Tools von Elumalab für bessere Entscheidungen nutzt."
                     category="Reporting"
                     readTime="8 Min."
                   />
@@ -355,118 +314,18 @@ export default function HelpCenterPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between">
-            <div className="mb-8 md:mb-0">
-              <Link href="/" className="flex items-center mb-4">
-                <div className="h-10 w-10 rounded-full bg-gradient-to-r from-pink-500 to-yellow-300 flex items-center justify-center text-white font-bold text-xl mr-2">
-                  E
-                </div>
-                <span className="text-xl font-bold bg-gradient-to-r from-pink-500 to-yellow-300 text-transparent bg-clip-text">
-                  Eluma
-                </span>
-              </Link>
-              <p className="text-gray-400 max-w-md">
-                Die smarte Messaging-Plattform für dein Business. Verbinde alle deine Messaging-Kanäle und steigere
-                deine Effizienz.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-              <div>
-                <h4 className="text-lg font-semibold mb-4">Produkt</h4>
-                <ul className="space-y-2">
-                  <li>
-                    <Link href="/features" className="text-gray-400 hover:text-pink-400">
-                      Features
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/pricing" className="text-gray-400 hover:text-pink-400">
-                      Preise
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/integrations" className="text-gray-400 hover:text-pink-400">
-                      Integrationen
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/integrations" className="text-gray-400 hover:text-pink-400">
-                      Integrationen
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold mb-4">Ressourcen</h4>
-                <ul className="space-y-2">
-                  <li>
-                    <Link href="/blog" className="text-gray-400 hover:text-pink-400">
-                      Blog
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/docs" className="text-gray-400 hover:text-pink-400">
-                      Dokumentation
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/help" className="text-gray-400 hover:text-pink-400">
-                      Hilfe-Center
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/blog" className="text-gray-400 hover:text-pink-400">
-                      Blog
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold mb-4">Unternehmen</h4>
-                <ul className="space-y-2">
-                  <li>
-                    <Link href="/about" className="text-gray-400 hover:text-pink-400">
-                      Über uns
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/careers" className="text-gray-400 hover:text-pink-400">
-                      Karriere
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/contact" className="text-gray-400 hover:text-pink-400">
-                      Kontakt
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/privacy" className="text-gray-400 hover:text-pink-400">
-                      Datenschutz
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/impressum" className="text-gray-400 hover:text-pink-400">
-                      Impressum
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
-            <p>© {new Date().getFullYear()} Eluma. Alle Rechte vorbehalten.</p>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </>
   )
 }
 
-function QuickLinkCard({ icon, title, description, link }) {
+interface QuickLinkCardProps {
+  icon: ReactNode
+  title: string
+  description: string
+  link: string
+}
+
+function QuickLinkCard({ icon, title, description, link }: QuickLinkCardProps) {
   return (
     <Link href={link}>
       <Card className="hover:shadow-lg transition-shadow h-full">
@@ -480,7 +339,14 @@ function QuickLinkCard({ icon, title, description, link }) {
   )
 }
 
-function GuideCard({ title, description, category, readTime }) {
+interface GuideCardProps {
+  title: string
+  description: string
+  category: string
+  readTime: string
+}
+
+function GuideCard({ title, description, category, readTime }: GuideCardProps) {
   return (
     <Link href="#">
       <Card className="hover:shadow-lg transition-shadow h-full">
@@ -501,7 +367,12 @@ function GuideCard({ title, description, category, readTime }) {
   )
 }
 
-function TroubleshootingItem({ title, description }) {
+interface TroubleshootingItemProps {
+  title: string
+  description: string
+}
+
+function TroubleshootingItem({ title, description }: TroubleshootingItemProps) {
   return (
     <Link href="#">
       <Card className="hover:shadow-lg transition-shadow">
@@ -517,4 +388,3 @@ function TroubleshootingItem({ title, description }) {
     </Link>
   )
 }
-

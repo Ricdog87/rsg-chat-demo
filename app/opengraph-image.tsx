@@ -1,34 +1,38 @@
 import { ImageResponse } from "next/og"
 
-export const size = {
-  width: 1200,
-  height: 630,
-}
+export const runtime = "edge"
 
-export const contentType = "image/png"
-
-export default function Image() {
+export async function GET() {
   return new ImageResponse(
     <div
       style={{
-        fontSize: 64,
-        background: "linear-gradient(to right, #ec4899, #f59e0b, #fcd34d)",
+        fontSize: 128,
+        background: "white",
         width: "100%",
         height: "100%",
         display: "flex",
-        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        color: "white",
-        padding: 40,
       }}
     >
-      <div style={{ fontSize: 96, fontWeight: "bold", marginBottom: 20 }}>Eluma</div>
-      <div style={{ fontSize: 48, textAlign: "center", maxWidth: "80%" }}>Die smarte Messaging-Plattform</div>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <div
+          style={{
+            background: "linear-gradient(to right, #ec4899, #eab308)",
+            backgroundClip: "text",
+            color: "transparent",
+            fontSize: 80,
+            fontWeight: "bold",
+          }}
+        >
+          Elumalab
+        </div>
+        <div style={{ fontSize: 36, color: "#333", marginTop: 20 }}>Die All-in-One Messaging-Plattform</div>
+      </div>
     </div>,
     {
-      ...size,
+      width: 1200,
+      height: 630,
     },
   )
 }
-

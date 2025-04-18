@@ -1,34 +1,26 @@
 import type React from "react"
-import "./globals.css"
-import type { Metadata } from "next"
 import { Inter } from "next/font/google"
+import "./globals.css"
+import { AuthProvider } from "@/contexts/auth-context"
 import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata: Metadata = {
-  title: "Eluma - Die smarte Messaging-Plattform",
+export const metadata = {
+  title: "Elumalab - Intelligente Kundenkommunikation",
   description:
-    "Eluma verbindet alle deine Messaging-Kanäle in einer frischen, übersichtlichen Plattform. Kommuniziere effizienter und steigere deine Kundenzufriedenheit!",
-  icons: {
-    icon: "/favicon.ico",
-  },
+    "Elumalab verbindet alle Ihre Kommunikationskanäle in einer einzigen Plattform für nahtlosen Kundenservice.",
     generator: 'v0.dev'
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="de">
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light">
-          {children}
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+          <AuthProvider>{children}</AuthProvider>
         </ThemeProvider>
       </body>
     </html>
   )
 }
-

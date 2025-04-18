@@ -1,495 +1,300 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { CheckCircle2 } from "lucide-react"
+import { CheckCircle, ArrowRight, X } from "lucide-react"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Preise | Elumalab",
+  description:
+    "Transparente Preise für alle Unternehmen. Wähle das Paket, das am besten zu deinen Bedürfnissen passt und revolutioniere deine Kundenkommunikation.",
+  keywords: "Elumalab Preise, WhatsApp Business Preise, KI-Chatbot Kosten, Messaging Plattform Kosten",
+}
 
 export default function PricingPage() {
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Navigation - Same as in page.tsx */}
-      <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <Link href="/" className="flex items-center">
-                <div className="h-10 w-10 rounded-full bg-gradient-to-r from-pink-500 to-yellow-300 flex items-center justify-center text-white font-bold text-xl mr-2">
-                  E
-                </div>
-                <span className="text-xl font-bold bg-gradient-to-r from-pink-500 to-yellow-300 text-transparent bg-clip-text">
-                  Eluma
-                </span>
-              </Link>
-            </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <Link href="/features" className="text-gray-700 hover:text-pink-500 transition-colors">
-                Features
-              </Link>
-              <Link href="/pricing" className="text-pink-500 font-medium">
-                Preise
-              </Link>
-              <Link href="/about" className="text-gray-700 hover:text-pink-500 transition-colors">
-                Über uns
-              </Link>
-              <Link href="/contact" className="text-gray-700 hover:text-pink-500 transition-colors">
-                Kontakt
-              </Link>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Link href="/login" className="text-gray-700 hover:text-pink-500 transition-colors">
-                Login
-              </Link>
-              <Link href="/signup">
-                <Button className="bg-gradient-to-r from-pink-500 to-yellow-300 hover:from-pink-600 hover:to-yellow-400">
-                  Kostenlos starten
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-
+    <>
       {/* Header */}
-      <header className="bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 py-16">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Transparente Preise für jede Unternehmensgröße
-          </h1>
-          <p className="text-xl text-white mb-8 max-w-3xl mx-auto">
-            Wähle das passende Paket für dein Business und skaliere flexibel mit deinen Anforderungen. Alle Pläne
-            beinhalten unseren erstklassigen Support.
+      <header className="bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 py-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-white/[0.2] bg-[length:16px_16px] opacity-30"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-slide-up">Preise</h1>
+          <p className="text-xl text-white mb-8 max-w-3xl mx-auto animate-slide-up-delay">
+            Transparente Preise für alle Unternehmen. Wähle das Paket, das am besten zu deinen Bedürfnissen passt.
           </p>
         </div>
       </header>
 
-      {/* Pricing Section */}
-      <section className="py-20 bg-white">
+      {/* Pricing Plans */}
+      <section className="py-20 bg-white relative">
         <div className="container mx-auto px-4">
-          <Tabs defaultValue="monthly" className="w-full max-w-4xl mx-auto mb-12">
-            <div className="flex justify-center mb-8">
-              <TabsList className="grid w-[400px] grid-cols-2">
-                <TabsTrigger value="monthly">Monatlich</TabsTrigger>
-                <TabsTrigger value="yearly">
-                  Jährlich{" "}
-                  <span className="ml-2 text-xs bg-green-100 text-green-800 px-2 py-1 rounded-full">20% Rabatt</span>
-                </TabsTrigger>
-              </TabsList>
-            </div>
-
-            <TabsContent value="monthly">
-              <div className="grid md:grid-cols-3 gap-8">
-                <PricingCard
-                  title="Starter"
-                  price="29"
-                  description="Perfekt für kleine Unternehmen und Einzelpersonen."
-                  features={[
-                    "1 WhatsApp Business Nummer",
-                    "Bis zu 500 Nachrichten/Monat",
-                    "1 Teammitglied",
-                    "Grundlegende Automatisierungen",
-                    "E-Mail Support",
-                  ]}
-                  buttonText="Kostenlos testen"
-                  buttonLink="/signup"
-                  popular={false}
-                />
-
-                <PricingCard
-                  title="Business"
-                  price="79"
-                  description="Ideal für wachsende Unternehmen mit mehreren Mitarbeitern."
-                  features={[
-                    "3 WhatsApp Business Nummern",
-                    "Bis zu 2.000 Nachrichten/Monat",
-                    "5 Teammitglieder",
-                    "Erweiterte Automatisierungen",
-                    "Kundenprofile",
-                    "Prioritäts-Support",
-                    "Onboarding-Unterstützung",
-                  ]}
-                  buttonText="Kostenlos testen"
-                  buttonLink="/signup"
-                  popular={true}
-                />
-
-                <PricingCard
-                  title="Enterprise"
-                  price="199"
-                  description="Für große Unternehmen mit hohem Nachrichtenvolumen."
-                  features={[
-                    "Unbegrenzte WhatsApp Nummern",
-                    "Unbegrenzte Nachrichten",
-                    "Unbegrenzte Teammitglieder",
-                    "Premium Automatisierungen",
-                    "API-Zugang",
-                    "Dedizierter Account Manager",
-                    "24/7 Support",
-                    "Individuelles Onboarding",
-                  ]}
-                  buttonText="Kontakt aufnehmen"
-                  buttonLink="/contact"
-                  popular={false}
-                />
-              </div>
-            </TabsContent>
-
-            <TabsContent value="yearly">
-              <div className="grid md:grid-cols-3 gap-8">
-                <PricingCard
-                  title="Starter"
-                  price="23"
-                  description="Perfekt für kleine Unternehmen und Einzelpersonen."
-                  features={[
-                    "1 WhatsApp Business Nummer",
-                    "Bis zu 500 Nachrichten/Monat",
-                    "1 Teammitglied",
-                    "Grundlegende Automatisierungen",
-                    "E-Mail Support",
-                  ]}
-                  buttonText="Kostenlos testen"
-                  buttonLink="/signup"
-                  popular={false}
-                  period="pro Monat, jährlich abgerechnet"
-                />
-
-                <PricingCard
-                  title="Business"
-                  price="63"
-                  description="Ideal für wachsende Unternehmen mit mehreren Mitarbeitern."
-                  features={[
-                    "3 WhatsApp Business Nummern",
-                    "Bis zu 2.000 Nachrichten/Monat",
-                    "5 Teammitglieder",
-                    "Erweiterte Automatisierungen",
-                    "Kundenprofile",
-                    "Prioritäts-Support",
-                    "Onboarding-Unterstützung",
-                  ]}
-                  buttonText="Kostenlos testen"
-                  buttonLink="/signup"
-                  popular={true}
-                  period="pro Monat, jährlich abgerechnet"
-                />
-
-                <PricingCard
-                  title="Enterprise"
-                  price="159"
-                  description="Für große Unternehmen mit hohem Nachrichtenvolumen."
-                  features={[
-                    "Unbegrenzte WhatsApp Nummern",
-                    "Unbegrenzte Nachrichten",
-                    "Unbegrenzte Teammitglieder",
-                    "Premium Automatisierungen",
-                    "API-Zugang",
-                    "Dedizierter Account Manager",
-                    "24/7 Support",
-                    "Individuelles Onboarding",
-                  ]}
-                  buttonText="Kontakt aufnehmen"
-                  buttonLink="/contact"
-                  popular={false}
-                  period="pro Monat, jährlich abgerechnet"
-                />
-              </div>
-            </TabsContent>
-          </Tabs>
-
-          {/* Add-ons */}
-          <div className="mt-20 max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Erweitere dein Paket mit Add-ons</h2>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Zusätzliche Teammitglieder</CardTitle>
-                  <CardDescription>Erweitere dein Team nach Bedarf</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-3xl font-bold mb-2">
-                    €15<span className="text-lg font-normal text-gray-500">/Monat pro Mitglied</span>
-                  </p>
-                  <ul className="space-y-2 mt-4">
-                    <li className="flex items-start">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-                      <span>Voller Zugriff auf alle Funktionen</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-                      <span>Individuelle Berechtigungen einstellbar</span>
-                    </li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button variant="outline" className="w-full">
-                    Hinzufügen
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Starter Plan */}
+              <div className="border border-gray-200 rounded-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <h3 className="text-2xl font-bold mb-2">Starter</h3>
+                <p className="text-gray-600 mb-6">Ideal für kleine Unternehmen und Einzelunternehmer</p>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold">€29</span>
+                  <span className="text-gray-600">/Monat</span>
+                </div>
+                <ul className="space-y-3 mb-8">
+                  <PricingFeature included={true} text="1 Benutzer" />
+                  <PricingFeature included={true} text="WhatsApp & Instagram Integration" />
+                  <PricingFeature included={true} text="Einheitlicher Posteingang" />
+                  <PricingFeature included={true} text="Basis-KI-Chatbot" />
+                  <PricingFeature included={true} text="E-Mail-Support" />
+                  <PricingFeature included={false} text="WhatsApp-Newsletter" />
+                  <PricingFeature included={false} text="Team-Kollaboration" />
+                  <PricingFeature included={false} text="Erweiterte Automatisierungen" />
+                </ul>
+                <Link href="/signup?plan=starter">
+                  <Button className="w-full bg-pink-600 hover:bg-pink-700 text-white group transition-all duration-300 ease-in-out">
+                    <span>Jetzt starten</span>
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                   </Button>
-                </CardFooter>
-              </Card>
+                </Link>
+              </div>
 
-              <Card>
-                <CardHeader>
-                  <CardTitle>Zusätzliche Nachrichten</CardTitle>
-                  <CardDescription>Mehr Kapazität für deine Kommunikation</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-3xl font-bold mb-2">
-                    €25<span className="text-lg font-normal text-gray-500">/1.000 Nachrichten</span>
-                  </p>
-                  <ul className="space-y-2 mt-4">
-                    <li className="flex items-start">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-                      <span>Automatische Aufstockung möglich</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle2 className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-                      <span>Übertragung in den nächsten Monat</span>
-                    </li>
-                  </ul>
-                </CardContent>
-                <CardFooter>
-                  <Button variant="outline" className="w-full">
-                    Hinzufügen
+              {/* Business Plan */}
+              <div className="border-2 border-pink-500 rounded-lg p-8 shadow-lg relative transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div className="absolute top-0 right-0 bg-pink-500 text-white px-4 py-1 rounded-bl-lg rounded-tr-lg font-medium">
+                  Beliebt
+                </div>
+                <h3 className="text-2xl font-bold mb-2">Business</h3>
+                <p className="text-gray-600 mb-6">Perfekt für wachsende Teams und Unternehmen</p>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold">€79</span>
+                  <span className="text-gray-600">/Monat</span>
+                </div>
+                <ul className="space-y-3 mb-8">
+                  <PricingFeature included={true} text="5 Benutzer" />
+                  <PricingFeature included={true} text="Alle Messaging-Kanäle" />
+                  <PricingFeature included={true} text="Team-Kollaboration" />
+                  <PricingFeature included={true} text="Erweiterter KI-Chatbot" />
+                  <PricingFeature included={true} text="WhatsApp-Newsletter" />
+                  <PricingFeature included={true} text="Erweiterte Automatisierungen" />
+                  <PricingFeature included={true} text="Detaillierte Analysen" />
+                  <PricingFeature included={true} text="Prioritäts-Support" />
+                </ul>
+                <Link href="/signup?plan=business">
+                  <Button className="w-full bg-pink-600 hover:bg-pink-700 text-white group transition-all duration-300 ease-in-out">
+                    <span>Jetzt starten</span>
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                   </Button>
-                </CardFooter>
-              </Card>
+                </Link>
+              </div>
+
+              {/* Enterprise Plan */}
+              <div className="border border-gray-200 rounded-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                <h3 className="text-2xl font-bold mb-2">Enterprise</h3>
+                <p className="text-gray-600 mb-6">Maßgeschneiderte Lösungen für große Unternehmen</p>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold">Individuell</span>
+                </div>
+                <ul className="space-y-3 mb-8">
+                  <PricingFeature included={true} text="Unbegrenzte Benutzer" />
+                  <PricingFeature included={true} text="Alle Business-Features" />
+                  <PricingFeature included={true} text="Dedizierter Account Manager" />
+                  <PricingFeature included={true} text="Anpassbare KI-Modelle" />
+                  <PricingFeature included={true} text="Anpassbare Integrationen" />
+                  <PricingFeature included={true} text="SLA-Garantie" />
+                  <PricingFeature included={true} text="24/7 Premium-Support" />
+                  <PricingFeature included={true} text="Individuelle Schulungen" />
+                </ul>
+                <Link href="/contact?plan=enterprise">
+                  <Button className="w-full bg-pink-600 hover:bg-pink-700 text-white group transition-all duration-300 ease-in-out">
+                    <span>Kontakt aufnehmen</span>
+                    <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Custom Plan */}
-          <div className="mt-20 max-w-4xl mx-auto bg-gradient-to-r from-pink-500 to-yellow-300 p-8 rounded-xl text-white text-center">
-            <h2 className="text-3xl font-bold mb-4">Brauchst du einen individuellen Plan?</h2>
-            <p className="text-xl mb-8">
-              Wir erstellen dir gerne ein maßgeschneidertes Angebot, das perfekt zu deinen Anforderungen passt.
-            </p>
-            <Link href="/contact">
-              <Button size="lg" className="bg-white text-pink-500 hover:bg-gray-100">
-                Kontaktiere uns
-              </Button>
-            </Link>
+      {/* Feature Comparison */}
+      <section className="py-20 bg-gray-50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-black/[0.02] bg-[length:20px_20px]"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-3xl font-bold mb-12 text-center">Detaillierter Funktionsvergleich</h2>
+
+            <div className="overflow-x-auto">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="bg-gray-100">
+                    <th className="p-4 text-left font-bold text-gray-900 border-b">Funktion</th>
+                    <th className="p-4 text-center font-bold text-gray-900 border-b">Starter</th>
+                    <th className="p-4 text-center font-bold text-pink-600 border-b">Business</th>
+                    <th className="p-4 text-center font-bold text-gray-900 border-b">Enterprise</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <ComparisonRow feature="Benutzer" starter="1" business="5" enterprise="Unbegrenzt" />
+                  <ComparisonRow
+                    feature="Messaging-Kanäle"
+                    starter="WhatsApp, Instagram"
+                    business="Alle Kanäle"
+                    enterprise="Alle Kanäle + API"
+                  />
+                  <ComparisonRow
+                    feature="KI-Chatbot"
+                    starter="Basis (50 Anfragen/Tag)"
+                    business="Erweitert (500 Anfragen/Tag)"
+                    enterprise="Unbegrenzt + Anpassbar"
+                  />
+                  <ComparisonRow
+                    feature="WhatsApp-Newsletter"
+                    starter={false}
+                    business="500 Kontakte"
+                    enterprise="Unbegrenzt"
+                  />
+                  <ComparisonRow feature="Team-Kollaboration" starter={false} business={true} enterprise={true} />
+                  <ComparisonRow
+                    feature="Automatisierungen"
+                    starter="Basis (3)"
+                    business="Erweitert (20)"
+                    enterprise="Unbegrenzt"
+                  />
+                  <ComparisonRow
+                    feature="Analysen & Berichte"
+                    starter="Basis"
+                    business="Detailliert"
+                    enterprise="Erweitert + Export"
+                  />
+                  <ComparisonRow
+                    feature="Support"
+                    starter="E-Mail"
+                    business="Priorität (E-Mail, Chat)"
+                    enterprise="Premium (24/7)"
+                  />
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Häufig gestellte Fragen</h2>
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold mb-12 text-center">Häufig gestellte Fragen</h2>
 
-          <div className="space-y-6">
-            <FaqItem
-              question="Wie funktioniert die kostenlose Testphase?"
-              answer="Du kannst Eluma 14 Tage lang kostenlos mit allen Funktionen des Business-Pakets testen. Keine Kreditkarte erforderlich. Nach Ablauf der Testphase kannst du dich für ein Paket entscheiden oder dein Konto wird automatisch auf die kostenlose Version herabgestuft."
-            />
+            <div className="space-y-8">
+              <FaqItem
+                question="Gibt es eine kostenlose Testphase?"
+                answer="Ja, du kannst Elumalab 14 Tage lang kostenlos testen. Keine Kreditkarte erforderlich. Nach Ablauf der Testphase kannst du dich für ein Paket entscheiden oder dein Konto wird automatisch auf die kostenlose Version herabgestuft."
+              />
 
-            <FaqItem
-              question="Kann ich mein Paket jederzeit wechseln?"
-              answer="Ja, du kannst jederzeit zu einem höheren Paket upgraden. Ein Downgrade ist zum Ende deiner aktuellen Abrechnungsperiode möglich. Alle Änderungen werden sofort wirksam und die Kosten anteilig berechnet."
-            />
+              <FaqItem
+                question="Kann ich mein Paket jederzeit wechseln?"
+                answer="Ja, du kannst jederzeit zu einem höheren Paket upgraden. Ein Downgrade ist zum Ende deiner aktuellen Abrechnungsperiode möglich. Alle Änderungen werden sofort wirksam und die Kosten anteilig berechnet."
+              />
 
-            <FaqItem
-              question="Wie funktioniert das Onboarding?"
-              answer="Nach der Registrierung bekommst du Zugang zu unserem Onboarding-Programm. Bei Business- und Enterprise-Paketen erhältst du persönliche Unterstützung durch einen unserer Experten, der dir bei der Einrichtung hilft und dich durch alle Funktionen führt. Für das Starter-Paket bieten wir umfassende Dokumentation und Video-Tutorials."
-            />
+              <FaqItem
+                question="Welche Zahlungsmethoden werden akzeptiert?"
+                answer="Wir akzeptieren alle gängigen Kredit- und Debitkarten (Visa, Mastercard, American Express) sowie PayPal und Überweisung für jährliche Abonnements."
+              />
 
-            <FaqItem
-              question="Gibt es versteckte Kosten?"
-              answer="Nein, bei Eluma gibt es keine versteckten Kosten. Alle Preise sind transparent und beinhalten alle genannten Funktionen. Zusätzliche Kosten entstehen nur, wenn du aktiv Add-ons wie zusätzliche Teammitglieder oder Nachrichtenkontingente hinzufügst."
-            />
+              <FaqItem
+                question="Gibt es versteckte Kosten?"
+                answer="Nein, bei Elumalab gibt es keine versteckten Kosten. Alle Funktionen und Limits sind transparent in den Paketbeschreibungen aufgeführt. Bei Fragen steht dir unser Support-Team gerne zur Verfügung."
+              />
 
-            <FaqItem
-              question="Wie funktioniert die Wartung während der Nutzung?"
-              answer="Wir bieten kontinuierliche Wartung und Updates für alle Pakete. Unser System wird regelmäßig aktualisiert, um Sicherheit und Leistung zu gewährleisten. Bei technischen Problemen steht dir unser Support-Team zur Verfügung, wobei die Reaktionszeiten je nach Paket variieren."
-            />
+              <FaqItem
+                question="Wie funktioniert der KI-Chatbot?"
+                answer="Unser KI-Chatbot lernt aus deinen bisherigen Kundeninteraktionen und kann häufig gestellte Fragen automatisch beantworten. Du behältst die volle Kontrolle und kannst jederzeit eingreifen. Die KI wird kontinuierlich besser, je mehr sie genutzt wird."
+              />
+
+              <FaqItem
+                question="Ist Elumalab DSGVO-konform?"
+                answer="Ja, Elumalab ist vollständig DSGVO-konform. Alle Daten werden sicher in Deutschland gespeichert und verarbeitet. Wir bieten umfassende Funktionen zur Einhaltung der Datenschutzbestimmungen."
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-8 text-gray-800">
-            Bereit, deine Kundenkommunikation zu revolutionieren?
-          </h2>
-          <p className="text-xl mb-10 text-gray-700 max-w-3xl mx-auto">
-            Starte jetzt mit Eluma und erlebe den Unterschied. Keine Kreditkarte für die Testphase erforderlich.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/signup">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-pink-500 to-yellow-300 hover:from-pink-600 hover:to-yellow-400 text-white px-8 py-6 text-xl"
-              >
-                14 Tage kostenlos testen
-              </Button>
-            </Link>
-            <Link href="/demo">
-              <Button
-                size="lg"
-                className="bg-white text-pink-500 hover:bg-gray-100 border-2 border-pink-500 font-bold px-8 py-6 text-xl"
-              >
-                Demo ansehen
-              </Button>
-            </Link>
+      <section className="py-20 bg-gradient-to-r from-pink-500 via-orange-400 to-yellow-300 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-white/[0.2] bg-[length:16px_16px] opacity-30"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">
+              Bereit, deine Kundenkommunikation zu revolutionieren?
+            </h2>
+            <p className="text-xl mb-10 text-white">
+              Starte jetzt mit Elumalab und erlebe den Unterschied in deiner Kundenkommunikation.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/signup">
+                <Button
+                  size="lg"
+                  className="bg-white text-pink-600 hover:bg-gray-100 px-8 py-6 text-lg font-medium group transition-all duration-300 ease-in-out"
+                >
+                  <span>Kostenlos starten</span>
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg font-medium transition-all duration-300 ease-in-out"
+                >
+                  Beratungsgespräch vereinbaren
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
-
-      {/* Footer - Same as in page.tsx */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between">
-            <div className="mb-8 md:mb-0">
-              <Link href="/" className="flex items-center mb-4">
-                <div className="h-10 w-10 rounded-full bg-gradient-to-r from-pink-500 to-yellow-300 flex items-center justify-center text-white font-bold text-xl mr-2">
-                  E
-                </div>
-                <span className="text-xl font-bold bg-gradient-to-r from-pink-500 to-yellow-300 text-transparent bg-clip-text">
-                  Eluma
-                </span>
-              </Link>
-              <p className="text-gray-400 max-w-md">
-                Die smarte Messaging-Plattform für dein Business. Verbinde alle deine Messaging-Kanäle und steigere
-                deine Effizienz.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-              <div>
-                <h4 className="text-lg font-semibold mb-4">Produkt</h4>
-                <ul className="space-y-2">
-                  <li>
-                    <Link href="/features" className="text-gray-400 hover:text-pink-400">
-                      Features
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/pricing" className="text-gray-400 hover:text-pink-400">
-                      Preise
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/integrations" className="text-gray-400 hover:text-pink-400">
-                      Integrationen
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/integrations" className="text-gray-400 hover:text-pink-400">
-                      Integrationen
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold mb-4">Ressourcen</h4>
-                <ul className="space-y-2">
-                  <li>
-                    <Link href="/blog" className="text-gray-400 hover:text-pink-400">
-                      Blog
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/docs" className="text-gray-400 hover:text-pink-400">
-                      Dokumentation
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/help" className="text-gray-400 hover:text-pink-400">
-                      Hilfe-Center
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/blog" className="text-gray-400 hover:text-pink-400">
-                      Blog
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold mb-4">Unternehmen</h4>
-                <ul className="space-y-2">
-                  <li>
-                    <Link href="/about" className="text-gray-400 hover:text-pink-400">
-                      Über uns
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/careers" className="text-gray-400 hover:text-pink-400">
-                      Karriere
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/contact" className="text-gray-400 hover:text-pink-400">
-                      Kontakt
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/privacy" className="text-gray-400 hover:text-pink-400">
-                      Datenschutz
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/impressum" className="text-gray-400 hover:text-pink-400">
-                      Impressum
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
-            <p>© {new Date().getFullYear()} Eluma. Alle Rechte vorbehalten.</p>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </>
   )
 }
 
-function PricingCard({ title, price, description, features, buttonText, buttonLink, popular, period = "pro Monat" }) {
+function PricingFeature({ included, text }: { included: boolean; text: string }) {
   return (
-    <Card className={`relative ${popular ? "border-pink-500 shadow-xl" : "border-gray-200"}`}>
-      {popular && (
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-pink-500 to-yellow-300 text-white px-4 py-1 rounded-full text-sm font-medium">
-          Beliebteste Wahl
-        </div>
+    <li className="flex items-start">
+      {included ? (
+        <CheckCircle className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
+      ) : (
+        <X className="h-5 w-5 text-gray-400 mr-2 flex-shrink-0 mt-0.5" />
       )}
-      <CardHeader>
-        <CardTitle className="text-2xl">{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="mb-6">
-          <span className="text-5xl font-bold">€{price}</span>
-          <span className="text-gray-500 ml-2">{period}</span>
-        </div>
-        <ul className="space-y-3">
-          {features.map((feature, index) => (
-            <li key={index} className="flex items-start">
-              <CheckCircle2 className="h-5 w-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" />
-              <span>{feature}</span>
-            </li>
-          ))}
-        </ul>
-      </CardContent>
-      <CardFooter>
-        <Link href={buttonLink} className="w-full">
-          <Button
-            className={`w-full ${popular ? "bg-gradient-to-r from-pink-500 to-yellow-300 hover:from-pink-600 hover:to-yellow-400" : ""}`}
-            variant={popular ? "default" : "outline"}
-          >
-            {buttonText}
-          </Button>
-        </Link>
-      </CardFooter>
-    </Card>
+      <span className={included ? "text-gray-700" : "text-gray-400"}>{text}</span>
+    </li>
   )
 }
 
-function FaqItem({ question, answer }) {
+function ComparisonRow({
+  feature,
+  starter,
+  business,
+  enterprise,
+}: { feature: string; starter: string | boolean; business: string | boolean; enterprise: string | boolean }) {
+  const renderCell = (value: string | boolean) => {
+    if (value === true) return <CheckCircle className="h-5 w-5 text-green-500 mx-auto" />
+    if (value === false) return <X className="h-5 w-5 text-gray-400 mx-auto" />
+    return value
+  }
+
   return (
-    <div className="bg-white p-6 rounded-lg shadow-sm">
-      <h3 className="text-xl font-semibold mb-3">{question}</h3>
+    <tr className="border-b border-gray-200 hover:bg-gray-50 transition-colors duration-150">
+      <td className="p-4 text-gray-900 font-medium">{feature}</td>
+      <td className="p-4 text-center text-gray-700">{renderCell(starter)}</td>
+      <td className="p-4 text-center text-gray-700 bg-pink-50">{renderCell(business)}</td>
+      <td className="p-4 text-center text-gray-700">{renderCell(enterprise)}</td>
+    </tr>
+  )
+}
+
+function FaqItem({ question, answer }: { question: string; answer: string }) {
+  return (
+    <div className="transform transition-all duration-300 hover:-translate-y-1 hover:shadow-md p-6 rounded-lg border border-gray-200">
+      <h3 className="text-xl font-bold mb-2">{question}</h3>
       <p className="text-gray-600">{answer}</p>
     </div>
   )
 }
-

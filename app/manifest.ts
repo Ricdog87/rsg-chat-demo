@@ -2,14 +2,19 @@ import type { MetadataRoute } from "next"
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Eluma - Die smarte Messaging-Plattform",
-    short_name: "Eluma",
-    description: "Smarte Messaging-Plattform für effiziente Kundenkommunikation",
+    name: "Elumalab",
+    short_name: "Elumalab",
+    description: "Die All-in-One Messaging-Plattform für Unternehmen",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",
     theme_color: "#ec4899",
     icons: [
+      {
+        src: "/favicon.ico",
+        sizes: "any",
+        type: "image/x-icon",
+      },
       {
         src: "/icon-192x192.png",
         sizes: "192x192",
@@ -23,4 +28,3 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
   }
 }
-

@@ -14,7 +14,7 @@ export default function PrivacyPage() {
                   E
                 </div>
                 <span className="text-xl font-bold bg-gradient-to-r from-pink-500 to-yellow-300 text-transparent bg-clip-text">
-                  Eluma
+                  Elumalab
                 </span>
               </Link>
             </div>
@@ -78,8 +78,8 @@ export default function PrivacyPage() {
               <p className="text-lg text-gray-600 mb-2">Deutschland</p>
               <p className="text-lg text-gray-600">
                 E-Mail:{" "}
-                <a href="mailto:info@elumalab.com" className="text-pink-500 hover:underline">
-                  info@elumalab.com
+                <a href="mailto:hello@elumalab.com" className="text-pink-500 hover:underline">
+                  hello@elumalab.com
                 </a>
               </p>
             </div>
@@ -160,8 +160,8 @@ export default function PrivacyPage() {
             </ul>
             <p className="text-lg text-gray-600 mb-8">
               Um diese Rechte auszuüben, kontaktieren Sie uns bitte unter{" "}
-              <a href="mailto:info@elumalab.com" className="text-pink-500 hover:underline">
-                info@elumalab.com
+              <a href="mailto:hello@elumalab.com" className="text-pink-500 hover:underline">
+                hello@elumalab.com
               </a>
               .
             </p>
@@ -176,8 +176,8 @@ export default function PrivacyPage() {
             <h2 className="text-3xl font-bold mb-6 text-gray-800">9. Kontakt</h2>
             <p className="text-lg text-gray-600 mb-8">
               Wenn Sie Fragen zu dieser Datenschutzerklärung haben, kontaktieren Sie uns bitte unter{" "}
-              <a href="mailto:info@elumalab.com" className="text-pink-500 hover:underline">
-                info@elumalab.com
+              <a href="mailto:hello@elumalab.com" className="text-pink-500 hover:underline">
+                hello@elumalab.com
               </a>
               .
             </p>
@@ -195,7 +195,7 @@ export default function PrivacyPage() {
                   E
                 </div>
                 <span className="text-xl font-bold bg-gradient-to-r from-pink-500 to-yellow-300 text-transparent bg-clip-text">
-                  Eluma
+                  Elumalab
                 </span>
               </Link>
               <p className="text-gray-400 max-w-md">
@@ -287,11 +287,10 @@ export default function PrivacyPage() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
-            <p>© {new Date().getFullYear()} Eluma. Alle Rechte vorbehalten.</p>
+            <p>© {new Date().getFullYear()} Elumalab. Alle Rechte vorbehalten.</p>
           </div>
         </div>
       </footer>
     </div>
   )
 }
-
