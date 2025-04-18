@@ -1,0 +1,18 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10,10 L30,10 L30,30 L50,30 L50,50 L70,50 L70,70 L90,70" stroke="#04D9B2" stroke-width="1" fill="none"/>
+  <path d="M10,90 L30,90 L30,70 L50,70 L50,50 L70,50 L70,30 L90,30" stroke="#04D9B2" stroke-width="1" fill="none"/>
+  <circle cx="10" cy="10" r="2" fill="#04D9B2"/>
+  <circle cx="30" cy="10" r="2" fill="#04D9B2"/>
+  <circle cx="30" cy="30" r="2" fill="#04D9B2"/>
+  <circle cx="50" cy="30" r="2" fill="#04D9B2"/>
+  <circle cx="50" cy="50" r="2" fill="#04D9B2"/>
+  <circle cx="70" cy="50" r="2" fill="#04D9B2"/>
+  <circle cx="70" cy="70" r="2" fill="#04D9B2"/>
+  <circle cx="90" cy="70" r="2" fill="#04D9B2"/>
+  <circle cx="10" cy="90" r="2" fill="#04D9B2"/>
+  <circle cx="30" cy="90" r="2" fill="#04D9B2"/>
+  <circle cx="30" cy="70" r="2" fill="#04D9B2"/>
+  <circle cx="50" cy="70" r="2" fill="#04D9B2"/>
+  <circle cx="70" cy="30" r="2" fill="#04D9B2"/>
+  <circle cx="90" cy="30" r="2" fill="#04D9B2"/>
+</svg>

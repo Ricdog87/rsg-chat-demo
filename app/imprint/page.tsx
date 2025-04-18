@@ -3,8 +3,8 @@
 import Link from "next/link"
 import { useLanguage } from "@/contexts/language-context"
 
-export default function ImpressumPage() {
-  const { language } = useLanguage()
+export default function ImprintPage() {
+  const { language, t } = useLanguage()
 
   return (
     <main style={{ padding: "6rem 1rem 2rem" }}>
