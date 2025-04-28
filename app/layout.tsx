@@ -1,24 +1,28 @@
 import type React from "react"
+import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import { AuthProvider } from "@/contexts/auth-context"
 import { ThemeProvider } from "@/components/theme-provider"
 
 const inter = Inter({ subsets: ["latin"] })
 
-export const metadata = {
-  title: "Elumalab - Intelligente Kundenkommunikation",
+export const metadata: Metadata = {
+  title: "Lacar Associate | Headhunting und Recruiting zum Festpreis",
   description:
-    "Elumalab verbindet alle Ihre Kommunikationskanäle in einer einzigen Plattform für nahtlosen Kundenservice.",
+    "Professionelle Personalvermittlung zum Fixpreis von 9.999 € netto pro Projekt. Headhunting, Executive Search und Recruiter-Schulungen.",
     generator: 'v0.dev'
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode
+}>) {
   return (
-    <html lang="de">
+    <html lang="de" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <AuthProvider>{children}</AuthProvider>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          {children}
         </ThemeProvider>
       </body>
     </html>
