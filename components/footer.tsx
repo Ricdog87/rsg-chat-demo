@@ -1,194 +1,158 @@
 "use client"
 
 import Link from "next/link"
-import { Linkedin, Mail, Phone, Instagram } from "lucide-react"
+import { Mail, Phone } from "lucide-react"
+// Update the import path
+import { useLanguage } from "@/app/contexts/language-context"
+import { Logo } from "@/components/logo"
 
-const Footer = () => {
+export function Footer() {
+  const { t } = useLanguage()
+
   return (
-    <footer className="bg-primary text-white">
-      <div className="container mx-auto container-padding py-8 sm:py-10 md:py-12">
-        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-          <div className="md:col-span-1">
-            <Link href="/" className="text-white font-bold text-lg sm:text-xl mb-2 sm:mb-3 md:mb-4 inline-block">
-              Lacar Associate
-            </Link>
-            <p className="text-white/80 mb-3 sm:mb-4 text-xs sm:text-sm md:text-base">
-              Professionelle Personalvermittlung zum Festpreis. Headhunting und Recruiting ohne Risiko für Unternehmen
-              aller Größen und Branchen.
+    <footer className="border-t border-border/50 bg-background/95">
+      <div className="container py-12">
+        <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div className="space-y-4">
+            <Logo className="mb-4" />
+            <p className="text-sm text-white">{t("about-description")}</p>
+            <p className="text-xs text-gray-400">
+              RSG AI Consulting ist ein innovatives Beratungsunternehmen, das sich auf KI-Lösungen und Prompt
+              Engineering für Marketing, Vertrieb und Recruiting spezialisiert hat. Wir helfen Unternehmen, die
+              transformative Kraft der künstlichen Intelligenz strategisch zu nutzen.
             </p>
-            <div className="flex space-x-4">
-              <a
-                href="https://www.linkedin.com/company/42169392/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-accent transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-4 w-4 sm:h-5 sm:w-5" />
-              </a>
-              <a
-                href="https://www.instagram.com/lacar.associate/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-accent transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-4 w-4 sm:h-5 sm:w-5" />
-              </a>
+            <div className="flex flex-col space-y-2 pt-2">
+              <div className="flex items-center">
+                <Phone className="mr-2 h-4 w-4 text-primary" />
+                <a href="tel:+4917660772445" className="text-sm text-white hover:text-primary transition-colors">
+                  +49 176 6077 2445
+                </a>
+              </div>
+              <div className="flex items-center">
+                <Mail className="mr-2 h-4 w-4 text-primary" />
+                <a
+                  href="mailto:info@recruiting-sg.de"
+                  className="text-sm text-white hover:text-primary transition-colors"
+                >
+                  info@recruiting-sg.de
+                </a>
+              </div>
             </div>
           </div>
 
           <div>
-            <h4 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 md:mb-4">Navigation</h4>
-            <ul className="space-y-1 sm:space-y-2">
+            <h3 className="mb-4 text-sm font-semibold text-primary">{t("company")}</h3>
+            <ul className="space-y-2 text-sm">
               <li>
-                <Link
-                  href="/"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    const element = document.getElementById("model")
-                    if (element) {
-                      const headerOffset = window.innerWidth >= 768 ? 100 : 80
-                      const elementPosition = element.getBoundingClientRect().top
-                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-                      window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth",
-                      })
-                    }
-                  }}
-                  className="text-white/80 hover:text-accent transition-colors text-sm md:text-base"
-                >
-                  Unser Modell
+                <Link href="/#about" className="text-white transition-colors hover:text-primary">
+                  {t("about")}
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    const element = document.getElementById("services")
-                    if (element) {
-                      const headerOffset = window.innerWidth >= 768 ? 100 : 80
-                      const elementPosition = element.getBoundingClientRect().top
-                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-                      window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth",
-                      })
-                    }
-                  }}
-                  className="text-white/80 hover:text-accent transition-colors text-sm md:text-base"
-                >
-                  Leistungen
+                <Link href="/#services" className="text-white transition-colors hover:text-primary">
+                  {t("services")}
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    const element = document.getElementById("academy")
-                    if (element) {
-                      const headerOffset = window.innerWidth >= 768 ? 100 : 80
-                      const elementPosition = element.getBoundingClientRect().top
-                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-                      window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth",
-                      })
-                    }
-                  }}
-                  className="text-white/80 hover:text-accent transition-colors text-sm md:text-base"
-                >
-                  Academy
+                <Link href="/#connect-recruit" className="text-white transition-colors hover:text-primary">
+                  {t("connect-recruit")}
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    const element = document.getElementById("contact")
-                    if (element) {
-                      const headerOffset = window.innerWidth >= 768 ? 100 : 80
-                      const elementPosition = element.getBoundingClientRect().top
-                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-                      window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth",
-                      })
-                    }
-                  }}
-                  className="text-white/80 hover:text-accent transition-colors text-sm md:text-base"
-                >
-                  Kontakt
+                <Link href="/#elumalab" className="text-white transition-colors hover:text-primary">
+                  {t("elumalab")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/#contact" className="text-white transition-colors hover:text-primary">
+                  {t("contact")}
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 md:mb-4">Rechtliches</h4>
-            <ul className="space-y-1 sm:space-y-2">
+            <h3 className="mb-4 text-sm font-semibold text-primary">{t("legal")}</h3>
+            <ul className="space-y-2 text-sm">
               <li>
-                <Link
-                  href="/impressum"
-                  className="text-white/80 hover:text-accent transition-colors text-sm md:text-base"
-                >
-                  Impressum
+                <Link href="/impressum" className="text-gray-300 transition-colors hover:text-white">
+                  {t("imprint")}
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/datenschutz"
-                  className="text-white/80 hover:text-accent transition-colors text-sm md:text-base"
-                >
-                  Datenschutz
+                <Link href="/datenschutz" className="text-gray-300 transition-colors hover:text-white">
+                  {t("privacy")}
                 </Link>
               </li>
               <li>
-                <Link href="/agb" className="text-white/80 hover:text-accent transition-colors text-sm md:text-base">
-                  AGBs
+                <Link href="/agb" className="text-gray-300 transition-colors hover:text-white">
+                  {t("terms")}
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 md:mb-4">Kontakt</h4>
-            <ul className="space-y-1 sm:space-y-2">
-              <li className="flex items-center">
-                <Phone className="h-5 w-5 mr-2 text-accent flex-shrink-0" />
-                <a
-                  href="tel:+49176607725556"
-                  className="text-white/80 hover:text-accent transition-colors text-sm md:text-base"
+            <h3 className="mb-4 text-sm font-semibold text-primary">{t("follow-us")}</h3>
+            <div className="flex space-x-4">
+              <Link
+                href="https://www.linkedin.com/company/105505351"
+                className="text-muted-foreground transition-colors hover:text-foreground"
+                aria-label="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-5 w-5"
                 >
-                  +49 176 60772556
-                </a>
-              </li>
-              <li className="flex items-center">
-                <Mail className="h-5 w-5 mr-2 text-accent flex-shrink-0" />
-                <a
-                  href="mailto:info@lacar-associate.de"
-                  className="text-white/80 hover:text-accent transition-colors text-sm md:text-base"
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect width="4" height="12" x="2" y="9" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </Link>
+              <Link
+                href="https://www.instagram.com/recruiting_solutions_group/"
+                className="text-muted-foreground transition-colors hover:text-foreground"
+                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-5 w-5"
                 >
-                  info@lacar-associate.de
-                </a>
-              </li>
-            </ul>
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                </svg>
+              </Link>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-white/20 mt-6 sm:mt-8 pt-4 sm:pt-6 md:pt-8 text-center text-white/60 text-xxs xs:text-xs sm:text-sm">
-          <p>
-            &copy; 2020 - 2025 Lacar Associate. Alle Rechte vorbehalten. Headhunting und Personalvermittlung zum
-            Festpreis.
+        <div className="mt-8 border-t border-border/50 pt-8 text-center">
+          <p className="text-sm text-white">
+            &copy; {new Date().getFullYear()} RSG AI Consulting. {t("all-rights-reserved")}
           </p>
         </div>
       </div>
     </footer>
   )
 }
-
-export default Footer

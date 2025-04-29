@@ -1,147 +1,119 @@
-import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+"use client"
 
-export const metadata = {
-  title: "Allgemeine Geschäftsbedingungen | Lacar Associate",
-  description: "Allgemeine Geschäftsbedingungen für die Dienstleistungen von Lacar Associate.",
-}
+import Link from "next/link"
+import { useLanguage } from "@/app/contexts/language-context"
 
 export default function AGBPage() {
+  const { language } = useLanguage()
+
   return (
-    <main className="pt-20">
-      <div className="container mx-auto px-4 md:px-6 py-16">
-        <h1 className="text-3xl font-bold mb-8 text-primary">Allgemeine Geschäftsbedingungen</h1>
-
-        <div className="space-y-8">
-          <section>
-            <h2 className="text-xl font-semibold mb-4">§ 1 Leistungsgegenstand</h2>
-            <p className="mb-4">
-              Lacar Associate erbringt für den Auftraggeber professionelle Dienstleistungen im Rahmen der
-              Personalvermittlung. Gegenstand ist die Identifikation, Ansprache und Vorstellung geeigneter
-              Kandidat:innen zur Besetzung vakanter Positionen beim Auftraggeber.
-            </p>
-            <p className="mb-4">Der Leistungsumfang umfasst insbesondere:</p>
-            <ul className="list-disc pl-6 mb-4 space-y-2">
-              <li>Analyse und Abstimmung des Anforderungsprofils</li>
-              <li>Schaltung von Stellenanzeigen in geeigneten Medien</li>
-              <li>Active Sourcing & Direktansprache qualifizierter Kandidat:innen</li>
-              <li>Durchführung strukturierter (telefonischer und/oder persönlicher) Interviews</li>
-              <li>Aufbereitung und Vorstellung geeigneter Profile</li>
-              <li>Koordination von Interviews mit dem Auftraggeber</li>
-              <li>Begleitung des Prozesses bis zur erfolgreichen Einstellung</li>
-            </ul>
-            <p>
-              Ein bestimmter Vermittlungserfolg wird nicht geschuldet. Die Auswahlentscheidung trifft ausschließlich der
-              Auftraggeber.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold mb-4">§ 2 Vertragslaufzeit und Kündigung</h2>
-            <p className="mb-4">
-              Der Vermittlungsauftrag beginnt mit Vertragsunterzeichnung und läuft bis zur erfolgreichen Besetzung oder
-              Kündigung. Der Auftrag kann von beiden Seiten mit einer Frist von 4 Wochen zum Monatsende schriftlich
-              gekündigt werden.
-            </p>
-            <p>
-              Kandidat:innen, die vor oder während der Kündigungsfrist vorgestellt wurden, gelten als
-              provisionspflichtig – auch bei einer späteren Einstellung innerhalb von 6 Monaten nach letzter
-              Profilvorstellung.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold mb-4">§ 3 Mitteilungspflichten bei Einstellung</h2>
-            <p>
-              Der Auftraggeber verpflichtet sich, Lacar Associate unverzüglich – spätestens 14 Kalendertage nach
-              Unterzeichnung eines Arbeitsvertrages – über eine Einstellung eines durch Lacar Associate vorgestellten
-              Kandidaten zu informieren.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold mb-4">§ 4 Vertraulichkeit & Datenschutz</h2>
-            <p className="mb-4">
-              Beide Parteien verpflichten sich zur vertraulichen Behandlung sämtlicher im Rahmen der Zusammenarbeit
-              erlangten Informationen. Die Weitergabe von Bewerberdaten an Dritte ist untersagt.
-            </p>
-            <p className="mb-4">
-              Die Verarbeitung personenbezogener Daten erfolgt gemäß DSGVO. Der Auftraggeber verpflichtet sich, die
-              übermittelten Daten ausschließlich für Zwecke der konkreten Personalauswahl zu nutzen und nach Abschluss
-              des Auswahlverfahrens datenschutzkonform zu löschen.
-            </p>
-            <p>
-              Kommt es zu einer Einstellung durch ein verbundenes Unternehmen oder Dritten, so bleibt der
-              Honoraranspruch bestehen.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold mb-4">§ 5 Vorabkontakte & Doppelbewerbungen</h2>
-            <p>
-              Ist ein durch Lacar Associate vorgestellter Kandidat dem Auftraggeber bereits bekannt, so ist dies
-              innerhalb von 7 Werktagen nach Profilübermittlung schriftlich mitzuteilen. Erfolgt keine fristgerechte
-              Mitteilung, gilt der Kandidat als provisionspflichtig vermittelt.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold mb-4">§ 6 Eigentum und Rückgabe von Unterlagen</h2>
-            <p className="mb-4">
-              Alle durch Lacar Associate erstellten Unterlagen (z. B. Exposés, Bewertungen, Notizen) bleiben geistiges
-              Eigentum von Lacar Associate.
-            </p>
-            <p>
-              Sofern kein Anstellungsverhältnis zustande kommt, sind diese Unterlagen auf Verlangen vollständig
-              zurückzugeben oder datenschutzkonform zu löschen.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold mb-4">§ 7 Vergütung & Fälligkeit</h2>
-            <p className="mb-4">Das Vermittlungshonorar beträgt pauschal 9.999 € netto pro Vakanz.</p>
-            <p className="mb-4">Die Vergütung wird in zwei Stufen fällig:</p>
-            <ul className="list-disc pl-6 mb-4 space-y-2">
-              <li>Anzahlung in Höhe von 2.500 € netto bei Vertragsunterzeichnung</li>
-              <li>Restbetrag bei Unterzeichnung des Arbeitsvertrages zwischen Kandidat:in und Auftraggeber</li>
-            </ul>
-            <p>Alle Rechnungsbeträge sind sofort nach Zugang ohne Abzug fällig.</p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold mb-4">§ 8 Nachträglicher Vertragsschluss</h2>
-            <p>
-              Kommt es innerhalb von 6 Monaten nach letzter Vorstellung zur Einstellung eines durch Lacar Associate
-              präsentierten Kandidaten, so bleibt der vollständige Honoraranspruch bestehen – auch nach Beendigung des
-              Vermittlungsvertrages.
-            </p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold mb-4">§ 9 Preise & Umsatzsteuer</h2>
-            <p>Alle Honorare verstehen sich als Nettopreise zzgl. der gesetzlich geltenden Umsatzsteuer.</p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold mb-4">§ 10 Gerichtsstand & anwendbares Recht</h2>
-            <p>Es gilt ausschließlich deutsches Recht. Gerichtsstand ist Wiesbaden.</p>
-          </section>
-
-          <section>
-            <h2 className="text-xl font-semibold mb-4">§ 11 Salvatorische Klausel</h2>
-            <p>
-              Sollten einzelne Bestimmungen dieser AGB ganz oder teilweise unwirksam sein, bleibt die Gültigkeit der
-              übrigen unberührt. Die Parteien verpflichten sich, die unwirksame Klausel durch eine Regelung zu ersetzen,
-              die dem wirtschaftlichen Zweck am nächsten kommt.
-            </p>
-          </section>
+    <main style={{ padding: "6rem 1rem 2rem" }}>
+      <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+        <div style={{ marginBottom: "2rem" }}>
+          <Link href="/" style={{ display: "inline-flex", alignItems: "center", marginBottom: "1rem" }}>
+            ← {language === "de" ? "Zurück zur Startseite" : "Back to Home"}
+          </Link>
+          <h1 style={{ fontSize: "2rem", fontWeight: "bold" }}>
+            {language === "de" ? "Allgemeine Geschäftsbedingungen" : "Terms and Conditions"}
+          </h1>
         </div>
 
-        <div className="mt-12">
-          <Link href="/" className="inline-flex items-center text-primary hover:text-accent transition-colors">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Zurück zur Startseite
-          </Link>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
+          {language === "de" ? (
+            <>
+              <p>
+                Die nachfolgenden Geschäftsbedingungen gelten für alle zwischen der RSG Recruiting Solutions Group GmbH
+                (RSG AI Consulting) und dem Kunden abgeschlossenen Verträge.
+              </p>
+
+              <section>
+                <h2 style={{ fontSize: "1.5rem", fontWeight: "600", marginBottom: "0.5rem" }}>1. Geltungsbereich</h2>
+                <p>
+                  Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge zwischen der RSG Recruiting
+                  Solutions Group GmbH (nachfolgend "RSG" genannt) und ihren Kunden über die Erbringung von
+                  Dienstleistungen im Bereich KI-Lösungen, Beratung und Software.
+                </p>
+              </section>
+
+              <section>
+                <h2 style={{ fontSize: "1.5rem", fontWeight: "600", marginBottom: "0.5rem" }}>2. Marke</h2>
+                <p>
+                  RSG AI Consulting ist eine Marke der RSG Recruiting Solutions Group GmbH. Alle Verträge werden mit der
+                  RSG Recruiting Solutions Group GmbH geschlossen.
+                </p>
+              </section>
+
+              <section>
+                <h2 style={{ fontSize: "1.5rem", fontWeight: "600", marginBottom: "0.5rem" }}>3. Vertragsschluss</h2>
+                <p>
+                  Der Vertrag kommt durch die Annahme des Angebots der RSG durch den Kunden zustande. Die Annahme kann
+                  schriftlich, per E-Mail oder durch konkludentes Handeln erfolgen.
+                </p>
+              </section>
+
+              <section>
+                <h2 style={{ fontSize: "1.5rem", fontWeight: "600", marginBottom: "0.5rem" }}>4. Leistungsumfang</h2>
+                <p>
+                  Der Umfang der Leistungen ergibt sich aus der Leistungsbeschreibung des Angebots, den Angaben auf der
+                  Website und den ergänzenden Angaben in der Auftragsbestätigung. Änderungen und Ergänzungen bedürfen
+                  der Schriftform.
+                </p>
+                <p style={{ marginTop: "0.5rem" }}>
+                  RSG ist berechtigt, die vereinbarten Leistungen zu ändern, zu reduzieren oder zu ergänzen, sofern dies
+                  für den Kunden zumutbar ist.
+                </p>
+              </section>
+            </>
+          ) : (
+            <>
+              <p>
+                The following terms and conditions apply to all contracts concluded between RSG Recruiting Solutions
+                Group GmbH (RSG AI Consulting) and the customer.
+              </p>
+
+              <section>
+                <h2 style={{ fontSize: "1.5rem", fontWeight: "600", marginBottom: "0.5rem" }}>
+                  1. Scope of Application
+                </h2>
+                <p>
+                  These General Terms and Conditions (GTC) apply to all contracts between RSG Recruiting Solutions Group
+                  GmbH (hereinafter referred to as "RSG") and its customers for the provision of services in the field
+                  of AI solutions, consulting, and software.
+                </p>
+              </section>
+
+              <section>
+                <h2 style={{ fontSize: "1.5rem", fontWeight: "600", marginBottom: "0.5rem" }}>2. Brand</h2>
+                <p>
+                  RSG AI Consulting is a brand of RSG Recruiting Solutions Group GmbH. All contracts are concluded with
+                  RSG Recruiting Solutions Group GmbH.
+                </p>
+              </section>
+
+              <section>
+                <h2 style={{ fontSize: "1.5rem", fontWeight: "600", marginBottom: "0.5rem" }}>
+                  3. Conclusion of Contract
+                </h2>
+                <p>
+                  The contract is concluded when the customer accepts RSG's offer. Acceptance can be in writing, by
+                  email, or through conclusive action.
+                </p>
+              </section>
+
+              <section>
+                <h2 style={{ fontSize: "1.5rem", fontWeight: "600", marginBottom: "0.5rem" }}>4. Scope of Services</h2>
+                <p>
+                  The scope of services is derived from the service description in the offer, the information on the
+                  website, and the supplementary information in the order confirmation. Changes and additions require
+                  written form.
+                </p>
+                <p style={{ marginTop: "0.5rem" }}>
+                  RSG is entitled to change, reduce, or supplement the agreed services, provided this is reasonable for
+                  the customer.
+                </p>
+              </section>
+            </>
+          )}
         </div>
       </div>
     </main>

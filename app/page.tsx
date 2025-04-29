@@ -1,27 +1,43 @@
-import Navbar from "@/components/navbar"
-import HeroSection from "@/components/hero-section"
-import VacancyCostCalculator from "@/components/vacancy-cost-calculator"
-import BusinessModelSection from "@/components/business-model-section"
-import ServicesSection from "@/components/services-section"
-import AcademySection from "@/components/academy-section"
-import PartnersSection from "@/components/partners-section"
-import ContactSection from "@/components/contact-section"
-import Footer from "@/components/footer"
-import HubspotChatbot from "@/components/hubspot-chatbot"
+"use client"
+
+import { HeroSection } from "@/components/hero-section"
+import { AboutUs } from "@/components/about-us"
+import { Services } from "@/components/services"
+import { Elumalab } from "@/components/elumalab"
+import { ConnectRecruit } from "@/components/connect-recruit"
+import { ContactSection } from "@/components/contact-section"
+import { KiRoiCalculator } from "@/components/ki-roi-calculator" // Add this import
+import { useLanguage } from "@/app/contexts/language-context"
+
+// Add a new section to contain the calculator
+function CalculatorSection() {
+  const { t } = useLanguage()
+  return (
+    <section id="calculator" className="relative w-full bg-gradient-to-b from-background to-background/95 py-16">
+      <div className="absolute inset-0 ai-grid-bg" />
+      <div className="container relative">
+        <div className="mx-auto max-w-3xl text-center mb-10">
+          <h2 className="section-title">{t("roi-calculator-title")}</h2>
+          <p className="section-description">{t("roi-calculator-description")}</p>
+        </div>
+        <KiRoiCalculator />
+      </div>
+    </section>
+  )
+}
 
 export default function Home() {
+  const { t } = useLanguage()
+
   return (
-    <main className="flex min-h-screen flex-col">
-      <Navbar />
+    <main>
       <HeroSection />
-      <VacancyCostCalculator />
-      <BusinessModelSection />
-      <ServicesSection />
-      <AcademySection />
-      <PartnersSection />
+      <CalculatorSection /> {/* Add the calculator section right after the hero section */}
+      <AboutUs />
+      <Services />
+      <Elumalab />
+      <ConnectRecruit />
       <ContactSection />
-      <Footer />
-      <HubspotChatbot />
     </main>
   )
 }
