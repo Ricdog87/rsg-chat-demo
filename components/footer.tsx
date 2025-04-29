@@ -3,11 +3,11 @@
 import Link from "next/link"
 import { Mail, Phone } from "lucide-react"
 // Update the import path
-import { useLanguage } from "@/app/contexts/language-context"
+// import { useLanguage } from "@/app/contexts/language-context"
 import { Logo } from "@/components/logo"
 
 export function Footer() {
-  const { t } = useLanguage()
+  // const { t } = useLanguage()
 
   return (
     <footer className="border-t border-border/50 bg-background/95">
@@ -15,7 +15,10 @@ export function Footer() {
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
             <Logo className="mb-4" />
-            <p className="text-sm text-white">{t("about-description")}</p>
+            <p className="text-sm text-white">
+              RSG AI Consulting ist ein innovatives Beratungsunternehmen, das sich auf KI-Lösungen und Prompt
+              Engineering für Marketing, Vertrieb und Recruiting spezialisiert hat.
+            </p>
             <p className="text-xs text-gray-400">
               RSG AI Consulting ist ein innovatives Beratungsunternehmen, das sich auf KI-Lösungen und Prompt
               Engineering für Marketing, Vertrieb und Recruiting spezialisiert hat. Wir helfen Unternehmen, die
@@ -41,59 +44,59 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold text-primary">{t("company")}</h3>
+            <h3 className="mb-4 text-sm font-semibold text-primary">Unternehmen</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/#about" className="text-white transition-colors hover:text-primary">
-                  {t("about")}
+                  Über uns
                 </Link>
               </li>
               <li>
                 <Link href="/#services" className="text-white transition-colors hover:text-primary">
-                  {t("services")}
+                  Dienstleistungen
                 </Link>
               </li>
               <li>
                 <Link href="/#connect-recruit" className="text-white transition-colors hover:text-primary">
-                  {t("connect-recruit")}
+                  Connect & Recruit
                 </Link>
               </li>
               <li>
                 <Link href="/#elumalab" className="text-white transition-colors hover:text-primary">
-                  {t("elumalab")}
+                  ElumaLab
                 </Link>
               </li>
               <li>
                 <Link href="/#contact" className="text-white transition-colors hover:text-primary">
-                  {t("contact")}
+                  Kontakt
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold text-primary">{t("legal")}</h3>
+            <h3 className="mb-4 text-sm font-semibold text-primary">Rechtliches</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/impressum" className="text-gray-300 transition-colors hover:text-white">
-                  {t("imprint")}
+                  Impressum
                 </Link>
               </li>
               <li>
                 <Link href="/datenschutz" className="text-gray-300 transition-colors hover:text-white">
-                  {t("privacy")}
+                  Datenschutz
                 </Link>
               </li>
               <li>
                 <Link href="/agb" className="text-gray-300 transition-colors hover:text-white">
-                  {t("terms")}
+                  AGB
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 className="mb-4 text-sm font-semibold text-primary">{t("follow-us")}</h3>
+            <h3 className="mb-4 text-sm font-semibold text-primary">Folgen Sie uns</h3>
             <div className="flex space-x-4">
               <Link
                 href="https://www.linkedin.com/company/105505351"
@@ -149,7 +152,7 @@ export function Footer() {
 
         <div className="mt-8 border-t border-border/50 pt-8 text-center">
           <p className="text-sm text-white">
-            &copy; {new Date().getFullYear()} RSG AI Consulting. {t("all-rights-reserved")}
+            &copy; {new Date().getFullYear()} RSG AI Consulting. Alle Rechte vorbehalten.
           </p>
         </div>
       </div>

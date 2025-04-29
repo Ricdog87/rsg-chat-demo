@@ -5,13 +5,11 @@ import type React from "react"
 import { useRef, useState } from "react"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
-import { Calendar, Mail, MessageSquare, Phone, BrainCircuit, Bot, Sparkles } from "lucide-react"
-import { useLanguage } from "@/app/contexts/language-context"
+import { Calendar, Mail, MessageSquare, Phone, BrainCircuit, Sparkles } from "lucide-react"
 
 export function ContactSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
-  const { t } = useLanguage()
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -88,15 +86,20 @@ export function ContactSection() {
             <div>
               <h2 className="text-4xl font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                  {t("contact-title")}
+                  KI-Beratung anfragen
                 </span>
               </h2>
-              <p className="mt-4 text-xl text-gray-300">{t("contact-subtitle")}</p>
+              <p className="mt-4 text-xl text-gray-300">Lassen Sie uns gemeinsam Ihre KI-Strategie entwickeln</p>
             </div>
 
-            <p className="text-white">{t("contact-description")}</p>
+            <p className="text-white">
+              Wir freuen uns darauf, von Ihnen zu hören und Ihnen zu zeigen, wie unsere KI-Lösungen und
+              Prompt-Engineering-Expertise Ihr Unternehmen auf die nächste Stufe heben können. Kontaktieren Sie uns für
+              eine unverbindliche Beratung oder buchen Sie direkt einen Termin für eine Demo.
+            </p>
 
             {/* AI Services Highlight */}
+            {/*
             <div className="mt-8 rounded-lg border border-primary/20 bg-card/30 p-4 backdrop-blur-sm">
               <h3 className="mb-3 text-lg font-semibold text-primary">{t("services-overview")}</h3>
               <ul className="space-y-2">
@@ -114,6 +117,7 @@ export function ContactSection() {
                 </li>
               </ul>
             </div>
+            */}
 
             <div className="space-y-4">
               <div className="flex items-center">
@@ -121,7 +125,7 @@ export function ContactSection() {
                   <Mail className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400">{t("email")}</p>
+                  <p className="text-sm text-gray-400">Email</p>
                   <p className="font-medium">info@recruiting-sg.de</p>
                 </div>
               </div>
@@ -131,7 +135,7 @@ export function ContactSection() {
                   <Phone className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400">{t("phone")}</p>
+                  <p className="text-sm text-gray-400">Telefon</p>
                   <a href="tel:+4917660772445" className="font-medium hover:text-primary transition-colors">
                     +49 176 6077 2445
                   </a>
@@ -143,8 +147,8 @@ export function ContactSection() {
                   <MessageSquare className="h-5 w-5" />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400">{t("chat")}</p>
-                  <p className="font-medium">{t("live-chat")}</p>
+                  <p className="text-sm text-gray-400">Chat</p>
+                  <p className="font-medium">Live-Chat</p>
                 </div>
               </div>
             </div>
@@ -155,24 +159,24 @@ export function ContactSection() {
                 className="group inline-flex items-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-white transition-all hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20"
               >
                 <Calendar className="mr-2 h-5 w-5" />
-                {t("book-ai-consultation")}
+                KI-Beratung buchen
               </Link>
             </div>
           </motion.div>
 
           <motion.div variants={itemVariants}>
             <div className="service-card ai-card">
-              <h3 className="text-xl font-semibold mb-4 text-primary">{t("contact-form")}</h3>
-              <p className="text-sm text-white mb-6">{t("contact-form-desc")}</p>
+              <h3 className="text-xl font-semibold mb-4 text-primary">Kontaktformular</h3>
+              <p className="text-sm text-white mb-6">Senden Sie uns eine Nachricht</p>
               <form className="space-y-4" onSubmit={handleSubmit}>
                 <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium">
-                      {t("name")}
+                      Name
                     </label>
                     <input
                       id="name"
-                      placeholder={t("your-name")}
+                      placeholder="Ihr Name"
                       className="w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm text-white placeholder:text-gray-400 backdrop-blur-sm transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                       value={formState.name}
                       onChange={handleChange}
@@ -181,12 +185,12 @@ export function ContactSection() {
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium">
-                      {t("email")}
+                      Email
                     </label>
                     <input
                       id="email"
                       type="email"
-                      placeholder={t("your-email")}
+                      placeholder="Ihre Email"
                       className="w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm text-white placeholder:text-gray-400 backdrop-blur-sm transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                       value={formState.email}
                       onChange={handleChange}
@@ -197,11 +201,11 @@ export function ContactSection() {
 
                 <div className="space-y-2">
                   <label htmlFor="company" className="text-sm font-medium">
-                    {t("company")}
+                    Firma
                   </label>
                   <input
                     id="company"
-                    placeholder={t("your-company")}
+                    placeholder="Ihre Firma"
                     className="w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm text-white placeholder:text-gray-400 backdrop-blur-sm transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                     value={formState.company}
                     onChange={handleChange}
@@ -210,11 +214,11 @@ export function ContactSection() {
 
                 <div className="space-y-2">
                   <label htmlFor="subject" className="text-sm font-medium">
-                    {t("subject")}
+                    Betreff
                   </label>
                   <input
                     id="subject"
-                    placeholder={t("subject-placeholder")}
+                    placeholder="Betreff"
                     className="w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm text-white placeholder:text-gray-400 backdrop-blur-sm transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                     value={formState.subject}
                     onChange={handleChange}
@@ -224,11 +228,11 @@ export function ContactSection() {
 
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-sm font-medium">
-                    {t("message")}
+                    Nachricht
                   </label>
                   <textarea
                     id="message"
-                    placeholder={t("message-placeholder")}
+                    placeholder="Ihre Nachricht"
                     rows={4}
                     className="w-full rounded-md border border-input bg-background/50 px-3 py-2 text-sm text-white placeholder:text-gray-400 backdrop-blur-sm transition-colors focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                     value={formState.message}
@@ -244,7 +248,7 @@ export function ContactSection() {
                 >
                   {isSubmitting ? (
                     <span className="flex items-center justify-center">
-                      {t("sending")}
+                      Senden...
                       <span className="loading-dots ml-2">
                         <span></span>
                         <span></span>
@@ -254,7 +258,7 @@ export function ContactSection() {
                   ) : (
                     <span className="flex items-center justify-center">
                       <BrainCircuit className="mr-2 h-4 w-4" />
-                      {t("request-ai-consultation")}
+                      KI-Beratung anfragen
                     </span>
                   )}
                   <span className="absolute inset-0 z-0 bg-gradient-to-r from-primary to-primary-foreground/30 opacity-0 transition-opacity group-hover:opacity-100"></span>
@@ -263,7 +267,7 @@ export function ContactSection() {
                 {submitSuccess && (
                   <div className="mt-4 rounded-md bg-primary/10 p-3 text-center text-sm text-primary">
                     <Sparkles className="mr-1 inline-block h-4 w-4" />
-                    {t("thank-you")}
+                    Vielen Dank!
                   </div>
                 )}
               </form>

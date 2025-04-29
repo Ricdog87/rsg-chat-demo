@@ -5,52 +5,50 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import { ArrowRight, Check, MessageSquare, Users, BarChart, Zap, Globe, Smartphone } from "lucide-react"
-import { useLanguage } from "@/app/contexts/language-context"
 
 export function Elumalab() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
-  const { t } = useLanguage()
 
   const features = [
-    t("unified-inbox"),
-    t("team-collaboration"),
-    t("detailed-analytics"),
-    t("ai-automations"),
-    t("multi-channel"),
-    t("mobile-app"),
+    "Einheitlicher Posteingang",
+    "Team-Zusammenarbeit",
+    "Detaillierte Analysen",
+    "KI-Automatisierungen",
+    "Multi-Kanal-Support",
+    "Mobile App",
   ]
 
   const detailedFeatures = [
     {
       icon: MessageSquare,
-      title: t("unified-inbox"),
-      description: t("unified-inbox-desc"),
+      title: "Einheitlicher Posteingang",
+      description: "Alle Nachrichten an einem Ort verwalten",
     },
     {
       icon: Users,
-      title: t("team-collaboration"),
-      description: t("team-collaboration-desc"),
+      title: "Team-Zusammenarbeit",
+      description: "Effiziente Zusammenarbeit im Team",
     },
     {
       icon: BarChart,
-      title: t("detailed-analytics"),
-      description: t("detailed-analytics-desc"),
+      title: "Detaillierte Analysen",
+      description: "Datengestützte Entscheidungen treffen",
     },
     {
       icon: Zap,
-      title: t("ai-automations"),
-      description: t("ai-automations-desc"),
+      title: "KI-Automatisierungen",
+      description: "Automatisierte Workflows mit KI",
     },
     {
       icon: Globe,
-      title: t("multi-channel"),
-      description: t("multi-channel-desc"),
+      title: "Multi-Kanal-Support",
+      description: "Unterstützung für verschiedene Kommunikationskanäle",
     },
     {
       icon: Smartphone,
-      title: t("mobile-app"),
-      description: t("mobile-app-desc"),
+      title: "Mobile App",
+      description: "Zugriff von unterwegs",
     },
   ]
 
@@ -94,13 +92,17 @@ export function Elumalab() {
             <div>
               <h2 className="text-4xl font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                  {t("elumalab-title")}
+                  ElumaLab
                 </span>
               </h2>
-              <p className="mt-4 text-xl text-gray-300">{t("elumalab-subtitle")}</p>
+              <p className="mt-4 text-xl text-gray-300">Ihre All-in-One Kommunikationsplattform</p>
             </div>
 
-            <p className="text-white">{t("elumalab-description")}</p>
+            <p className="text-white">
+              ElumaLab ist eine leistungsstarke Plattform, die Ihre Kommunikation mit Kunden und Teammitgliedern
+              optimiert. Mit fortschrittlichen KI-Funktionen und benutzerfreundlichen Tools steigern Sie Ihre Effizienz
+              und Kundenzufriedenheit.
+            </p>
 
             <ul className="space-y-3">
               {features.map((feature) => (
@@ -134,14 +136,14 @@ export function Elumalab() {
                   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
                 }}
               >
-                {t("request-demo")}
+                Demo anfragen
               </Link>
               <Link
                 href="https://app.elumalab.com/"
                 target="_blank"
                 className="flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
               >
-                {t("more-about-elumalab")}
+                Mehr über ElumaLab
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </div>

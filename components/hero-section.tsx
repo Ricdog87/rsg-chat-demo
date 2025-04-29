@@ -5,7 +5,7 @@ import Link from "next/link"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { ArrowDown, Sparkles, Cpu, BrainCircuit, Bot } from "lucide-react"
 // Update the import path
-import { useLanguage } from "@/app/contexts/language-context"
+// import { useLanguage } from "@/app/contexts/language-context"
 
 export function HeroSection() {
   const ref = useRef<HTMLDivElement>(null)
@@ -16,7 +16,8 @@ export function HeroSection() {
 
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "40%"])
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-  const { t, language } = useLanguage()
+  // const { t, language } = useLanguage()
+  const language = "de" // Hardcoded to German since useLanguage is removed
 
   const [typedText, setTypedText] = useState("")
   const fullText = language === "de" ? "Zukunft Ihres Unternehmens" : "Future of Your Business"
@@ -90,7 +91,7 @@ export function HeroSection() {
           className="flex items-center justify-center space-x-2 text-sm font-medium text-primary"
         >
           <Sparkles className="h-4 w-4" />
-          <span>RSG AI CONSULTING</span>
+          <span>KI-GESTÜTZTE LÖSUNGEN FÜR UNTERNEHMEN</span>
           <Sparkles className="h-4 w-4" />
         </motion.div>
 
@@ -100,7 +101,7 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          <span className="block text-shadow-sm">{t("hero-title-1")}</span>
+          <span className="block text-shadow-sm">KI-Lösungen für die</span>
           <span className="relative mt-2 block">
             <span className="relative z-10 inline-block min-h-[1.2em]">
               <span className="ai-text-gradient">{typedText}</span>
@@ -117,7 +118,8 @@ export function HeroSection() {
           className="max-w-2xl text-base font-medium text-white sm:text-lg md:text-xl leading-relaxed bg-background/30 backdrop-blur-sm px-4 py-3 rounded-lg border border-primary/20 shadow-sm"
           style={{ textShadow: "0 1px 2px rgba(0, 0, 0, 0.3)" }}
         >
-          {t("hero-description")}
+          Wir entwickeln maßgeschneiderte KI-Lösungen und Prompt-Engineering-Strategien, die Ihr Unternehmen auf die
+          nächste Stufe heben. Unsere Expertise macht uns zum idealen Partner für Ihre digitale Transformation.
         </motion.p>
 
         <motion.div
@@ -132,7 +134,7 @@ export function HeroSection() {
           >
             <span className="relative z-10 flex items-center">
               <BrainCircuit className="mr-2 h-5 w-5" />
-              {t("request-ai-consultation")}
+              KI-Beratung anfragen
             </span>
             <span className="absolute inset-0 z-0 bg-gradient-to-r from-primary to-primary-foreground/30 opacity-0 transition-opacity group-hover:opacity-100"></span>
           </Link>
@@ -146,7 +148,7 @@ export function HeroSection() {
           >
             <span className="relative z-10 flex items-center">
               <Cpu className="mr-2 h-5 w-5" />
-              {t("our-ai-solutions")}
+              Unsere KI-Lösungen
             </span>
             <span className="absolute inset-0 z-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent opacity-0 transition-opacity group-hover:opacity-100"></span>
           </Link>
@@ -161,18 +163,18 @@ export function HeroSection() {
         >
           <div className="ai-card rounded-lg p-4 text-center">
             <Bot className="mx-auto mb-2 h-6 w-6 text-primary" />
-            <h3 className="text-sm font-medium text-primary">{t("prompt-engineering")}</h3>
-            <p className="mt-1 text-xs text-white">{t("prompt-engineering-desc")}</p>
+            <h3 className="text-sm font-medium text-primary">Prompt Engineering</h3>
+            <p className="mt-1 text-xs text-white">Optimierte Prompts für maximale KI-Leistung</p>
           </div>
           <div className="ai-card rounded-lg p-4 text-center">
             <Cpu className="mx-auto mb-2 h-6 w-6 text-primary" />
-            <h3 className="text-sm font-medium text-primary">{t("ai-integration")}</h3>
-            <p className="mt-1 text-xs text-white">{t("ai-integration-desc")}</p>
+            <h3 className="text-sm font-medium text-primary">KI-Integration</h3>
+            <p className="mt-1 text-xs text-white">Nahtlose Einbindung in bestehende Systeme</p>
           </div>
           <div className="ai-card rounded-lg p-4 text-center">
             <BrainCircuit className="mx-auto mb-2 h-6 w-6 text-primary" />
-            <h3 className="text-sm font-medium text-primary">{t("custom-solutions")}</h3>
-            <p className="mt-1 text-xs text-white">{t("custom-solutions-desc")}</p>
+            <h3 className="text-sm font-medium text-primary">Maßgeschneiderte Lösungen</h3>
+            <p className="mt-1 text-xs text-white">Individuell auf Ihre Anforderungen zugeschnitten</p>
           </div>
         </motion.div>
       </motion.div>

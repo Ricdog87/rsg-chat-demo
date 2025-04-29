@@ -8,7 +8,6 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Analytics } from "@/components/analytics"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
-import { LanguageProvider } from "@/app/contexts/language-context"
 
 import "./globals.css"
 
@@ -103,15 +102,13 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} font-sans`}>
-        <LanguageProvider>
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-            <Header />
-            <Suspense fallback={<div className="min-h-screen"></div>}>{children}</Suspense>
-            <Footer />
-            <Analytics />
-            <TailwindIndicator />
-          </ThemeProvider>
-        </LanguageProvider>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <Header />
+          <Suspense fallback={<div className="min-h-screen"></div>}>{children}</Suspense>
+          <Footer />
+          <Analytics />
+          <TailwindIndicator />
+        </ThemeProvider>
       </body>
     </html>
   )

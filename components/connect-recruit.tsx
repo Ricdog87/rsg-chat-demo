@@ -5,33 +5,31 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import { ArrowRight, Zap, RefreshCw, Users, Database } from "lucide-react"
-import { useLanguage } from "@/app/contexts/language-context"
 
 export function ConnectRecruit() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
-  const { t } = useLanguage()
 
   const features = [
     {
       icon: Zap,
-      title: t("automated-workflows"),
-      description: t("automated-workflows-desc"),
+      title: "Automatisierte Workflows",
+      description: "Verbinden Sie Ihre Recruiting-Tools und automatisieren Sie komplexe Prozesse ohne Programmierung.",
     },
     {
       icon: RefreshCw,
-      title: t("seamless-integration"),
-      description: t("seamless-integration-desc"),
+      title: "Nahtlose Integration",
+      description: "Integrieren Sie alle Ihre bestehenden HR-Tools und -Plattformen in einem zentralen System.",
     },
     {
       icon: Users,
-      title: t("candidate-engagement"),
-      description: t("candidate-engagement-desc"),
+      title: "Kandidaten-Engagement",
+      description: "Personalisierte Kommunikation und Follow-ups mit Kandidaten zu jedem Zeitpunkt des Prozesses.",
     },
     {
       icon: Database,
-      title: t("data-driven"),
-      description: t("data-driven-desc"),
+      title: "Datengesteuerte Entscheidungen",
+      description: "Umfassende Analysen und Berichte für bessere Recruiting-Entscheidungen.",
     },
   ]
 
@@ -75,13 +73,18 @@ export function ConnectRecruit() {
             <div>
               <h2 className="text-4xl font-bold tracking-tight">
                 <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                  {t("connect-recruit-title")}
+                  Connect Recruit AI Flow
                 </span>
               </h2>
-              <p className="mt-4 text-xl text-gray-300">{t("connect-recruit-subtitle")}</p>
+              <p className="mt-4 text-xl text-gray-300">Automatisierte Recruiting-Workflows für Ihr Unternehmen</p>
             </div>
 
-            <p className="text-white">{t("connect-recruit-description")}</p>
+            <p className="text-white">
+              Connect Recruit AI Flow ist unsere leistungsstarke No-Code-Plattform, die es Ihnen ermöglicht, komplexe
+              Recruiting-Workflows zu automatisieren und alle Ihre HR-Tools nahtlos zu integrieren. Sparen Sie wertvolle
+              Zeit, eliminieren Sie manuelle Aufgaben und optimieren Sie Ihren gesamten Recruiting-Prozess mit
+              intelligenten, KI-gesteuerten Workflows.
+            </p>
 
             <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
               {features.map((feature) => (
@@ -104,13 +107,13 @@ export function ConnectRecruit() {
                   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
                 }}
               >
-                {t("request-demo")}
+                Demo anfragen
               </Link>
               <Link
                 href="#"
                 className="flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
               >
-                {t("more-about-connect")}
+                Mehr über Connect Recruit
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </div>

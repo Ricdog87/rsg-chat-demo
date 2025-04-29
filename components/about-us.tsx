@@ -4,28 +4,30 @@ import { useRef } from "react"
 import Image from "next/image"
 import { motion, useInView } from "framer-motion"
 import { Lightbulb, TrendingUp, Code, BrainCircuit, Bot } from "lucide-react"
-import { useLanguage } from "@/app/contexts/language-context"
 
 const features = [
   {
     icon: BrainCircuit,
-    title: "ai-expertise",
-    description: "ai-expertise-desc",
+    title: "KI-Expertise",
+    description:
+      "Wir sind Spezialisten für künstliche Intelligenz und deren strategische Integration in Geschäftsprozesse.",
   },
   {
     icon: Code,
-    title: "prompt-engineering-feature",
-    description: "prompt-engineering-feature-desc",
+    title: "Prompt Engineering",
+    description:
+      "Wir entwickeln optimierte Prompts, die das volle Potenzial von KI-Modellen für Ihre Anwendungsfälle ausschöpfen.",
   },
   {
     icon: Lightbulb,
-    title: "innovative-solutions",
-    description: "innovative-solutions-desc",
+    title: "Innovative Lösungen",
+    description: "Wir entwickeln maßgeschneiderte KI-Lösungen, die Ihr Unternehmen auf die nächste Stufe heben.",
   },
   {
     icon: TrendingUp,
-    title: "measurable-results",
-    description: "measurable-results-desc",
+    title: "Messbare Ergebnisse",
+    description:
+      "Wir liefern datengestützte, messbare Ergebnisse, die Ihren ROI maximieren und Ihre Geschäftsziele unterstützen.",
   },
 ]
 
@@ -45,7 +47,6 @@ const technologies = [
 export function AboutUs() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
-  const { t } = useLanguage()
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -82,9 +83,11 @@ export function AboutUs() {
         className="container relative space-y-16"
       >
         <motion.div variants={itemVariants} className="mx-auto max-w-3xl text-center">
-          <h2 className="section-title">{t("about-title")}</h2>
+          <h2 className="section-title">Über uns</h2>
           <p className="section-description">
-            RSG AI Consulting {t("brand-of-rsg")} {t("about-description")}
+            RSG AI Consulting ist ein innovatives Beratungsunternehmen, das sich auf KI-Lösungen und Prompt Engineering
+            für Marketing, Vertrieb und Recruiting spezialisiert hat. Wir helfen Unternehmen, die transformative Kraft
+            der künstlichen Intelligenz strategisch zu nutzen.
           </p>
         </motion.div>
 
@@ -95,8 +98,8 @@ export function AboutUs() {
                 <div className="service-icon">
                   <feature.icon className="h-6 w-6" />
                 </div>
-                <h3 className="mb-2 text-xl font-semibold text-primary">{t(feature.title)}</h3>
-                <p className="text-sm text-white">{t(feature.description)}</p>
+                <h3 className="mb-2 text-xl font-semibold text-primary">{feature.title}</h3>
+                <p className="text-sm text-white">{feature.description}</p>
               </div>
             </motion.div>
           ))}
@@ -107,12 +110,20 @@ export function AboutUs() {
           className="mx-auto mt-16 grid max-w-5xl gap-8 sm:grid-cols-1 md:grid-cols-2 md:gap-16"
         >
           <div className="space-y-4">
-            <h3 className="text-2xl font-semibold text-primary">{t("our-mission")}</h3>
-            <p className="text-white">{t("mission-text-1")}</p>
-            <p className="text-white">{t("mission-text-2")}</p>
+            <h3 className="text-2xl font-semibold text-primary">Unsere Mission</h3>
+            <p className="text-white">
+              Wir glauben, dass künstliche Intelligenz das Potenzial hat, Unternehmen grundlegend zu transformieren.
+              Unsere Mission ist es, diese Technologie zugänglich und nutzbar zu machen, indem wir maßgeschneiderte
+              Lösungen entwickeln, die auf die spezifischen Bedürfnisse unserer Kunden zugeschnitten sind.
+            </p>
+            <p className="text-white">
+              Als Experten im Prompt Engineering verstehen wir, wie man KI-Modelle optimal anspricht und steuert, um
+              präzise, relevante und wertvolle Ergebnisse zu erzielen. Wir schließen die Lücke zwischen komplexer
+              KI-Technologie und praktischen Geschäftsanwendungen.
+            </p>
 
             <div className="mt-6">
-              <h4 className="mb-3 text-lg font-medium text-primary">{t("technologies")}</h4>
+              <h4 className="mb-3 text-lg font-medium text-primary">Technologien & KI-Modelle</h4>
               <div className="flex flex-wrap gap-2">
                 {technologies.map((tech) => (
                   <span key={tech} className="tech-tag">
@@ -124,9 +135,9 @@ export function AboutUs() {
 
             {/* Code example */}
             <div className="mt-6 rounded-lg border border-border/50 bg-card/30 p-4">
-              <h4 className="mb-2 text-sm font-medium text-primary">{t("prompt-example")}</h4>
+              <h4 className="mb-2 text-sm font-medium text-primary">Prompt Engineering Beispiel:</h4>
               <div className="code-block text-xs">
-                <span className="code-line code-comment">{t("optimized-prompt")}</span>
+                <span className="code-line code-comment">// Optimierter Prompt für präzise Antworten</span>
                 <span className="code-line">
                   <span className="code-keyword">const</span> <span className="code-function">optimizedPrompt</span> ={" "}
                   <span className="code-string">
@@ -152,7 +163,7 @@ export function AboutUs() {
               <div className="absolute bottom-4 left-4 right-4">
                 <div className="flex items-center space-x-2">
                   <Bot className="h-5 w-5 text-primary" />
-                  <div className="text-xs font-medium text-white">{t("ai-analysis")}</div>
+                  <div className="text-xs font-medium text-white">KI-Analyse läuft</div>
                 </div>
                 <div className="mt-2 h-1 w-full overflow-hidden rounded-full bg-background/30">
                   <div className="h-full w-2/3 animate-pulse rounded-full bg-primary"></div>

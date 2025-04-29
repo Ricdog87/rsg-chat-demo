@@ -6,7 +6,8 @@ import { useState, useEffect } from "react"
 import { Calculator, TrendingUp, Clock, Users, BrainCircuit, Zap, PieChart, Info } from "lucide-react"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 // Update the import path
-import { useLanguage } from "@/app/contexts/language-context"
+// Entferne den Import für useLanguage
+// import { useLanguage } from "@/app/contexts/language-context"
 
 // Typen für die Eingabewerte
 type CalculatorInputs = {
@@ -48,7 +49,8 @@ export function KiRoiCalculator() {
   const [inputs, setInputs] = useState<CalculatorInputs>(defaultInputs)
   const [results, setResults] = useState<CalculatorResults | null>(null)
   const [activeTab, setActiveTab] = useState<"inputs" | "results">("inputs")
-  const { t, language } = useLanguage()
+  // Entferne die Verwendung von useLanguage
+  // const { t, language } = useLanguage()
 
   // Berechnung der Ergebnisse bei Änderung der Eingabewerte
   useEffect(() => {
@@ -128,7 +130,7 @@ export function KiRoiCalculator() {
             <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
               <Calculator className="h-5 w-5 text-primary" />
             </div>
-            <h2 className="text-2xl font-bold text-primary">{t("roi-calculator-title")}</h2>
+            <h2 className="text-2xl font-bold text-primary">KI ROI Rechner</h2>
           </div>
 
           {/* Tabs */}
@@ -139,7 +141,7 @@ export function KiRoiCalculator() {
                 activeTab === "inputs" ? "bg-primary text-white" : "hover:bg-primary/10 text-white"
               }`}
             >
-              {t("input")}
+              Eingabe
             </button>
             <button
               onClick={() => setActiveTab("results")}
@@ -147,11 +149,13 @@ export function KiRoiCalculator() {
                 activeTab === "results" ? "bg-primary text-white" : "hover:bg-primary/10 text-white"
               }`}
             >
-              {t("results")}
+              Ergebnisse
             </button>
           </div>
         </div>
-        <p className="mt-2 text-sm text-white">{t("calculator-intro")}</p>
+        <p className="mt-2 text-sm text-white">
+          Berechnen Sie, wie viel Ihr Unternehmen durch den Einsatz von KI-Lösungen und Automatisierung sparen kann.
+        </p>
       </div>
 
       {/* Content */}
@@ -164,7 +168,7 @@ export function KiRoiCalculator() {
                 <div className="flex items-center justify-between">
                   <label htmlFor="employees" className="text-sm font-medium flex items-center">
                     <Users className="mr-2 h-4 w-4 text-primary" />
-                    {t("employees")}
+                    Mitarbeiter
                   </label>
                   <TooltipProvider>
                     <Tooltip>
@@ -172,7 +176,9 @@ export function KiRoiCalculator() {
                         <Info className="h-4 w-4 text-primary/70" />
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p className="max-w-xs">{t("employees-tooltip")}</p>
+                        <p className="max-w-xs">
+                          Geben Sie die Anzahl der Mitarbeiter ein, deren Arbeitsprozesse automatisiert werden könnten.
+                        </p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -193,7 +199,7 @@ export function KiRoiCalculator() {
                 <div className="flex items-center justify-between">
                   <label htmlFor="avgSalary" className="text-sm font-medium flex items-center">
                     <TrendingUp className="mr-2 h-4 w-4 text-primary" />
-                    {t("avg-salary")}
+                    Durchschnittliches Jahresgehalt
                   </label>
                   <TooltipProvider>
                     <Tooltip>
@@ -201,7 +207,9 @@ export function KiRoiCalculator() {
                         <Info className="h-4 w-4 text-primary/70" />
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p className="max-w-xs">{t("avg-salary-tooltip")}</p>
+                        <p className="max-w-xs">
+                          Geben Sie das durchschnittliche Jahresgehalt der betroffenen Mitarbeiter ein.
+                        </p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -223,7 +231,7 @@ export function KiRoiCalculator() {
                 <div className="flex items-center justify-between">
                   <label htmlFor="workHoursPerWeek" className="text-sm font-medium flex items-center">
                     <Clock className="mr-2 h-4 w-4 text-primary" />
-                    {t("work-hours")}
+                    Arbeitsstunden pro Woche
                   </label>
                   <TooltipProvider>
                     <Tooltip>
@@ -231,7 +239,9 @@ export function KiRoiCalculator() {
                         <Info className="h-4 w-4 text-primary/70" />
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p className="max-w-xs">{t("work-hours-tooltip")}</p>
+                        <p className="max-w-xs">
+                          Geben Sie die durchschnittliche Anzahl der Arbeitsstunden pro Woche ein.
+                        </p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -253,7 +263,7 @@ export function KiRoiCalculator() {
                 <div className="flex items-center justify-between">
                   <label htmlFor="automationPotential" className="text-sm font-medium flex items-center">
                     <Zap className="mr-2 h-4 w-4 text-primary" />
-                    {t("automation-potential")}
+                    Automatisierungspotenzial
                   </label>
                   <TooltipProvider>
                     <Tooltip>
@@ -261,7 +271,9 @@ export function KiRoiCalculator() {
                         <Info className="h-4 w-4 text-primary/70" />
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p className="max-w-xs">{t("automation-potential-tooltip")}</p>
+                        <p className="max-w-xs">
+                          Wie viel Prozent der aktuellen Aufgaben können durch KI und Automatisierung übernommen werden?
+                        </p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -289,7 +301,7 @@ export function KiRoiCalculator() {
                 <div className="flex items-center justify-between">
                   <label htmlFor="implementationCost" className="text-sm font-medium flex items-center">
                     <BrainCircuit className="mr-2 h-4 w-4 text-primary" />
-                    {t("implementation-cost")}
+                    Implementierungskosten
                   </label>
                   <TooltipProvider>
                     <Tooltip>
@@ -297,7 +309,9 @@ export function KiRoiCalculator() {
                         <Info className="h-4 w-4 text-primary/70" />
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p className="max-w-xs">{t("implementation-cost-tooltip")}</p>
+                        <p className="max-w-xs">
+                          Welche einmaligen Kosten entstehen für die Implementierung der KI-Lösung?
+                        </p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -319,7 +333,7 @@ export function KiRoiCalculator() {
                 <div className="flex items-center justify-between">
                   <label htmlFor="monthlyMaintenanceCost" className="text-sm font-medium flex items-center">
                     <PieChart className="mr-2 h-4 w-4 text-primary" />
-                    {t("maintenance-cost")}
+                    Monatliche Wartungskosten
                   </label>
                   <TooltipProvider>
                     <Tooltip>
@@ -327,7 +341,9 @@ export function KiRoiCalculator() {
                         <Info className="h-4 w-4 text-primary/70" />
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p className="max-w-xs">{t("maintenance-cost-tooltip")}</p>
+                        <p className="max-w-xs">
+                          Welche laufenden monatlichen Kosten entstehen für die Wartung und den Betrieb der KI-Lösung?
+                        </p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -349,7 +365,7 @@ export function KiRoiCalculator() {
                 <div className="flex items-center justify-between">
                   <label htmlFor="errorReductionRate" className="text-sm font-medium flex items-center">
                     <Zap className="mr-2 h-4 w-4 text-primary" />
-                    {t("error-reduction")}
+                    Fehlerreduktionsrate
                   </label>
                   <TooltipProvider>
                     <Tooltip>
@@ -357,7 +373,7 @@ export function KiRoiCalculator() {
                         <Info className="h-4 w-4 text-primary/70" />
                       </TooltipTrigger>
                       <TooltipContent>
-                        <p className="max-w-xs">{t("error-reduction-tooltip")}</p>
+                        <p className="max-w-xs">Um wie viel Prozent reduziert die KI-Lösung Fehler und Nacharbeit?</p>
                       </TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
@@ -386,7 +402,7 @@ export function KiRoiCalculator() {
                 onClick={() => setActiveTab("results")}
                 className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary/90 shadow-md hover:shadow-lg"
               >
-                {t("show-results")}
+                Ergebnisse anzeigen
               </button>
             </div>
           </div>
@@ -397,76 +413,80 @@ export function KiRoiCalculator() {
                 {/* Main Results */}
                 <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-3">
                   <div className="rounded-lg border border-primary/30 bg-primary/20 p-4 text-center print-visible shadow-md">
-                    <h3 className="text-lg font-semibold text-primary">{t("annual-savings")}</h3>
+                    <h3 className="text-lg font-semibold text-primary">Jährliche Einsparungen</h3>
                     <p className="mt-2 text-3xl font-bold text-white">{formatCurrency(results.totalAnnualSavings)}</p>
-                    <p className="mt-1 text-sm text-white font-medium">{t("annual-savings-desc")}</p>
-                  </div>
-                  <div className="rounded-lg border border-primary/30 bg-primary/20 p-4 text-center print-visible shadow-md">
-                    <h3 className="text-lg font-semibold text-primary">{t("roi")}</h3>
-                    <p className="mt-2 text-3xl font-bold text-white">{formatNumber(results.roi)}%</p>
-                    <p className="mt-1 text-sm text-white font-medium">{t("roi-desc")}</p>
-                  </div>
-                  <div className="rounded-lg border border-primary/30 bg-primary/20 p-4 text-center print-visible shadow-md">
-                    <h3 className="text-lg font-semibold text-primary">{t("payback-period")}</h3>
-                    <p className="mt-2 text-3xl font-bold text-white">
-                      {formatNumber(results.paybackPeriodMonths)} {t("months")}
+                    <p className="mt-1 text-sm text-white font-medium">
+                      Gesamte jährliche Einsparungen durch Automatisierung und Fehlerreduktion.
                     </p>
-                    <p className="mt-1 text-sm text-white font-medium">{t("payback-period-desc")}</p>
+                  </div>
+                  <div className="rounded-lg border border-primary/30 bg-primary/20 p-4 text-center print-visible shadow-md">
+                    <h3 className="text-lg font-semibold text-primary">ROI</h3>
+                    <p className="mt-2 text-3xl font-bold text-white">{formatNumber(results.roi)}%</p>
+                    <p className="mt-1 text-sm text-white font-medium">Return on Investment (ROI) der KI-Lösung.</p>
+                  </div>
+                  <div className="rounded-lg border border-primary/30 bg-primary/20 p-4 text-center print-visible shadow-md">
+                    <h3 className="text-lg font-semibold text-primary">Amortisationszeit</h3>
+                    <p className="mt-2 text-3xl font-bold text-white">
+                      {formatNumber(results.paybackPeriodMonths)} Monate
+                    </p>
+                    <p className="mt-1 text-sm text-white font-medium">
+                      Zeitraum, bis sich die Investition in die KI-Lösung amortisiert hat.
+                    </p>
                   </div>
                 </div>
 
                 {/* Detailed Results */}
                 <div className="rounded-lg border border-primary/30 bg-card/50 p-6 shadow-md">
-                  <h3 className="mb-4 text-xl font-semibold text-primary">{t("detailed-analysis")}</h3>
+                  <h3 className="mb-4 text-xl font-semibold text-primary">Detaillierte Analyse</h3>
                   <div className="space-y-4">
                     <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2">
                       <div>
-                        <h4 className="text-sm font-medium text-primary">{t("time-savings")}</h4>
+                        <h4 className="text-sm font-medium text-primary">Zeiteinsparungen</h4>
                         <p className="mt-1 text-sm text-white font-medium">
-                          <span className="font-semibold">{formatNumber(results.automatedHoursPerWeek)}</span>{" "}
-                          {t("hours-per-week")}
+                          <span className="font-semibold">{formatNumber(results.automatedHoursPerWeek)}</span> Stunden
+                          pro Woche
                         </p>
                         <p className="mt-1 text-sm text-white font-medium">
-                          <span className="font-semibold">{formatNumber(results.automatedHoursPerYear)}</span>{" "}
-                          {t("hours-per-year")}
+                          <span className="font-semibold">{formatNumber(results.automatedHoursPerYear)}</span> Stunden
+                          pro Jahr
                         </p>
                       </div>
                       <div>
-                        <h4 className="text-sm font-medium text-primary">{t("cost-savings")}</h4>
+                        <h4 className="text-sm font-medium text-primary">Kosteneinsparungen</h4>
                         <p className="mt-1 text-sm text-white font-medium">
-                          <span className="font-semibold">{formatCurrency(results.annualLaborSavings)}</span>{" "}
-                          {t("through-time-savings")}
+                          <span className="font-semibold">{formatCurrency(results.annualLaborSavings)}</span> durch
+                          Zeiteinsparungen
                         </p>
                         <p className="mt-1 text-sm text-white font-medium">
-                          <span className="font-semibold">{formatCurrency(results.errorCostSavings)}</span>{" "}
-                          {t("through-error-reduction")}
+                          <span className="font-semibold">{formatCurrency(results.errorCostSavings)}</span> durch
+                          Fehlerreduktion
                         </p>
                       </div>
                     </div>
 
                     <div className="mt-4 pt-4 border-t border-primary/10">
-                      <h4 className="text-sm font-medium text-primary">{t("investment-return")}</h4>
+                      <h4 className="text-sm font-medium text-primary">Investitionsrendite</h4>
                       <div className="mt-2 grid gap-2 sm:grid-cols-1 md:grid-cols-2">
                         <div className="flex justify-between">
-                          <span className="text-sm text-white">{t("implementation-costs")}</span>
+                          <span className="text-sm text-white">Implementierungskosten</span>
                           <span className="text-sm font-semibold text-white">
                             {formatCurrency(inputs.implementationCost)}
                           </span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-sm text-white">{t("annual-maintenance")}</span>
+                          <span className="text-sm text-white">Jährliche Wartungskosten</span>
                           <span className="text-sm font-semibold text-white">
                             {formatCurrency(inputs.monthlyMaintenanceCost * 12)}
                           </span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-sm text-white">{t("first-year-savings")}</span>
+                          <span className="text-sm text-white">Einsparungen im ersten Jahr</span>
                           <span className="text-sm font-semibold text-white">
                             {formatCurrency(results.firstYearSavings)}
                           </span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-sm text-white">{t("second-year-savings")}</span>
+                          <span className="text-sm text-white">Einsparungen im zweiten Jahr</span>
                           <span className="text-sm font-semibold text-white">
                             {formatCurrency(results.totalAnnualSavings - inputs.monthlyMaintenanceCost * 12)}
                           </span>
@@ -478,15 +498,17 @@ export function KiRoiCalculator() {
 
                 {/* Additional Benefits */}
                 <div className="rounded-lg border border-primary/20 bg-card/30 p-6">
-                  <h3 className="mb-4 text-xl font-semibold text-primary">{t("additional-benefits")}</h3>
+                  <h3 className="mb-4 text-xl font-semibold text-primary">Zusätzliche Vorteile</h3>
                   <div className="grid gap-4 sm:grid-cols-1 md:grid-cols-2">
                     <div className="flex items-start">
                       <div className="mr-3 flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary">
                         <TrendingUp className="h-4 w-4" />
                       </div>
                       <div>
-                        <h4 className="text-sm font-medium text-primary">{t("productivity")}</h4>
-                        <p className="mt-1 text-xs text-white">{t("productivity-desc")}</p>
+                        <h4 className="text-sm font-medium text-primary">Produktivitätssteigerung</h4>
+                        <p className="mt-1 text-xs text-white">
+                          Mitarbeiter können sich auf wichtigere Aufgaben konzentrieren.
+                        </p>
                       </div>
                     </div>
                     <div className="flex items-start">
@@ -494,8 +516,10 @@ export function KiRoiCalculator() {
                         <Users className="h-4 w-4" />
                       </div>
                       <div>
-                        <h4 className="text-sm font-medium text-primary">{t("satisfaction")}</h4>
-                        <p className="mt-1 text-xs text-white">{t("satisfaction-desc")}</p>
+                        <h4 className="text-sm font-medium text-primary">Mitarbeiterzufriedenheit</h4>
+                        <p className="mt-1 text-xs text-white">
+                          Weniger repetitive Aufgaben führen zu höherer Zufriedenheit.
+                        </p>
                       </div>
                     </div>
                     <div className="flex items-start">
@@ -503,8 +527,10 @@ export function KiRoiCalculator() {
                         <Zap className="h-4 w-4" />
                       </div>
                       <div>
-                        <h4 className="text-sm font-medium text-primary">{t("decision-making")}</h4>
-                        <p className="mt-1 text-xs text-white">{t("decision-making-desc")}</p>
+                        <h4 className="text-sm font-medium text-primary">Bessere Entscheidungsfindung</h4>
+                        <p className="mt-1 text-xs text-white">
+                          KI-gestützte Analysen ermöglichen fundiertere Entscheidungen.
+                        </p>
                       </div>
                     </div>
                     <div className="flex items-start">
@@ -512,8 +538,8 @@ export function KiRoiCalculator() {
                         <BrainCircuit className="h-4 w-4" />
                       </div>
                       <div>
-                        <h4 className="text-sm font-medium text-primary">{t("competitive-advantage")}</h4>
-                        <p className="mt-1 text-xs text-white">{t("competitive-advantage-desc")}</p>
+                        <h4 className="text-sm font-medium text-primary">Wettbewerbsvorteil</h4>
+                        <p className="mt-1 text-xs text-white">Innovation und Effizienzsteigerung durch KI-Einsatz.</p>
                       </div>
                     </div>
                   </div>
@@ -524,7 +550,7 @@ export function KiRoiCalculator() {
                     onClick={() => setActiveTab("inputs")}
                     className="rounded-md border border-primary bg-transparent px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/10"
                   >
-                    {t("adjust-parameters")}
+                    Parameter anpassen
                   </button>
                   <button
                     onClick={() => {
@@ -539,7 +565,7 @@ export function KiRoiCalculator() {
                     }}
                     className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary/90 shadow-md hover:shadow-lg"
                   >
-                    {t("save-results")}
+                    Ergebnisse speichern
                   </button>
                 </div>
               </>

@@ -1,11 +1,8 @@
 "use client"
 
 import { KiRoiCalculator } from "@/components/ki-roi-calculator"
-import { useLanguage } from "@/app/contexts/language-context"
 
 export default function KiRoiCalculatorPage() {
-  const { t } = useLanguage()
-
   return (
     <main className="pt-24 pb-16 relative bg-background">
       {/* Background elements to match front page styling */}
@@ -20,10 +17,13 @@ export default function KiRoiCalculatorPage() {
         <div className="mx-auto max-w-3xl text-center mb-12">
           <h1 className="text-4xl font-bold tracking-tight mb-4">
             <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-              {t("roi-calculator-title")}
+              KI-ROI Kalkulator
             </span>
           </h1>
-          <p className="text-lg text-white font-medium">{t("roi-calculator-description")}</p>
+          <p className="text-lg text-white font-medium">
+            Berechnen Sie, wie viel Ihr Unternehmen durch den Einsatz von KI-Lösungen und Automatisierung sparen kann.
+            Unser Kalkulator berücksichtigt Personalkosten, Zeitersparnis, Fehlerreduzierung und mehr.
+          </p>
         </div>
 
         {/* Calculator with enhanced styling */}
@@ -33,34 +33,47 @@ export default function KiRoiCalculatorPage() {
 
         {/* Information section with improved contrast */}
         <div className="mt-16 mx-auto max-w-3xl relative z-10">
-          <h2 className="text-2xl font-bold text-primary mb-4">{t("how-it-works")}</h2>
-          <p className="text-white mb-4 text-lg">{t("calculator-explanation")}</p>
+          <h2 className="text-2xl font-bold text-primary mb-4">Wie es funktioniert</h2>
+          <p className="text-white mb-4 text-lg">
+            Dieser Rechner hilft Ihnen, die potenziellen finanziellen Vorteile der Implementierung von KI-Lösungen in
+            Ihrem Unternehmen zu quantifizieren.
+          </p>
 
           <div className="space-y-4 mt-6">
             <div className="rounded-lg border border-primary/30 bg-card/50 p-6 shadow-md hover:shadow-lg hover:shadow-primary/5 transition-all">
-              <h3 className="text-lg font-semibold text-primary mb-2">{t("time-savings-factor")}</h3>
-              <p className="text-white text-base">{t("time-savings-explanation")}</p>
+              <h3 className="text-lg font-semibold text-primary mb-2">Zeitersparnisfaktor</h3>
+              <p className="text-white text-base">
+                KI kann Aufgaben automatisieren und Prozesse beschleunigen, was zu erheblichen Zeiteinsparungen führt.
+              </p>
             </div>
 
             <div className="rounded-lg border border-primary/30 bg-card/50 p-6 shadow-md hover:shadow-lg hover:shadow-primary/5 transition-all">
-              <h3 className="text-lg font-semibold text-primary mb-2">{t("error-reduction-factor")}</h3>
-              <p className="text-white text-base">{t("error-reduction-explanation")}</p>
+              <h3 className="text-lg font-semibold text-primary mb-2">Fehlerreduzierungsfaktor</h3>
+              <p className="text-white text-base">
+                KI-Systeme können Fehler reduzieren und die Genauigkeit verbessern, was zu Kosteneinsparungen führt.
+              </p>
             </div>
 
             <div className="rounded-lg border border-primary/30 bg-card/50 p-6 shadow-md hover:shadow-lg hover:shadow-primary/5 transition-all">
-              <h3 className="text-lg font-semibold text-primary mb-2">{t("investment-costs")}</h3>
-              <p className="text-white text-base">{t("investment-costs-explanation")}</p>
+              <h3 className="text-lg font-semibold text-primary mb-2">Investitionskosten</h3>
+              <p className="text-white text-base">
+                Berücksichtigen Sie die Kosten für die Implementierung und Wartung von KI-Lösungen.
+              </p>
             </div>
 
             <div className="rounded-lg border border-primary/30 bg-card/50 p-6 shadow-md hover:shadow-lg hover:shadow-primary/5 transition-all">
-              <h3 className="text-lg font-semibold text-primary mb-2">{t("amortization")}</h3>
-              <p className="text-white text-base">{t("amortization-explanation")}</p>
+              <h3 className="text-lg font-semibold text-primary mb-2">Amortisation</h3>
+              <p className="text-white text-base">
+                Berechnen Sie, wie lange es dauert, bis sich Ihre Investition in KI amortisiert.
+              </p>
             </div>
           </div>
 
           <div className="mt-8 p-8 rounded-lg border border-primary/30 bg-primary/10 shadow-lg">
-            <h3 className="text-xl font-semibold text-primary mb-4">{t("ready-to-start")}</h3>
-            <p className="text-white text-lg mb-4">{t("expert-help")}</p>
+            <h3 className="text-xl font-semibold text-primary mb-4">Sind Sie bereit loszulegen?</h3>
+            <p className="text-white text-lg mb-4">
+              Unsere Experten helfen Ihnen gerne bei der Implementierung von KI-Lösungen.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <a
                 href="#contact"
@@ -70,7 +83,7 @@ export default function KiRoiCalculatorPage() {
                   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
                 }}
               >
-                {t("get-in-touch")}
+                Nehmen Sie Kontakt auf
               </a>
               <a
                 href="https://meetings.hubspot.com/r-serrano"
@@ -78,7 +91,7 @@ export default function KiRoiCalculatorPage() {
                 target="_blank"
                 rel="noreferrer"
               >
-                {t("book-consultation-appointment")}
+                Beratungstermin buchen
               </a>
             </div>
           </div>

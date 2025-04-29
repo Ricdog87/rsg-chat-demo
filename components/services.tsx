@@ -4,53 +4,52 @@ import { useRef } from "react"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
 import { Workflow, Cog, MessageSquare, ArrowRight, BrainCircuit, Code, Database, Sparkles } from "lucide-react"
-import { useLanguage } from "@/app/contexts/language-context"
 
 export function Services() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
-  const { t } = useLanguage()
 
   const services = [
     {
       icon: BrainCircuit,
-      title: t("ai-strategy"),
-      description: t("ai-strategy-desc"),
+      title: "KI-Strategie",
+      description:
+        "Entwicklung maßgeschneiderter KI-Strategien, die auf Ihre spezifischen Geschäftsziele zugeschnitten sind.",
       image: "/images/ai-agent-service.jpg",
       tools: ["GPT-4", "Claude 3", "Gemini", "Anthropic", "LangChain"],
     },
     {
       icon: Code,
-      title: t("prompt-engineering-service"),
-      description: t("prompt-engineering-service-desc"),
+      title: "Prompt Engineering",
+      description: "Optimierung von Prompts für maximale Effizienz und Genauigkeit in KI-Anwendungen.",
       image: "/images/workflow-service.jpg",
       tools: ["Prompt-Optimierung", "Chain-of-Thought", "Few-Shot Learning", "RAG"],
     },
     {
       icon: Workflow,
-      title: t("ai-workflows"),
-      description: t("ai-workflows-desc"),
+      title: "KI-Workflows",
+      description: "Automatisierung von Geschäftsprozessen durch intelligente KI-gesteuerte Workflows.",
       image: "/images/workflow-service.jpg",
       tools: ["n8n", "Zapier", "Make", "Custom Integrations"],
     },
     {
       icon: Cog,
-      title: t("process-automation"),
-      description: t("process-automation-desc"),
+      title: "Prozessautomatisierung",
+      description: "Automatisierung wiederholender Aufgaben zur Steigerung der Effizienz und Reduzierung von Fehlern.",
       image: "/images/automation-service.jpg",
       tools: ["RPA", "Prozessanalyse", "Workflow-Optimierung"],
     },
     {
       icon: MessageSquare,
-      title: t("ai-chatbots"),
-      description: t("ai-chatbots-desc"),
+      title: "KI-Chatbots",
+      description: "Entwicklung intelligenter Chatbots für verbesserte Kundeninteraktion und Support.",
       image: "/images/chatbot-service.jpg",
       tools: ["GPT-4", "Claude", "Dialogflow", "Custom Training"],
     },
     {
       icon: Database,
-      title: t("data-analysis"),
-      description: t("data-analysis-desc"),
+      title: "Datenanalyse",
+      description: "Analyse großer Datenmengen zur Gewinnung wertvoller Erkenntnisse und fundierter Entscheidungen.",
       image: "/images/dashboard-service.jpg",
       tools: ["Predictive Analytics", "Machine Learning", "Data Visualization"],
     },
@@ -92,8 +91,12 @@ export function Services() {
         className="container relative space-y-16"
       >
         <motion.div variants={itemVariants} className="mx-auto max-w-3xl text-center">
-          <h2 className="section-title">{t("services-title")}</h2>
-          <p className="section-description">{t("services-description")}</p>
+          <h2 className="section-title">Unsere KI-Dienstleistungen</h2>
+          <p className="section-description">
+            Wir bieten eine breite Palette an KI-gestützten Dienstleistungen, die Ihnen helfen, Ihre Geschäftsprozesse
+            zu optimieren und Ihre Ziele zu erreichen. Unsere Expertise in Prompt Engineering und KI-Implementierung
+            macht uns zum idealen Partner für Ihre digitale Transformation.
+          </p>
         </motion.div>
 
         {/* Featured Service */}
@@ -102,10 +105,12 @@ export function Services() {
             <div className="flex flex-col gap-6 md:flex-row">
               <div className="flex-1 space-y-4">
                 <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
-                  <Sparkles className="mr-1 h-3 w-3" /> {t("premium-service")}
+                  <Sparkles className="mr-1 h-3 w-3" /> Premium Service
                 </div>
-                <h3 className="text-2xl font-bold">{t("ai-transformation")}</h3>
-                <p className="text-white">{t("ai-transformation-desc")}</p>
+                <h3 className="text-2xl font-bold">KI-Transformation</h3>
+                <p className="text-white">
+                  Wir begleiten Sie auf Ihrem Weg zur erfolgreichen Integration von KI in Ihr Unternehmen.
+                </p>
                 <div className="flex flex-wrap gap-2">
                   <span className="tech-tag">Strategieentwicklung</span>
                   <span className="tech-tag">Implementierung</span>
@@ -120,7 +125,7 @@ export function Services() {
                     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
                   }}
                 >
-                  {t("start-transformation")} <ArrowRight className="ml-1 h-4 w-4" />
+                  Starten Sie Ihre Transformation <ArrowRight className="ml-1 h-4 w-4" />
                 </Link>
               </div>
               <div className="relative flex h-40 w-full flex-none items-center justify-center overflow-hidden rounded-lg md:h-auto md:w-1/3">
@@ -145,7 +150,7 @@ export function Services() {
 
                 <div className="mt-auto">
                   <div>
-                    <h4 className="text-sm font-medium text-primary">{t("tools-technologies")}</h4>
+                    <h4 className="text-sm font-medium text-primary">Tools & Technologien</h4>
                     <div className="mt-2 flex flex-wrap gap-2">
                       {service.tools.map((tool) => (
                         <span key={tool} className="tech-tag">
@@ -163,7 +168,7 @@ export function Services() {
                       document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
                     }}
                   >
-                    {t("learn-more")} <ArrowRight className="ml-1 h-4 w-4" />
+                    Mehr erfahren <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </div>
               </div>
@@ -173,35 +178,38 @@ export function Services() {
 
         {/* Process Section */}
         <motion.div variants={itemVariants} className="mx-auto max-w-4xl pt-12">
-          <h3 className="mb-8 text-center text-2xl font-bold">{t("implementation-process")}</h3>
+          <h3 className="mb-8 text-center text-2xl font-bold">Implementierungsprozess</h3>
           <div className="relative">
             <div className="absolute left-1/2 top-0 h-full w-0.5 -translate-x-1/2 bg-gradient-to-b from-primary/80 via-primary/50 to-primary/10"></div>
             <div className="space-y-12">
               {[
                 {
                   number: "01",
-                  title: "analysis-strategy",
-                  description: "analysis-strategy-desc",
+                  title: "Analyse & Strategie",
+                  description:
+                    "Wir analysieren Ihre Geschäftsprozesse und entwickeln eine maßgeschneiderte KI-Strategie.",
                 },
                 {
                   number: "02",
-                  title: "conception-design",
-                  description: "conception-design-desc",
+                  title: "Konzeption & Design",
+                  description: "Wir konzipieren und designen die optimale KI-Lösung für Ihre Anforderungen.",
                 },
                 {
                   number: "03",
-                  title: "development-integration",
-                  description: "development-integration-desc",
+                  title: "Entwicklung & Integration",
+                  description: "Wir entwickeln und integrieren die KI-Lösung in Ihre bestehende IT-Infrastruktur.",
                 },
                 {
                   number: "04",
-                  title: "testing-optimization",
-                  description: "testing-optimization-desc",
+                  title: "Testing & Optimierung",
+                  description:
+                    "Wir testen und optimieren die KI-Lösung, um maximale Leistung und Genauigkeit zu gewährleisten.",
                 },
                 {
                   number: "05",
-                  title: "training-support",
-                  description: "training-support-desc",
+                  title: "Training & Support",
+                  description:
+                    "Wir schulen Ihre Mitarbeiter und bieten umfassenden Support, um den erfolgreichen Einsatz der KI-Lösung sicherzustellen.",
                 },
               ].map((step, index) => (
                 <div key={step.number} className="relative pl-12 md:pl-0">
@@ -220,8 +228,8 @@ export function Services() {
                       index % 2 === 0 ? "md:ml-auto md:pl-8" : "md:mr-auto md:pr-8 md:text-right"
                     }`}
                   >
-                    <h4 className="text-lg font-semibold text-primary">{t(step.title)}</h4>
-                    <p className="mt-2 text-sm text-white">{t(step.description)}</p>
+                    <h4 className="text-lg font-semibold text-primary">{step.title}</h4>
+                    <p className="mt-2 text-sm text-white">{step.description}</p>
                   </div>
                 </div>
               ))}

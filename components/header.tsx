@@ -7,8 +7,6 @@ import { usePathname } from "next/navigation"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { Menu, X, Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
-import { useLanguage } from "@/app/contexts/language-context"
-import { LanguageSelector } from "@/components/language-selector"
 import { Logo } from "@/components/logo"
 
 export function Header() {
@@ -17,7 +15,6 @@ export function Header() {
   const backgroundColor = useTransform(scrollY, [0, 100], ["rgba(0, 0, 0, 0)", "rgba(0, 0, 0, 0.8)"])
   const backdropBlur = useTransform(scrollY, [0, 100], ["blur(0px)", "blur(8px)"])
   const { theme, setTheme } = useTheme()
-  const { t } = useLanguage()
 
   // State für das mobile Menü
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -36,17 +33,17 @@ export function Header() {
 
   // Ändere das navItems-Array, um den KI-ROI-Kalkulator hinzuzufügen
   const navItems = [
-    { title: t("home"), href: "/" },
-    { title: t("about"), href: "/#about" },
+    { title: "Home", href: "/" },
+    { title: "Über uns", href: "/#about" },
     {
-      title: t("services"),
+      title: "Dienstleistungen",
       href: "/#services",
       dropdown: true,
     },
-    { title: t("connect-recruit"), href: "/#connect-recruit" },
-    { title: t("elumalab"), href: "/#elumalab" },
-    { title: t("roi-calculator"), href: "/ki-roi-kalkulator" },
-    { title: t("contact"), href: "/#contact" },
+    { title: "Connect Recruit", href: "/#connect-recruit" },
+    { title: "Elumalab", href: "/#elumalab" },
+    { title: "KI-ROI Kalkulator", href: "/ki-roi-kalkulator" },
+    { title: "Kontakt", href: "/#contact" },
   ]
 
   // Funktion zum Scrollen zu einem Abschnitt
@@ -129,10 +126,8 @@ export function Header() {
             href="https://meetings.hubspot.com/r-serrano"
             className="hidden rounded-md bg-primary px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-primary/90 md:block"
           >
-            {t("book-consultation")}
+            Beratung buchen
           </Link>
-
-          <LanguageSelector />
 
           <button
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -177,7 +172,7 @@ export function Header() {
                 href="https://meetings.hubspot.com/r-serrano"
                 className="mt-2 rounded-md bg-primary px-4 py-2 text-center text-sm font-medium text-white transition-colors hover:bg-primary/90"
               >
-                {t("book-consultation")}
+                Beratung buchen
               </Link>
             </nav>
           </div>

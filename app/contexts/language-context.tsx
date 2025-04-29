@@ -62,7 +62,7 @@ export function useLanguage() {
 }
 
 // Translations dictionary
-const translations = {
+const translations: Record<Language, Record<string, string>> = {
   de: {
     // Navigation
     home: "Home",
@@ -323,6 +323,10 @@ const translations = {
       "Unsere Experten helfen Ihnen, die richtigen KI-Lösungen für Ihr Unternehmen zu identifizieren und zu implementieren. Kontaktieren Sie uns für eine unverbindliche Beratung.",
     "get-in-touch": "Kontakt aufnehmen",
     "book-consultation-appointment": "Beratungstermin buchen",
+    "brand-of-rsg": "Eine Marke der RSG Recruiting Solutions Group GmbH",
+    "brand-of-rsg-full": "Eine Marke der RSG Recruiting Solutions Group GmbH.",
+    "footer-brand-description":
+      "RSG AI Consulting ist eine Marke der RSG Recruiting Solutions Group GmbH offering innovative AI solutions and prompt engineering for marketing, sales, and recruiting.",
 
     // Footer
     company: "Unternehmen",
@@ -332,10 +336,6 @@ const translations = {
     terms: "AGB",
     "follow-us": "Folgen Sie uns",
     "all-rights-reserved": "Alle Rechte vorbehalten.",
-    "brand-of-rsg": "Eine Marke der RSG Recruiting Solutions Group GmbH",
-    "brand-of-rsg-full": "Eine Marke der RSG Recruiting Solutions Group GmbH.",
-    "footer-brand-description":
-      "RSG AI Consulting ist eine Marke der RSG Recruiting Solutions Group GmbH und bietet innovative KI-Lösungen und Prompt Engineering für Marketing, Vertrieb und Recruiting.",
 
     // Language Selector
     language: "Sprache",
