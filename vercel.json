@@ -1,6 +1,6 @@
 {
-  "buildCommand": "yarn build",
-  "installCommand": "yarn install --frozen-lockfile",
+  "buildCommand": "npm run build",
+  "installCommand": "npm install --no-optional --no-audit --progress=false",
   "framework": "nextjs",
-  "nodeVersion": "18.x"
+  "nodeVersion": "16.x"
 }
