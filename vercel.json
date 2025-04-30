@@ -1,6 +1,0 @@
-{
-  "buildCommand": "npm run build",
-  "installCommand": "npm install --no-optional --no-audit --progress=false",
-  "framework": "nextjs",
-  "nodeVersion": "16.x"
-}
