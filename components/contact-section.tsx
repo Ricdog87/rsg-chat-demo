@@ -243,10 +243,10 @@ const ContactSection = () => {
                     <h4 className="text-base md:text-lg font-semibold mb-1">Telefonisch</h4>
                     <p className="text-gray-600 mb-1 text-sm md:text-base">Rufen Sie uns direkt an:</p>
                     <a
-                      href="tel:+49176607725556"
+                      href="tel:+4917660772556"
                       className="text-primary font-semibold hover:text-accent transition-colors text-sm md:text-base"
                     >
-                      +49 176 607725556
+                      +49 176 60772556
                     </a>
                   </div>
                 </div>

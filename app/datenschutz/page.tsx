@@ -128,7 +128,7 @@ export default function DatenschutzPage() {
             <p className="mb-1">Ricardo Serrano</p>
             <p className="mb-1">Am Heiligenhaus 9</p>
             <p className="mb-1">65207 Wiesbaden</p>
-            <p className="mb-1">Telefon: +49176 60772556</p>
+            <p className="mb-1">Telefon: +49 176 60772556</p>
             <p className="mb-4">E-Mail: info@lacar-associate.de</p>
             <p className="mb-4">
               Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen
