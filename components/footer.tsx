@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-white">
       <div className="container mx-auto container-padding py-8 sm:py-10 md:py-12">
-        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-5 gap-6 sm:gap-8">
           <div className="md:col-span-1">
             <Link href="/" className="text-white font-bold text-lg sm:text-xl mb-2 sm:mb-3 md:mb-4 inline-block">
               Lacar Associate
@@ -174,6 +174,41 @@ const Footer = () => {
                   className="text-white/80 hover:text-accent transition-colors text-sm md:text-base"
                 >
                   info@lacar-associate.de
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3 md:mb-4">Unsere Partner</h4>
+            <ul className="space-y-1 sm:space-y-2">
+              <li>
+                <a
+                  href="https://www.recruiting-sg.de"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-accent transition-colors text-sm md:text-base"
+                >
+                  RSG Recruiting Solutions Group
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.rsg-ai-consulting.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-accent transition-colors text-sm md:text-base"
+                >
+                  RSG AI Consulting
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://lacar-elearning.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/80 hover:text-accent transition-colors text-sm md:text-base"
+                >
+                  Lacar eLearning
                 </a>
               </li>
             </ul>
