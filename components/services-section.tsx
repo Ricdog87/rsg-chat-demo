@@ -1,7 +1,7 @@
 "use client"
 
 import { useInView } from "react-intersection-observer"
-import { Users, BookOpen, LifeBuoy, Briefcase } from "lucide-react"
+import { Users, BookOpen, LifeBuoy, Briefcase } from 'lucide-react'
 import Image from "next/image"
 import Link from "next/link"
 
@@ -16,7 +16,7 @@ const ServicesSection = () => {
       icon: <Users className="h-8 w-8 md:h-10 md:w-10 text-accent" />,
       title: "Personalvermittlung",
       description:
-        "Professionelles Headhunting und Executive Search für Fach- und Führungskräfte zum Festpreis von 9.999 € netto. Wir finden die besten Talente für Ihr Unternehmen.",
+        "Headhunting Deutschland und Executive Search zum Festpreis – Berlin, Hamburg, München, Frankfurt, Köln, Wiesbaden & NRW.",
       features: [
         "Direktansprache von passiven Kandidaten",
         "Umfassende Kandidatenanalyse und Matching",
@@ -29,7 +29,7 @@ const ServicesSection = () => {
       icon: <BookOpen className="h-8 w-8 md:h-10 md:w-10 text-accent" />,
       title: "Schulungen & Trainings",
       description:
-        "Praxisnahe Schulungen für Recruiter, Personalberater und HR-Teams zur Optimierung Ihrer Recruiting-Prozesse. Steigern Sie die Effizienz Ihres Recruitings.",
+        "Praxisnahe Recruiting-Schulungen für Deutschland: Berlin, Hamburg, München, Frankfurt, Köln & NRW – Performance steigern.",
       features: [
         "Moderne Sourcing-Strategien und -Techniken",
         "Professionelle Direktansprache und Kommunikation",
@@ -42,7 +42,7 @@ const ServicesSection = () => {
       icon: <LifeBuoy className="h-8 w-8 md:h-10 md:w-10 text-accent" />,
       title: "Outplacement Services",
       description:
-        "Professionelle Unterstützung für Mitarbeiter bei beruflicher Neuorientierung und Karriereplanung. Wir begleiten den Übergang in eine neue berufliche Zukunft.",
+        "Bundesweite Unterstützung bei Neuorientierung – in Berlin, Hamburg, München, Frankfurt, Köln, Wiesbaden & NRW.",
       features: [
         "Individuelle Karriereberatung und Potenzialanalyse",
         "Professioneller Bewerbungsunterlagen-Check",
@@ -55,7 +55,7 @@ const ServicesSection = () => {
       icon: <Briefcase className="h-8 w-8 md:h-10 md:w-10 text-accent" />,
       title: "Freelancer-Recruiting",
       description:
-        "Schnelle Vermittlung von qualifizierten Freelancern und Interim Managern für Ihre Projekte. Flexible Lösungen für temporäre Personalbedarfe.",
+        "Schnelle Vermittlung bundesweit – Berlin, Hamburg, München, Frankfurt, Köln, NRW und ganz Deutschland.",
       features: [
         "Zugang zu spezialisierten Freelancern verschiedener Branchen",
         "Schnelle Vermittlung innerhalb weniger Tage",
@@ -71,9 +71,9 @@ const ServicesSection = () => {
       <div className="container mx-auto container-padding">
         <div className="text-center mb-8 md:mb-12">
           <h2 className="section-title">Unsere Recruiting-Dienstleistungen</h2>
-          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
-            Maßgeschneiderte Lösungen für Ihre Personalgewinnung und -entwicklung. Von der Personalvermittlung bis zum
-            Freelancer-Recruiting bieten wir alles aus einer Hand.
+          <p className="text-base md:text-lg text-gray-600 max-w-4xl mx-auto">
+            Personalvermittlung zum Fixpreis und Headhunting Deutschland: Wir rekrutieren in Berlin, Hamburg, München,
+            Frankfurt, Köln, Wiesbaden & NRW – schnell, transparent und effizient.
           </p>
         </div>
 
@@ -110,7 +110,7 @@ const ServicesSection = () => {
                       href={service.link}
                       className="text-accent hover:text-accent-light font-medium inline-flex items-center text-xs sm:text-sm md:text-base"
                     >
-                      Mehr erfahren
+                      Mehr zu {service.title}
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-3 w-3 sm:h-4 sm:w-4 ml-1"
@@ -132,30 +132,23 @@ const ServicesSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 md:gap-8 items-center">
             <div>
               <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 md:mb-4">
-                Maßgeschneiderte Recruiting-Lösungen für Ihren Erfolg
+                Headhunting Deutschland – lokal stark, bundesweit präsent
               </h3>
               <p className="text-gray-600 mb-2 sm:mb-3 md:mb-4 text-xs sm:text-sm md:text-base">
-                Jedes Unternehmen ist einzigartig – deshalb passen wir unsere Recruiting-Strategie individuell an Ihre
-                Bedürfnisse an. Vom ersten Gespräch bis zur erfolgreichen Einstellung begleiten wir Sie durch den
-                gesamten Prozess und sorgen für eine optimale Besetzung Ihrer offenen Positionen.
-              </p>
-              <p className="text-gray-600 mb-3 sm:mb-4 text-xs sm:text-sm md:text-base">
-                Unsere erfahrenen Headhunter und Recruiter verfügen über umfangreiche Branchenkenntnisse und ein
-                weitreichendes Netzwerk, um die besten Talente für Ihr Unternehmen zu finden – und das zum Festpreis
-                ohne versteckte Kosten.
+                Ob Berlin, Hamburg, München, Frankfurt, Köln, Wiesbaden oder NRW – wir liefern transparente
+                Personalvermittlung zum Fixpreis mit messbaren Ergebnissen.
               </p>
               <Link
-                href="https://meetings-eu1.hubspot.com/meetings/serrano/lead-kalender?uuid=656818da-bec4-434f-8209-e2b8ac089a5c"
-                target="_blank"
+                href="/kontakt"
                 className="bg-accent hover:bg-accent-light text-white font-medium py-2 px-4 md:py-3 md:px-6 rounded-md transition-all duration-300 inline-flex items-center justify-center text-sm md:text-base"
               >
-                Beratungsgespräch vereinbaren
+                Jetzt Beratungstermin buchen
               </Link>
             </div>
             <div className="relative h-56 md:h-64 lg:h-auto">
               <Image
                 src="/recruiting-meeting-image.png"
-                alt="Professionelle Recruiting-Services von Lacar Associate"
+                alt="Headhunting Deutschland & Recruiting Wiesbaden – Teammeeting"
                 fill
                 className="object-cover rounded-lg"
               />

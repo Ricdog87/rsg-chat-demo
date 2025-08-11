@@ -1,9 +1,12 @@
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft } from 'lucide-react'
+import type { Metadata } from "next"
 
-export const metadata = {
-  title: "Allgemeine Geschäftsbedingungen | Lacar Associate",
-  description: "Allgemeine Geschäftsbedingungen für die Dienstleistungen von Lacar Associate.",
+export const metadata: Metadata = {
+  title: "Headhunting & Recruiting zum Festpreis – Deutschlandweit | Lacar Associate",
+  description:
+    "Personalvermittlung & Executive Search für Unternehmen. Festpreis, transparent & schnell in Berlin, Hamburg, München, Frankfurt & ganz Deutschland.",
+  alternates: { canonical: "https://lacar-associate.de/agb" },
 }
 
 export default function AGBPage() {
@@ -137,12 +140,12 @@ export default function AGBPage() {
           </section>
         </div>
 
-        <div className="mt-12">
+        {/* <div className="mt-12">
           <Link href="/" className="inline-flex items-center text-primary hover:text-accent transition-colors">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Zurück zur Startseite
           </Link>
-        </div>
+        </div> */}
       </div>
     </main>
   )

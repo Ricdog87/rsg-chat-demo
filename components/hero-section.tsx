@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, ChevronDown } from "lucide-react"
+import { ArrowRight, ChevronDown } from 'lucide-react'
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -32,7 +32,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 z-0">
         <Image
           src="/header-image.png"
-          alt="Professioneller Konferenzraum für Headhunting und Recruiting"
+          alt="Headhunting Deutschland – Recruiting Wiesbaden – moderner Konferenzraum"
           fill
           priority
           className="object-cover"
@@ -46,19 +46,18 @@ const HeroSection = () => {
           className={`max-w-3xl transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-3 md:mb-4">
-            Personalvermittlung und Headhunting zum Fixpreis. Null Risiko.
+            Headhunting & Personalvermittlung zum Festpreis – Bundesweit
           </h1>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-4 md:mb-6 lg:mb-8">
-            Professionelles Headhunting und Recruiting zum Festpreis – 9.999&nbsp;€ netto pro Projekt. Keine versteckten
-            Kosten, keine Überraschungen.
+            Executive Search und Recruiting für Berlin, Hamburg, München, Frankfurt, Köln, Wiesbaden & NRW – transparent
+            zum Fixpreis von 9.999&nbsp;€ netto.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <Link
-              href="https://meetings-eu1.hubspot.com/meetings/serrano/lead-kalender?uuid=656818da-bec4-434f-8209-e2b8ac089a5c"
-              target="_blank"
+              href="/kontakt"
               className="bg-accent hover:bg-accent-light text-white font-medium py-2.5 sm:py-3 px-4 sm:px-6 rounded-md transition-all duration-300 inline-flex items-center justify-center text-sm sm:text-base lg:text-lg text-center"
             >
-              Jetzt Termin buchen <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+              Jetzt Beratungstermin buchen <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
             </Link>
             <button
               onClick={scrollToNextSection}

@@ -1,11 +1,13 @@
 import Link from "next/link"
 import Image from "next/image"
-import { CheckCircle, ArrowLeft } from "lucide-react"
+import { CheckCircle, ArrowLeft } from 'lucide-react'
+import type { Metadata } from "next"
 
-export const metadata = {
-  title: "Schulungen & Trainings für Recruiter | Lacar Associate",
+export const metadata: Metadata = {
+  title: "Headhunting & Recruiting zum Festpreis – Deutschlandweit | Lacar Associate",
   description:
-    "Praxisnahe Schulungen für Recruiter, Personalberater und HR-Teams zur Optimierung Ihrer Recruiting-Prozesse. Steigern Sie die Effizienz Ihres Recruitings.",
+    "Personalvermittlung & Executive Search für Unternehmen. Festpreis, transparent & schnell in Berlin, Hamburg, München, Frankfurt & ganz Deutschland.",
+  alternates: { canonical: "https://lacar-associate.de/schulungen" },
 }
 
 export default function SchulungenPage() {
@@ -14,14 +16,15 @@ export default function SchulungenPage() {
       <section className="bg-primary text-white py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Schulungen & Trainings für Recruiter</h1>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              Headhunting & Personalvermittlung – Recruiting-Schulungen bundesweit
+            </h1>
             <p className="text-xl text-white/90 mb-8">
-              Praxisnahe Schulungen für Recruiter, Personalberater und HR-Teams zur Optimierung Ihrer
-              Recruiting-Prozesse. Steigern Sie die Effizienz Ihres Recruitings.
+              Praxisnahe Trainings für Berlin, Hamburg, München, Frankfurt, Köln, Wiesbaden & NRW – bessere Ergebnisse
+              im Executive Search.
             </p>
             <Link
-              href="https://meetings-eu1.hubspot.com/meetings/serrano/lead-kalender?uuid=656818da-bec4-434f-8209-e2b8ac089a5c"
-              target="_blank"
+              href="/kontakt"
               className="bg-accent hover:bg-accent-light text-white font-medium py-3 px-6 rounded-md transition-all duration-300 inline-flex items-center justify-center"
             >
               Jetzt Beratungstermin vereinbaren
@@ -36,13 +39,12 @@ export default function SchulungenPage() {
             <div className="order-2 md:order-1">
               <h2 className="text-3xl font-bold mb-6 text-primary">Warum Schulungen bei Lacar Associate?</h2>
               <p className="text-gray-600 mb-4">
-                Unsere Schulungen und Trainings basieren auf jahrelanger praktischer Erfahrung im Recruiting und
-                Headhunting. Wir vermitteln keine theoretischen Konzepte, sondern praxiserprobte Methoden und Techniken,
-                die sofort anwendbar sind.
+                Recruiting-Schulungen mit Fokus auf Headhunting Deutschland: Berlin, Hamburg, München, Frankfurt, Köln,
+                Wiesbaden & NRW.
               </p>
               <p className="text-gray-600 mb-6">
-                Ob Sie Ihre internen Recruiter weiterbilden oder als Personalberater Ihre Skills verbessern möchten –
-                unsere Schulungen sind auf Ihre Bedürfnisse zugeschnitten und liefern messbare Ergebnisse.
+                Direkter Transfer in die Praxis – für Personalvermittlung zum Fixpreis und Executive Search auf
+                Top-Niveau.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start">
@@ -51,7 +53,7 @@ export default function SchulungenPage() {
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" />
-                  <span>Individuelle Anpassung an Ihre Bedürfnisse</span>
+                  <span>Fokus auf Berlin, Hamburg, München, Frankfurt, Köln & NRW</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" />
@@ -66,7 +68,7 @@ export default function SchulungenPage() {
             <div className="relative h-80 md:h-96 order-1 md:order-2">
               <Image
                 src="/schulungen-image.png"
-                alt="Schulungen und Trainings für Recruiter - Lacar Associate"
+                alt="Recruiting Schulungen – Headhunting Deutschland – Training"
                 fill
                 className="object-cover rounded-lg"
               />
@@ -82,8 +84,7 @@ export default function SchulungenPage() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-bold mb-3">Sourcing-Strategien</h3>
               <p className="text-gray-600 mb-4">
-                Lernen Sie moderne Methoden zur Identifikation und Ansprache von passiven Kandidaten. Von Boolean Search
-                bis zu kreativen Sourcing-Techniken.
+                Moderne Methoden – ideal für Berlin, Hamburg, München, Frankfurt, Köln und NRW.
               </p>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-center">
@@ -99,10 +100,7 @@ export default function SchulungenPage() {
                   <span>X-Ray Search Techniken</span>
                 </li>
               </ul>
-              <Link
-                href="/#contact"
-                className="text-accent hover:text-accent-light font-medium inline-flex items-center"
-              >
+              <Link href="/kontakt" className="text-accent hover:text-accent-light font-medium inline-flex items-center">
                 Mehr erfahren
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -118,8 +116,7 @@ export default function SchulungenPage() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-bold mb-3">Direktansprache</h3>
               <p className="text-gray-600 mb-4">
-                Optimieren Sie Ihre Kommunikation mit potenziellen Kandidaten. Von der ersten Kontaktaufnahme bis zum
-                erfolgreichen Interview.
+                Kommunikation, die wirkt – für Standorte wie Wiesbaden, Köln & NRW.
               </p>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-center">
@@ -135,10 +132,7 @@ export default function SchulungenPage() {
                   <span>Einwandbehandlung</span>
                 </li>
               </ul>
-              <Link
-                href="/#contact"
-                className="text-accent hover:text-accent-light font-medium inline-flex items-center"
-              >
+              <Link href="/kontakt" className="text-accent hover:text-accent-light font-medium inline-flex items-center">
                 Mehr erfahren
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -154,8 +148,7 @@ export default function SchulungenPage() {
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-bold mb-3">Recruiting-Prozessoptimierung</h3>
               <p className="text-gray-600 mb-4">
-                Verbessern Sie Ihre Recruiting-Prozesse für mehr Effizienz und bessere Kandidatenerlebnisse. Von der
-                Stellenausschreibung bis zum Onboarding.
+                Effizienz steigern – anwendbar in ganz Deutschland, von Berlin bis München.
               </p>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-center">
@@ -171,10 +164,7 @@ export default function SchulungenPage() {
                   <span>Automatisierung</span>
                 </li>
               </ul>
-              <Link
-                href="/#contact"
-                className="text-accent hover:text-accent-light font-medium inline-flex items-center"
-              >
+              <Link href="/kontakt" className="text-accent hover:text-accent-light font-medium inline-flex items-center">
                 Mehr erfahren
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -195,22 +185,21 @@ export default function SchulungenPage() {
         <div className="container mx-auto px-4 md:px-6 text-center">
           <h2 className="text-3xl font-bold mb-6 text-primary">Interesse an unseren Schulungen?</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
-            Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch und erfahren Sie, wie unsere Schulungen Ihr
-            Recruiting-Team auf das nächste Level bringen können.
+            Wir schulen Teams in Berlin, Hamburg, München, Frankfurt, Köln, Wiesbaden & NRW – praxisnah und
+            ergebnisorientiert.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="https://meetings-eu1.hubspot.com/meetings/serrano/lead-kalender?uuid=656818da-bec4-434f-8209-e2b8ac089a5c"
-              target="_blank"
+              href="/kontakt"
               className="bg-accent hover:bg-accent-light text-white font-medium py-3 px-6 rounded-md transition-all duration-300 inline-flex items-center justify-center"
             >
               Beratungstermin vereinbaren
             </Link>
             <Link
-              href="/#contact"
+              href="/kontakt"
               className="bg-white border border-primary text-primary hover:bg-primary/5 font-medium py-3 px-6 rounded-md transition-all duration-300 inline-flex items-center justify-center"
             >
-              Kontaktformular
+              Kontakt
             </Link>
           </div>
         </div>

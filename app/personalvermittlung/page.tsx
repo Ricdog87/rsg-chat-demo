@@ -1,11 +1,13 @@
 import Link from "next/link"
 import Image from "next/image"
-import { CheckCircle, ArrowLeft } from "lucide-react"
+import { CheckCircle, ArrowLeft } from 'lucide-react'
+import type { Metadata } from "next"
 
-export const metadata = {
-  title: "Personalvermittlung zum Festpreis | Lacar Associate",
+export const metadata: Metadata = {
+  title: "Headhunting & Recruiting zum Festpreis – Deutschlandweit | Lacar Associate",
   description:
-    "Professionelles Headhunting und Executive Search für Fach- und Führungskräfte zum Festpreis von 9.999 € netto. Keine versteckten Kosten, keine Überraschungen.",
+    "Personalvermittlung & Executive Search für Unternehmen. Festpreis, transparent & schnell in Berlin, Hamburg, München, Frankfurt & ganz Deutschland.",
+  alternates: { canonical: "https://lacar-associate.de/personalvermittlung" },
 }
 
 export default function PersonalvermittlungPage() {
@@ -15,18 +17,17 @@ export default function PersonalvermittlungPage() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6">
-              Personalvermittlung zum Festpreis
+              Headhunting & Personalvermittlung zum Festpreis – Bundesweit
             </h1>
             <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 md:mb-8">
-              Professionelles Headhunting und Executive Search für Fach- und Führungskräfte zum Festpreis von 9.999 €
-              netto. Keine versteckten Kosten, keine Überraschungen.
+              Executive Search in Berlin, Hamburg, München, Frankfurt, Köln, Wiesbaden & NRW – 9.999 € Fixpreis, keine
+              versteckten Kosten.
             </p>
             <Link
-              href="https://meetings-eu1.hubspot.com/meetings/serrano/lead-kalender?uuid=656818da-bec4-434f-8209-e2b8ac089a5c"
-              target="_blank"
+              href="/kontakt"
               className="bg-accent hover:bg-accent-light text-white font-medium py-2 px-4 md:py-3 md:px-6 rounded-md transition-all duration-300 inline-flex items-center justify-center text-sm md:text-base"
             >
-              Jetzt Beratungstermin vereinbaren
+              Jetzt Beratungstermin buchen
             </Link>
           </div>
         </div>
@@ -37,41 +38,31 @@ export default function PersonalvermittlungPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
             <div>
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-primary">
-                Warum Personalvermittlung zum Festpreis?
+                Personalvermittlung zum Fixpreis in ganz Deutschland
               </h2>
               <p className="text-gray-600 mb-3 md:mb-4 text-sm md:text-base">
-                Die klassische Personalvermittlung mit Provisionen basierend auf dem Jahresgehalt ist intransparent und
-                oft teuer. Unser Fixpreis-Modell bietet Ihnen volle Kostenkontrolle und Planungssicherheit.
-              </p>
-              <p className="text-gray-600 mb-4 md:mb-6 text-sm md:text-base">
-                Mit unserem Festpreis von 9.999 € netto pro Projekt wissen Sie von Anfang an genau, welche Kosten auf
-                Sie zukommen – unabhängig vom Gehalt der zu besetzenden Position.
+                Headhunting Deutschland – wir besetzen Fach- und Führungspositionen in Berlin, Hamburg, München,
+                Frankfurt, Köln, Wiesbaden & NRW mit einem transparenten Fixpreis.
               </p>
               <ul className="space-y-2 md:space-y-3">
                 <li className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm md:text-base">Transparente Kosten ohne versteckte Gebühren</span>
+                  <span className="text-sm md:text-base">Transparente Kosten ohne Erfolgsprovision</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm md:text-base">Keine Erfolgsprovision auf das Jahresgehalt</span>
+                  <span className="text-sm md:text-base">Executive Search & Direktansprache bundesweit</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm md:text-base">Planbare Kosten für Ihr Recruiting-Budget</span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm md:text-base">
-                    Erfolgsabhängige Restzahlung – nur bei erfolgreicher Besetzung
-                  </span>
+                  <span className="text-sm md:text-base">Schnelle Ergebnisse: erste Profile in 7–14 Tagen</span>
                 </li>
               </ul>
             </div>
             <div className="relative h-64 sm:h-72 md:h-80 lg:h-96">
               <Image
                 src="/personalvermittlung-image.png"
-                alt="Personalvermittlung zum Festpreis - Lacar Associate"
+                alt="Personalvermittlung zum Fixpreis – Headhunting Deutschland – Executive Search"
                 fill
                 className="object-cover rounded-lg"
               />
@@ -92,8 +83,7 @@ export default function PersonalvermittlungPage() {
               </div>
               <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">Bedarfsanalyse</h3>
               <p className="text-gray-600 text-sm md:text-base">
-                Wir analysieren gemeinsam mit Ihnen die Anforderungen an die zu besetzende Position und definieren das
-                ideale Kandidatenprofil.
+                Anforderungen, Standort (z. B. Berlin, Hamburg, München, Frankfurt) und Idealprofil definieren.
               </p>
             </div>
             <div className="bg-white p-4 md:p-6 rounded-lg shadow-md">
@@ -102,8 +92,7 @@ export default function PersonalvermittlungPage() {
               </div>
               <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">Kandidatensuche</h3>
               <p className="text-gray-600 text-sm md:text-base">
-                Wir nutzen unsere bewährten Sourcing-Methoden und unser Netzwerk, um passende Kandidaten zu
-                identifizieren und direkt anzusprechen.
+                Direktansprache und Netzwerk – stark in NRW, Köln & Wiesbaden, deutschlandweit skalierbar.
               </p>
             </div>
             <div className="bg-white p-4 md:p-6 rounded-lg shadow-md">
@@ -112,8 +101,7 @@ export default function PersonalvermittlungPage() {
               </div>
               <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">Vorauswahl</h3>
               <p className="text-gray-600 text-sm md:text-base">
-                Wir führen ausführliche Interviews mit den Kandidaten und prüfen ihre Qualifikationen, Motivation und
-                kulturelle Passung.
+                Qualitative Interviews, Skill-Checks & Cultural Fit – Executive Search Fokus.
               </p>
             </div>
             <div className="bg-white p-4 md:p-6 rounded-lg shadow-md">
@@ -122,8 +110,7 @@ export default function PersonalvermittlungPage() {
               </div>
               <h3 className="text-lg md:text-xl font-bold mb-2 md:mb-3">Vermittlung</h3>
               <p className="text-gray-600 text-sm md:text-base">
-                Wir präsentieren Ihnen die besten Kandidaten und begleiten Sie durch den gesamten Einstellungsprozess
-                bis zum Vertragsabschluss.
+                Top-Profile präsentieren und durch den gesamten Prozess begleiten – zum Fixpreis.
               </p>
             </div>
           </div>
@@ -133,25 +120,23 @@ export default function PersonalvermittlungPage() {
       <section className="py-10 md:py-16">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-primary">
-            Bereit für Ihre nächste Einstellung?
+            Recruiting in Berlin, Hamburg, München, Frankfurt, Köln, Wiesbaden & NRW
           </h2>
           <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto mb-6 md:mb-8">
-            Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch und erfahren Sie, wie wir Ihnen bei der
-            Besetzung Ihrer offenen Positionen helfen können.
+            Profitieren Sie von bundesweiter Sichtbarkeit und lokaler Expertise – Headhunting Deutschland zum Festpreis.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="https://meetings-eu1.hubspot.com/meetings/serrano/lead-kalender?uuid=656818da-bec4-434f-8209-e2b8ac089a5c"
-              target="_blank"
+              href="/kontakt"
               className="bg-accent hover:bg-accent-light text-white font-medium py-2 px-4 md:py-3 md:px-6 rounded-md transition-all duration-300 inline-flex items-center justify-center text-sm md:text-base"
             >
-              Beratungstermin vereinbaren
+              Jetzt Beratungstermin buchen
             </Link>
             <Link
-              href="/#contact"
+              href="/personalvermittlung"
               className="bg-white border border-primary text-primary hover:bg-primary/5 font-medium py-2 px-4 md:py-3 md:px-6 rounded-md transition-all duration-300 inline-flex items-center justify-center text-sm md:text-base"
             >
-              Kontaktformular
+              Mehr zu Personalvermittlung
             </Link>
           </div>
         </div>

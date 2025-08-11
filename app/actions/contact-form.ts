@@ -2,8 +2,6 @@
 
 import { Resend } from "resend"
 
-// Initialisiere Resend mit deinem API-Key (muss in der Produktionsumgebung gesetzt werden)
-// In der Entwicklungsumgebung kannst du einen Dummy-Key verwenden
 const resend = new Resend(process.env.RESEND_API_KEY || "dummy_key")
 
 export type ContactFormData = {
@@ -16,7 +14,6 @@ export type ContactFormData = {
 
 export async function submitContactForm(formData: ContactFormData) {
   try {
-    // Validiere die Eingaben
     if (!formData.name || !formData.email || !formData.message) {
       return {
         success: false,
@@ -24,10 +21,9 @@ export async function submitContactForm(formData: ContactFormData) {
       }
     }
 
-    // Sende die E-Mail
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: "Kontaktformular <noreply@lacar-associate.de>",
-      to: "ricardo.serrano@lacar-assoiate.de", // Die angegebene E-Mail-Adresse
+      to: "ricardo.serrano@lacar-associate.de", // Fix: corrected domain typo
       subject: `Neue Kontaktanfrage von ${formData.name}`,
       text: `
         Name: ${formData.name}
@@ -38,7 +34,6 @@ export async function submitContactForm(formData: ContactFormData) {
         Nachricht:
         ${formData.message}
       `,
-      // Optional: HTML-Version der E-Mail
       html: `
         <h2>Neue Kontaktanfrage über die Website</h2>
         <p><strong>Name:</strong> ${formData.name}</p>

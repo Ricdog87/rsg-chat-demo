@@ -3,7 +3,7 @@
 import { useInView } from "react-intersection-observer"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight } from 'lucide-react'
 
 const PartnersSection = () => {
   const { ref, inView } = useInView({
@@ -15,21 +15,21 @@ const PartnersSection = () => {
     {
       name: "RSG Recruiting Solutions Group GmbH",
       description:
-        "RSG Recruiting Solutions Group GmbH ist ein innovatives Beratungsunternehmen, das sich auf KI-Lösungen für Marketing, Vertrieb und Recruiting spezialisiert hat. Wir helfen Unternehmen, die Kraft der künstlichen Intelligenz zu nutzen, um ihre Geschäftsprozesse zu optimieren und ihre Ziele zu erreichen.",
+        "KI-gestützte Lösungen für Marketing, Vertrieb und Recruiting – starke Synergien mit Headhunting Deutschland.",
       logo: "/rsg-logo.png",
       link: "https://recruiting-sg.de",
     },
     {
       name: "Elumalab",
       description:
-        "Die All-in-One Kommunikationsplattform, die alle Kundennachrichten von WhatsApp, Instagram, Facebook und mehr an einem Ort vereint. Mit intelligenten Automatisierungen, Team-Kollaboration und umfassenden Analysen für optimale Kundenkommunikation.",
+        "Omnichannel-Kommunikationsplattform – ideal für schnelles Recruiting in Berlin, Hamburg, München & NRW.",
       logo: "/elumalab-logo.png",
       link: "https://www.elumalab.com",
     },
     {
       name: "Connect Recruit AI Flow",
       description:
-        "Eine leistungsstarke No-Code-Plattform, die es Ihnen ermöglicht, komplexe Recruiting-Workflows zu automatisieren und alle Ihre HR-Tools nahtlos zu integrieren. Sparen Sie wertvolle Zeit, eliminieren Sie manuelle Aufgaben und optimieren Sie Ihren gesamten Recruiting-Prozess mit intelligenten, KI-gesteuerten Workflows.",
+        "No-Code-Automatisierungen für HR-Workflows – effizient für Personalvermittlung zum Fixpreis in ganz Deutschland.",
       logo: "/rsg-connect-app.png",
       link: "https://rsg-connect.de",
     },
@@ -41,8 +41,8 @@ const PartnersSection = () => {
         <div className="text-center mb-8 md:mb-12">
           <h2 className="section-title">Unsere Partner im Recruiting-Ökosystem</h2>
           <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
-            Gemeinsam mit unseren Partnern bieten wir Ihnen ein umfassendes Recruiting-Ökosystem für maximalen Erfolg
-            bei der Personalsuche und -entwicklung.
+            Gemeinsam bieten wir Headhunting & Executive Search in Berlin, Hamburg, München, Frankfurt, Köln, Wiesbaden
+            und NRW – effizient, transparent und skalierbar.
           </p>
         </div>
 
@@ -58,7 +58,7 @@ const PartnersSection = () => {
               <div className="h-16 sm:h-20 md:h-24 lg:h-32 flex items-center justify-center mb-3 sm:mb-4 md:mb-5 lg:mb-6 p-2 sm:p-3 md:p-4">
                 <Image
                   src={partner.logo || "/placeholder.svg"}
-                  alt={`${partner.name} - Partner von Lacar Associate`}
+                  alt={`${partner.name} – Partner für Headhunting Deutschland`}
                   width={200}
                   height={100}
                   className="h-auto w-auto max-h-full max-w-full object-contain"
@@ -83,14 +83,13 @@ const PartnersSection = () => {
 
         <div className="mt-10 md:mt-16 text-center">
           <p className="text-gray-600 mb-4 text-sm md:text-base">
-            Interessiert an einer Partnerschaft mit Lacar Associate? Wir freuen uns auf den Austausch mit Ihnen.
+            Interesse an Kooperationen in Berlin, Hamburg, München, Frankfurt, Köln, Wiesbaden oder NRW?
           </p>
           <Link
-            href="https://recruiting-sg.de/"
-            target="_blank"
+            href="/kontakt"
             className="bg-accent hover:bg-accent-light text-white font-medium py-2 px-4 md:py-3 md:px-6 rounded-md transition-all duration-300 inline-flex items-center justify-center text-sm md:text-base"
           >
-            Kontaktieren Sie uns
+            Kontakt aufnehmen
           </Link>
         </div>
       </div>

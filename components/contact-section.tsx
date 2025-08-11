@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState } from "react"
 import { useInView } from "react-intersection-observer"
-import { Mail, Phone, MapPin, Calendar } from "lucide-react"
+import { Mail, Phone, MapPin, Calendar } from 'lucide-react'
 import Link from "next/link"
 import { submitContactForm, type ContactFormData } from "@/app/actions/contact-form"
 
@@ -36,13 +36,10 @@ const ContactSection = () => {
     setSubmitResult(null)
 
     try {
-      // Sende das Formular an die Server Action
       const result = await submitContactForm(formData)
-
       setSubmitResult(result)
 
       if (result.success) {
-        // Formular zurücksetzen bei Erfolg
         setFormData({
           name: "",
           email: "",
@@ -60,7 +57,6 @@ const ContactSection = () => {
     } finally {
       setIsSubmitting(false)
 
-      // Erfolgs- oder Fehlermeldung nach 5 Sekunden ausblenden
       if (submitResult?.success) {
         setTimeout(() => {
           setSubmitResult(null)
@@ -75,8 +71,7 @@ const ContactSection = () => {
         <div className="text-center mb-8 md:mb-12">
           <h2 className="section-title">Kontakt & Beratung</h2>
           <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
-            Wir freuen uns auf Ihre Anfrage und beraten Sie gerne zu unseren Leistungen. Kontaktieren Sie uns für ein
-            unverbindliches Gespräch über Ihre Recruiting-Anforderungen.
+            Headhunting Deutschland und Executive Search – in Berlin, Hamburg, München, Frankfurt, Köln, Wiesbaden & NRW.
           </p>
         </div>
 
@@ -223,11 +218,10 @@ const ContactSection = () => {
                   <div>
                     <h4 className="text-base md:text-lg font-semibold mb-1">Beratungstermin buchen</h4>
                     <p className="text-gray-600 mb-2 md:mb-3 text-sm md:text-base">
-                      Vereinbaren Sie einen unverbindlichen Beratungstermin mit einem unserer Recruiting-Experten.
+                      Recruiting in Berlin, Hamburg, München, Frankfurt, Köln, Wiesbaden & NRW – wir beraten Sie gerne.
                     </p>
                     <Link
-                      href="https://meetings-eu1.hubspot.com/meetings/serrano/lead-kalender?uuid=656818da-bec4-434f-8209-e2b8ac089a5c"
-                      target="_blank"
+                      href="/kontakt"
                       className="bg-accent hover:bg-accent-light text-white font-medium py-1.5 px-3 md:py-2 md:px-4 rounded-md transition-all duration-300 inline-flex items-center justify-center text-sm"
                     >
                       Termin buchen
@@ -274,8 +268,7 @@ const ContactSection = () => {
                   <div>
                     <h4 className="text-base md:text-lg font-semibold mb-1">Standort</h4>
                     <p className="text-gray-600 text-sm md:text-base">
-                      Wir arbeiten remote und sind bundesweit für Sie tätig. Flexible Beratung ohne geografische
-                      Einschränkungen.
+                      Remote in ganz Deutschland – aktiv in Berlin, Hamburg, München, Frankfurt, Köln, Wiesbaden & NRW.
                     </p>
                   </div>
                 </div>

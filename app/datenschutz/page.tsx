@@ -1,9 +1,12 @@
 import Link from "next/link"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft } from 'lucide-react'
+import type { Metadata } from "next"
 
-export const metadata = {
-  title: "Datenschutzerklärung | Lacar Associate",
-  description: "Datenschutzerklärung und Informationen zum Umgang mit Ihren Daten bei Lacar Associate.",
+export const metadata: Metadata = {
+  title: "Headhunting & Recruiting zum Festpreis – Deutschlandweit | Lacar Associate",
+  description:
+    "Personalvermittlung & Executive Search für Unternehmen. Festpreis, transparent & schnell in Berlin, Hamburg, München, Frankfurt & ganz Deutschland.",
+  alternates: { canonical: "https://lacar-associate.de/datenschutz" },
 }
 
 export default function DatenschutzPage() {

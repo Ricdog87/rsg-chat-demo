@@ -1,9 +1,10 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useEffect } from "react"
 import { Calculator, ArrowRight, Info } from "lucide-react"
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
+import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts"
 
 type CalculatorInputs = {
   position: string
@@ -24,9 +25,16 @@ const positionOptions = [
   { value: "Andere", label: "Andere Position", defaultSalary: 50000 },
 ]
 
-const VacancyCostCalculator = () => {
+const presets = [20, 25, 30]
+
+export default function VacancyCostCalculator() {
   const [inputs, setInputs] = useState<CalculatorInputs>(defaultValues)
-  const [results, setResults] = useState<any>(null)
+  const [results, setResults] = useState<{
+    recruitingCost: number
+    fixedPrice: number
+    saving: number
+    savingPct: number
+  } | null>(null)
   const [showResults, setShowResults] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -45,9 +53,7 @@ const VacancyCostCalculator = () => {
         salary: selectedPosition ? selectedPosition.defaultSalary.toString() : prev.salary,
       }))
     } else {
-      // Für numerische Felder: Nur Zahlen und leere Strings erlauben
       if (name === "salary" || name === "recruitingCosts") {
-        // Erlaubt leere Strings und Zahlen
         if (value === "" || /^\d*$/.test(value)) {
           setInputs((prev) => ({
             ...prev,
@@ -63,45 +69,44 @@ const VacancyCostCalculator = () => {
     }
   }
 
+  const applyPreset = (pct: number) => {
+    setInputs((prev) => ({ ...prev, recruitingCosts: String(pct) }))
+  }
+
   const calculateCosts = () => {
-    // Konvertieren der String-Werte in Zahlen für die Berechnung
     const salary = Number(inputs.salary) || 0
-    const recruitingCosts = Number(inputs.recruitingCosts) || 0
-
-    // Rekrutierungskosten (% vom Jahresgehalt)
-    const recruitingCost = (salary * recruitingCosts) / 100
-
-    // Gesamtkosten
-    const totalCost = recruitingCost
-
-    // Fixpreis von Lacar Associate
+    const recruitingPct = Number(inputs.recruitingCosts) || 0
+    const recruitingCost = Math.round((salary * recruitingPct) / 100)
     const fixedPrice = 9999
-
-    // Ersparnis
-    const fixedPriceAdvantage = Math.round(totalCost - fixedPrice)
+    const saving = Math.max(0, recruitingCost - fixedPrice)
+    const savingPct = recruitingCost > 0 ? Math.round((saving / recruitingCost) * 100) : 0
 
     setResults({
-      recruitingCost: Math.round(recruitingCost),
-      totalCost: Math.round(totalCost),
-      fixedPrice: fixedPrice,
-      fixedPriceAdvantage: fixedPriceAdvantage,
+      recruitingCost,
+      fixedPrice,
+      saving,
+      savingPct,
     })
 
     setShowResults(true)
   }
 
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(value)
-  }
+  const formatCurrency = (value: number) =>
+    new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(value)
+
+  const chartData = results && [
+    { name: "Provision", value: results.recruitingCost },
+    { name: "Festpreis", value: results.fixedPrice },
+  ]
 
   return (
     <section id="calculator" className="section-padding bg-gray-50">
       <div className="container mx-auto container-padding">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="section-title">Kostenvergleich | Personalvermittlung zum Festpreis vs. Provision</h2>
+          <h2 className="section-title">Vakanzkosten- und Provisionsvergleich</h2>
           <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
-            Vergleichen Sie die Kosten einer klassischen Personalvermittlung mit Provision und unserem transparenten
-            Festpreis-Modell. Sehen Sie auf einen Blick, wie viel Sie mit Lacar Associate sparen können.
+            Vergleichen Sie klassische Provisionsmodelle mit unserem Fixpreis – relevant für Berlin, Hamburg, München,
+            Frankfurt, Köln, Wiesbaden & NRW.
           </p>
         </div>
 
@@ -111,7 +116,7 @@ const VacancyCostCalculator = () => {
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
             <div className="bg-primary p-6 md:p-8">
               <h3 className="text-xl md:text-2xl font-bold text-white flex items-center">
-                <Calculator className="mr-3 h-6 w-6" /> Kosten einer unbesetzten Stelle berechnen
+                <Calculator className="mr-3 h-6 w-6" /> Kosten einer Besetzung berechnen
               </h3>
             </div>
 
@@ -151,6 +156,7 @@ const VacancyCostCalculator = () => {
                         pattern="[0-9]*"
                         inputMode="numeric"
                         className="w-full px-3 py-2.5 text-base border border-gray-300 rounded-md focus:outline-none focus:ring-primary focus:border-primary"
+                        aria-label="Jahresgehalt in Euro"
                       />
                       <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                         <span className="text-gray-500">€</span>
@@ -164,6 +170,23 @@ const VacancyCostCalculator = () => {
                     <label htmlFor="recruitingCosts" className="block text-sm font-medium text-gray-700 mb-1">
                       Rekrutierungskosten (% vom Jahresgehalt)
                     </label>
+                    <div className="flex items-center gap-2 mb-2">
+                      {presets.map((p) => (
+                        <button
+                          key={p}
+                          type="button"
+                          className={`px-3 py-1.5 rounded-md text-sm border transition-colors ${
+                            Number(inputs.recruitingCosts) === p
+                              ? "bg-accent text-white border-accent"
+                              : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
+                          }`}
+                          onClick={() => applyPreset(p)}
+                          aria-pressed={Number(inputs.recruitingCosts) === p}
+                        >
+                          {p}%
+                        </button>
+                      ))}
+                    </div>
                     <div className="relative">
                       <input
                         type="text"
@@ -176,6 +199,7 @@ const VacancyCostCalculator = () => {
                         min="0"
                         max="100"
                         className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-primary focus:border-primary"
+                        aria-label="Prozent der Rekrutierungskosten"
                       />
                       <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
                         <span className="text-gray-500">%</span>
@@ -209,54 +233,71 @@ const VacancyCostCalculator = () => {
                       </p>
                     </div>
                     <div className="bg-gray-50 p-3 sm:p-4 rounded-lg">
-                      <p className="text-xs sm:text-sm text-gray-600 mb-1">Kosten mit Lacar Associate</p>
+                      <p className="text-xs sm:text-sm text-gray-600 mb-1">Kosten mit Lacar Associate (Festpreis)</p>
                       <p className="text-lg sm:text-xl font-bold text-accent">{formatCurrency(results.fixedPrice)}</p>
-                      <p className="text-xs text-gray-500 mt-1">Festpreis unabhängig vom Gehalt</p>
+                      <p className="text-xs text-gray-500 mt-1">Unabhängig vom Gehalt</p>
                     </div>
                   </div>
 
-                  <div className="bg-accent/10 p-4 sm:p-5 md:p-6 rounded-lg">
-                    <div className="flex items-start">
-                      <div className="bg-accent rounded-full p-1.5 sm:p-2 mr-3 sm:mr-4 flex-shrink-0 mt-0.5">
-                        <Info className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
-                      </div>
-                      <div>
-                        <h5 className="text-base sm:text-lg font-bold text-accent mb-2">
-                          Ihr Sparpotenzial mit Lacar Associate
-                        </h5>
-                        <p className="mb-2 sm:mb-3 text-sm sm:text-base">
-                          Mit unserem Festpreis-Modell von nur <span className="font-bold">9.999 € netto</span> für die
-                          erfolgreiche Besetzung Ihrer Vakanz sparen Sie:
-                        </p>
-                        <p className="text-lg sm:text-xl md:text-2xl font-bold text-accent">
-                          {results.fixedPriceAdvantage > 0
-                            ? formatCurrency(results.fixedPriceAdvantage)
-                            : "Keine Ersparnis bei diesem Gehalt"}
-                        </p>
-                        <p className="mt-3 sm:mt-4">
-                          <a
-                            href="#model"
-                            className="text-accent hover:text-accent-light font-medium inline-flex items-center text-sm sm:text-base"
-                            onClick={(e) => {
-                              e.preventDefault()
-                              const element = document.getElementById("model")
-                              if (element) {
-                                const headerOffset = window.innerWidth >= 768 ? 100 : 80
-                                const elementPosition = element.getBoundingClientRect().top
-                                const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-                                window.scrollTo({
-                                  top: offsetPosition,
-                                  behavior: "smooth",
-                                })
-                              }
-                            }}
-                          >
-                            Mehr über unser Festpreis-Modell erfahren{" "}
-                            <ArrowRight className="ml-1 h-3 w-3 sm:h-4 sm:w-4" />
-                          </a>
-                        </p>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div className="bg-accent/10 p-4 sm:p-5 md:p-6 rounded-lg">
+                      <div className="flex items-start">
+                        <div className="bg-accent rounded-full p-1.5 sm:p-2 mr-3 sm:mr-4 flex-shrink-0 mt-0.5">
+                          <Info className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
+                        </div>
+                        <div>
+                          <h5 className="text-base sm:text-lg font-bold text-accent mb-2">
+                            Ihr Sparpotenzial – auch in Berlin, Hamburg, München & NRW
+                          </h5>
+                          <p className="mb-2 sm:mb-3 text-sm sm:text-base">
+                            Mit unserem Festpreis von <span className="font-bold">9.999 € netto</span> sparen Sie:
+                          </p>
+                          <p className="text-lg sm:text-xl md:text-2xl font-bold text-accent">
+                            {results.saving > 0
+                              ? `${formatCurrency(results.saving)} (${results.savingPct}%)`
+                              : "Keine Ersparnis bei diesem Gehalt"}
+                          </p>
+                        </div>
                       </div>
                     </div>
+
+                    <div className="bg-white p-3 sm:p-4 md:p-5 rounded-lg border border-gray-200">
+                      <ChartContainer
+                        config={{
+                          value: { label: "Kosten", color: "hsl(var(--chart-1))" },
+                        }}
+                        className="h-[220px]"
+                      >
+                        <ResponsiveContainer width="100%" height="100%">
+                          <BarChart data={chartData || []} margin={{ top: 10, right: 16, left: 0, bottom: 0 }}>
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="name" />
+                            <YAxis />
+                            <ChartTooltip content={<ChartTooltipContent />} />
+                            <Bar dataKey="value" fill="var(--color-value)" radius={[6, 6, 0, 0]} />
+                          </BarChart>
+                        </ResponsiveContainer>
+                      </ChartContainer>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 text-center">
+                    <a
+                      href="/#model"
+                      className="text-accent hover:text-accent-light font-medium inline-flex items-center text-sm sm:text-base"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        const element = document.getElementById("model")
+                        if (element) {
+                          const headerOffset = window.innerWidth >= 768 ? 100 : 80
+                          const elementPosition = element.getBoundingClientRect().top
+                          const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+                          window.scrollTo({ top: offsetPosition, behavior: "smooth" })
+                        }
+                      }}
+                    >
+                      Mehr über unser Festpreis-Modell erfahren <ArrowRight className="ml-1 h-4 w-4" />
+                    </a>
                   </div>
                 </div>
               )}
@@ -267,5 +308,3 @@ const VacancyCostCalculator = () => {
     </section>
   )
 }
-
-export default VacancyCostCalculator

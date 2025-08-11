@@ -1,11 +1,13 @@
 import Link from "next/link"
 import Image from "next/image"
-import { CheckCircle, ArrowLeft } from "lucide-react"
+import { CheckCircle, ArrowLeft } from 'lucide-react'
+import type { Metadata } from "next"
 
-export const metadata = {
-  title: "Outplacement Services | Lacar Associate",
+export const metadata: Metadata = {
+  title: "Headhunting & Recruiting zum Festpreis – Deutschlandweit | Lacar Associate",
   description:
-    "Professionelle Unterstützung für Mitarbeiter bei beruflicher Neuorientierung und Karriereplanung. Wir begleiten den Übergang in eine neue berufliche Zukunft.",
+    "Personalvermittlung & Executive Search für Unternehmen. Festpreis, transparent & schnell in Berlin, Hamburg, München, Frankfurt & ganz Deutschland.",
+  alternates: { canonical: "https://lacar-associate.de/outplacement" },
 }
 
 export default function OutplacementPage() {
@@ -14,14 +16,12 @@ export default function OutplacementPage() {
       <section className="bg-primary text-white py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Outplacement Services</h1>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Outplacement Services – deutschlandweit</h1>
             <p className="text-xl text-white/90 mb-8">
-              Professionelle Unterstützung für Mitarbeiter bei beruflicher Neuorientierung und Karriereplanung. Wir
-              begleiten den Übergang in eine neue berufliche Zukunft.
+              Professionelle Unterstützung in Berlin, Hamburg, München, Frankfurt, Köln, Wiesbaden & NRW.
             </p>
             <Link
-              href="https://meetings-eu1.hubspot.com/meetings/serrano/lead-kalender?uuid=656818da-bec4-434f-8209-e2b8ac089a5c"
-              target="_blank"
+              href="/kontakt"
               className="bg-accent hover:bg-accent-light text-white font-medium py-3 px-6 rounded-md transition-all duration-300 inline-flex items-center justify-center"
             >
               Jetzt Beratungstermin vereinbaren
@@ -36,14 +36,8 @@ export default function OutplacementPage() {
             <div>
               <h2 className="text-3xl font-bold mb-6 text-primary">Warum Outplacement?</h2>
               <p className="text-gray-600 mb-4">
-                Trennungsprozesse sind für alle Beteiligten herausfordernd. Mit unseren Outplacement-Services
-                unterstützen wir sowohl Unternehmen als auch Mitarbeiter dabei, diese Phase professionell und
-                wertschätzend zu gestalten.
-              </p>
-              <p className="text-gray-600 mb-6">
-                Für Unternehmen bieten wir eine verantwortungsvolle Lösung, um ihrer sozialen Verantwortung gerecht zu
-                werden und das Arbeitgeberimage zu schützen. Für Mitarbeiter schaffen wir eine strukturierte Begleitung
-                auf dem Weg in eine neue berufliche Zukunft.
+                Unterstützung für Unternehmen und Mitarbeitende – regional stark in NRW und bundesweit in allen
+                Großstädten.
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start">
@@ -67,7 +61,7 @@ export default function OutplacementPage() {
             <div className="relative h-80 md:h-96">
               <Image
                 src="/outplacement-image.png"
-                alt="Outplacement Services - Lacar Associate"
+                alt="Outplacement – Karriereberatung – bundesweit in Deutschland"
                 fill
                 className="object-cover rounded-lg"
               />
@@ -85,40 +79,28 @@ export default function OutplacementPage() {
                 1
               </div>
               <h3 className="text-xl font-bold mb-3">Standortbestimmung</h3>
-              <p className="text-gray-600">
-                Wir analysieren die aktuelle Situation, identifizieren Stärken, Kompetenzen und Entwicklungspotenziale
-                und definieren berufliche Ziele.
-              </p>
+              <p className="text-gray-600">Ziele und Stärken definieren – lokal (z. B. NRW) & bundesweit relevant.</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-xl mb-4">
                 2
               </div>
               <h3 className="text-xl font-bold mb-3">Bewerbungsoptimierung</h3>
-              <p className="text-gray-600">
-                Wir optimieren Lebenslauf, Anschreiben und Online-Profile und entwickeln eine individuelle
-                Bewerbungsstrategie für den Arbeitsmarkt.
-              </p>
+              <p className="text-gray-600">Unterlagen & Online-Profile für Berlin, Hamburg, München & mehr optimieren.</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-xl mb-4">
                 3
               </div>
               <h3 className="text-xl font-bold mb-3">Interviewtraining</h3>
-              <p className="text-gray-600">
-                Wir bereiten auf Vorstellungsgespräche vor, trainieren Selbstpräsentation und Gehaltsverhandlungen und
-                geben Feedback zur Verbesserung.
-              </p>
+              <p className="text-gray-600">Selbstpräsentation & Verhandlung für deutsche Top-Standorte trainieren.</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-xl mb-4">
                 4
               </div>
               <h3 className="text-xl font-bold mb-3">Jobsuche & Netzwerken</h3>
-              <p className="text-gray-600">
-                Wir unterstützen bei der aktiven Jobsuche, vermitteln Netzwerkstrategien und begleiten bis zum
-                erfolgreichen Vertragsabschluss.
-              </p>
+              <p className="text-gray-600">Aktive Suche – Frankfurt, Köln, Wiesbaden & deutschlandweit.</p>
             </div>
           </div>
         </div>
@@ -126,24 +108,21 @@ export default function OutplacementPage() {
 
       <section className="py-16">
         <div className="container mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl font-bold mb-6 text-primary">Interesse an unseren Outplacement-Services?</h2>
+          <h2 className="text-3xl font-bold mb-6 text-primary">
+            Outplacement in Berlin, Hamburg, München, Frankfurt, Köln, Wiesbaden & NRW
+          </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
-            Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch und erfahren Sie, wie wir Ihre Mitarbeiter
-            bei der beruflichen Neuorientierung unterstützen können.
+            Wir begleiten Sie professionell in die nächste Rolle – deutschlandweit.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="https://meetings-eu1.hubspot.com/meetings/serrano/lead-kalender?uuid=656818da-bec4-434f-8209-e2b8ac089a5c"
-              target="_blank"
-              className="bg-accent hover:bg-accent-light text-white font-medium py-3 px-6 rounded-md transition-all duration-300 inline-flex items-center justify-center"
-            >
+            <Link href="/kontakt" className="bg-accent hover:bg-accent-light text-white font-medium py-3 px-6 rounded-md">
               Beratungstermin vereinbaren
             </Link>
             <Link
-              href="/#contact"
-              className="bg-white border border-primary text-primary hover:bg-primary/5 font-medium py-3 px-6 rounded-md transition-all duration-300 inline-flex items-center justify-center"
+              href="/personalvermittlung"
+              className="bg-white border border-primary text-primary hover:bg-primary/5 font-medium py-3 px-6 rounded-md"
             >
-              Kontaktformular
+              Mehr zu Personalvermittlung
             </Link>
           </div>
         </div>

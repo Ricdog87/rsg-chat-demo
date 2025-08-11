@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { CheckCircle, Clock, Euro, ShieldCheck } from "lucide-react"
+import { CheckCircle, Clock, Euro, ShieldCheck } from 'lucide-react'
 import { useInView } from "react-intersection-observer"
 
 const BusinessModelSection = () => {
@@ -14,15 +14,17 @@ const BusinessModelSection = () => {
     <section id="model" className="section-padding bg-gray-50">
       <div className="container mx-auto container-padding">
         <div className="text-center mb-8 md:mb-12">
-          <h2 className="section-title">Unser Fixpreis-Modell für Personalvermittlung</h2>
-          <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto">
-            Transparente Kosten, klare Prozesse und ein faires Preismodell – so revolutionieren wir bei Lacar Associate
-            die Personalvermittlung. Keine Provisionen, keine versteckten Kosten.
+          <h2 className="section-title">
+            Headhunting & Personalvermittlung zum Fixpreis – Deutschlandweit
+          </h2>
+          <p className="text-base md:text-lg text-gray-600 max-w-4xl mx-auto">
+            Transparentes Recruiting und Executive Search in Berlin, Hamburg, München, Frankfurt, Köln, Wiesbaden und
+            ganz NRW. Unser Festpreis-Modell macht Headhunting in ganz Deutschland planbar und effizient – ohne
+            Erfolgsprovision.
           </p>
         </div>
 
         <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
-          {/* Price Model Card */}
           <div
             className={`card transform transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             style={{ transitionDelay: "100ms" }}
@@ -36,20 +38,19 @@ const BusinessModelSection = () => {
             <ul className="space-y-1.5 sm:space-y-2">
               <li className="flex items-start">
                 <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-accent mr-1.5 sm:mr-2 mt-0.5 flex-shrink-0" />
-                <span className="text-xs sm:text-sm md:text-base">Transparente Kosten ohne versteckte Gebühren</span>
+                <span className="text-xs sm:text-sm md:text-base">Headhunting Deutschland – transparent & planbar</span>
               </li>
               <li className="flex items-start">
                 <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-accent mr-1.5 sm:mr-2 mt-0.5 flex-shrink-0" />
-                <span className="text-xs sm:text-sm md:text-base">Keine Erfolgsprovision auf das Jahresgehalt</span>
+                <span className="text-xs sm:text-sm md:text-base">Personalvermittlung zum Fixpreis – ohne Provision</span>
               </li>
               <li className="flex items-start">
                 <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-accent mr-1.5 sm:mr-2 mt-0.5 flex-shrink-0" />
-                <span className="text-xs sm:text-sm md:text-base">Planbare Kosten für Ihr Recruiting-Budget</span>
+                <span className="text-xs sm:text-sm md:text-base">Recruiting Wiesbaden, NRW & alle Großstädte</span>
               </li>
             </ul>
           </div>
 
-          {/* Payment Model Card */}
           <div
             className={`card transform transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             style={{ transitionDelay: "300ms" }}
@@ -72,7 +73,6 @@ const BusinessModelSection = () => {
             </div>
           </div>
 
-          {/* Benefits Card */}
           <div
             className={`card transform transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
             style={{ transitionDelay: "500ms" }}
@@ -85,32 +85,18 @@ const BusinessModelSection = () => {
               <li className="flex items-start">
                 <CheckCircle className="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" />
                 <span className="text-sm md:text-base">
-                  <strong>Schnelligkeit:</strong> Erste Kandidaten innerhalb von 7-14 Tagen
+                  Schnelle Ergebnisse: erste Kandidaten in 7–14 Tagen – auch Berlin, Hamburg, München
                 </span>
               </li>
               <li className="flex items-start">
                 <CheckCircle className="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" />
                 <span className="text-sm md:text-base">
-                  <strong>Transparenz:</strong> Klare Kommunikation und regelmäßige Updates
+                  Abdeckung: Frankfurt, Köln, Wiesbaden, NRW & ganz Deutschland
                 </span>
               </li>
               <li className="flex items-start">
                 <CheckCircle className="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" />
-                <span className="text-sm md:text-base">
-                  <strong>Kein Risiko:</strong> Erfolgsabhängige Restzahlung
-                </span>
-              </li>
-              <li className="flex items-start">
-                <CheckCircle className="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" />
-                <span className="text-sm md:text-base">
-                  <strong>Expertise:</strong> Spezialisierte Headhunter mit Branchenerfahrung
-                </span>
-              </li>
-              <li className="flex items-start">
-                <CheckCircle className="h-5 w-5 text-accent mr-2 mt-0.5 flex-shrink-0" />
-                <span className="text-sm md:text-base">
-                  <strong>Qualität:</strong> Sorgfältige Vorauswahl aller Kandidaten
-                </span>
+                <span className="text-sm md:text-base">Executive Search und Headhunting zum Festpreis</span>
               </li>
             </ul>
           </div>
@@ -118,8 +104,7 @@ const BusinessModelSection = () => {
 
         <div className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 text-center">
           <Link
-            href="https://meetings-eu1.hubspot.com/meetings/serrano/lead-kalender?uuid=656818da-bec4-434f-8209-e2b8ac089a5c"
-            target="_blank"
+            href="/kontakt"
             className="bg-accent hover:bg-accent-light text-white font-medium py-2.5 px-4 sm:py-3 sm:px-5 md:px-6 rounded-md transition-all duration-300 inline-flex items-center justify-center text-xs sm:text-sm md:text-base"
           >
             Unverbindliches Beratungsgespräch vereinbaren

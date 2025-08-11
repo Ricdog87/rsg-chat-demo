@@ -7,58 +7,63 @@ type CookieConsent = {
   necessary: boolean
   analytics: boolean
   marketing: boolean
+  timestamp?: string
 }
+
+const EXPIRY_DAYS = 180
+const MS_IN_DAY = 24 * 60 * 60 * 1000
 
 export default function CookieConsent() {
   const [showConsent, setShowConsent] = useState(false)
   const [showDetails, setShowDetails] = useState(false)
   const [consent, setConsent] = useState<CookieConsent>({
-    necessary: true, // Necessary cookies are always enabled
+    necessary: true,
     analytics: false,
     marketing: false,
   })
 
   useEffect(() => {
-    // Check if user has already made a choice
-    const savedConsent = localStorage.getItem("cookie-consent")
+    try {
+      const savedConsentRaw = localStorage.getItem("cookie-consent")
+      if (!savedConsentRaw) {
+        const timer = setTimeout(() => setShowConsent(true), 800)
+        return () => clearTimeout(timer)
+      }
 
-    // Only show the consent banner if no choice has been made yet
-    if (!savedConsent) {
-      // Small delay to prevent the banner from flashing on page load
-      const timer = setTimeout(() => {
+      const saved = JSON.parse(savedConsentRaw) as CookieConsent
+      // Optional migration: ensure necessary is true
+      if (typeof saved.necessary !== "boolean") saved.necessary = true
+      setConsent(saved)
+
+      const ts = saved.timestamp ? new Date(saved.timestamp).getTime() : 0
+      const expired = !ts || Date.now() - ts > EXPIRY_DAYS * MS_IN_DAY
+      if (expired) {
         setShowConsent(true)
-      }, 800)
-
-      return () => clearTimeout(timer)
+      }
+    } catch {
+      setShowConsent(true)
     }
   }, [])
 
-  const handleAcceptAll = () => {
-    const fullConsent = {
-      necessary: true,
-      analytics: true,
-      marketing: true,
+  // Provide a global trigger to re-open consent
+  useEffect(() => {
+    const openHandler = () => {
+      setShowDetails(true)
+      setShowConsent(true)
     }
-
-    saveConsent(fullConsent)
-  }
-
-  const handleAcceptSelected = () => {
-    saveConsent(consent)
-  }
-
-  const handleRejectAll = () => {
-    const minimalConsent = {
-      necessary: true, // Necessary cookies are always enabled
-      analytics: false,
-      marketing: false,
+    window.addEventListener("open-cookie-consent", openHandler)
+    ;(window as any).showCookieSettings = () => {
+      window.dispatchEvent(new CustomEvent("open-cookie-consent"))
     }
-
-    saveConsent(minimalConsent)
-  }
+    return () => {
+      window.removeEventListener("open-cookie-consent", openHandler)
+      if ((window as any).showCookieSettings) {
+        delete (window as any).showCookieSettings
+      }
+    }
+  }, [])
 
   const saveConsent = (consentData: CookieConsent) => {
-    // Save to localStorage
     localStorage.setItem(
       "cookie-consent",
       JSON.stringify({
@@ -66,30 +71,31 @@ export default function CookieConsent() {
         timestamp: new Date().toISOString(),
       }),
     )
-
-    // Hide the consent banner
     setShowConsent(false)
 
-    // Here you would typically initialize your analytics/marketing tools
-    // based on the user's consent
     if (consentData.analytics) {
-      // Initialize analytics (e.g., Google Analytics)
-      console.log("Analytics cookies enabled")
+      // Here you could initialize analytics later (kept empty as GA4 is not requested)
+      // console.log("Analytics consent granted")
     }
-
     if (consentData.marketing) {
-      // Initialize marketing tools (e.g., Facebook Pixel)
-      console.log("Marketing cookies enabled")
+      // Initialize marketing tools here if needed
+      // console.log("Marketing consent granted")
     }
   }
 
   const handleToggleConsent = (type: keyof CookieConsent) => {
-    if (type === "necessary") return // Cannot toggle necessary cookies
+    if (type === "necessary") return
+    setConsent((prev) => ({ ...prev, [type]: !prev[type] }))
+  }
 
-    setConsent((prev) => ({
-      ...prev,
-      [type]: !prev[type],
-    }))
+  const handleAcceptAll = () => {
+    saveConsent({ necessary: true, analytics: true, marketing: true })
+  }
+  const handleAcceptSelected = () => {
+    saveConsent(consent)
+  }
+  const handleRejectAll = () => {
+    saveConsent({ necessary: true, analytics: false, marketing: false })
   }
 
   if (!showConsent) return null
@@ -105,6 +111,10 @@ export default function CookieConsent() {
               Informationen finden Sie in unserer{" "}
               <Link href="/datenschutz" className="text-accent hover:underline">
                 Datenschutzerklärung
+              </Link>{" "}
+              und in der{" "}
+              <Link href="/cookies" className="text-accent hover:underline">
+                Cookie-Richtlinie
               </Link>
               .
             </p>
@@ -120,12 +130,7 @@ export default function CookieConsent() {
                     </p>
                   </div>
                   <div className="bg-primary/10 p-1 rounded">
-                    <input
-                      type="checkbox"
-                      checked={consent.necessary}
-                      disabled
-                      className="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
-                    />
+                    <input type="checkbox" checked disabled className="h-4 w-4 text-primary border-gray-300 rounded" />
                   </div>
                 </div>
 
@@ -139,9 +144,9 @@ export default function CookieConsent() {
                   <div>
                     <input
                       type="checkbox"
-                      checked={consent.analytics}
+                      checked={!!consent.analytics}
                       onChange={() => handleToggleConsent("analytics")}
-                      className="h-4 w-4 text-accent focus:ring-accent border-gray-300 rounded"
+                      className="h-4 w-4 text-accent border-gray-300 rounded"
                     />
                   </div>
                 </div>
@@ -150,15 +155,15 @@ export default function CookieConsent() {
                   <div>
                     <p className="font-medium">Marketing-Cookies</p>
                     <p className="text-xs text-gray-500">
-                      Diese Cookies werden verwendet, um Ihnen relevante Werbung anzuzeigen.
+                      Diese Cookies werden verwendet, um relevante Werbung zu zeigen.
                     </p>
                   </div>
                   <div>
                     <input
                       type="checkbox"
-                      checked={consent.marketing}
+                      checked={!!consent.marketing}
                       onChange={() => handleToggleConsent("marketing")}
-                      className="h-4 w-4 text-accent focus:ring-accent border-gray-300 rounded"
+                      className="h-4 w-4 text-accent border-gray-300 rounded"
                     />
                   </div>
                 </div>
