@@ -3,8 +3,6 @@
 import type React from "react"
 import { useState, useEffect } from "react"
 import { Calculator, ArrowRight, Info } from "lucide-react"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
-import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts"
 
 type CalculatorInputs = {
   position: string
@@ -259,25 +257,6 @@ export default function VacancyCostCalculator() {
                           </p>
                         </div>
                       </div>
-                    </div>
-
-                    <div className="bg-white p-3 sm:p-4 md:p-5 rounded-lg border border-gray-200">
-                      <ChartContainer
-                        config={{
-                          value: { label: "Kosten", color: "hsl(var(--chart-1))" },
-                        }}
-                        className="h-[220px]"
-                      >
-                        <ResponsiveContainer width="100%" height="100%">
-                          <BarChart data={chartData || []} margin={{ top: 10, right: 16, left: 0, bottom: 0 }}>
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="name" />
-                            <YAxis />
-                            <ChartTooltip content={<ChartTooltipContent />} />
-                            <Bar dataKey="value" fill="var(--color-value)" radius={[6, 6, 0, 0]} />
-                          </BarChart>
-                        </ResponsiveContainer>
-                      </ChartContainer>
                     </div>
                   </div>
 

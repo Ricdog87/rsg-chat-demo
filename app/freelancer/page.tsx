@@ -1,7 +1,8 @@
 import Link from "next/link"
 import Image from "next/image"
-import { CheckCircle, ArrowLeft } from 'lucide-react'
+import { CheckCircle, ArrowLeft } from "lucide-react"
 import type { Metadata } from "next"
+import { CharlotteChatbot } from "@/components/charlotte-chatbot"
 
 export const metadata: Metadata = {
   title: "Headhunting & Recruiting zum Festpreis – Deutschlandweit | Lacar Associate",
@@ -18,7 +19,8 @@ export default function FreelancerPage() {
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Freelancer-Recruiting – bundesweit</h1>
             <p className="text-xl text-white/90 mb-8">
-              Qualifizierte Freelancer in Berlin, Hamburg, München, Frankfurt, Köln, Wiesbaden & NRW – schnell verfügbar.
+              Qualifizierte Freelancer in Berlin, Hamburg, München, Frankfurt, Köln, Wiesbaden & NRW – schnell
+              verfügbar.
             </p>
             <Link
               href="/kontakt"
@@ -93,7 +95,10 @@ export default function FreelancerPage() {
                   <span>IT-Projektmanager</span>
                 </li>
               </ul>
-              <Link href="/kontakt" className="text-accent hover:text-accent-light font-medium inline-flex items-center">
+              <Link
+                href="/kontakt"
+                className="text-accent hover:text-accent-light font-medium inline-flex items-center"
+              >
                 Mehr erfahren
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -109,9 +114,7 @@ export default function FreelancerPage() {
 
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-xl font-bold mb-3">Management & Beratung</h3>
-              <p className="text-gray-600 mb-4">
-                Interim-Expertise für Frankfurt, Köln, Wiesbaden & ganz Deutschland.
-              </p>
+              <p className="text-gray-600 mb-4">Interim-Expertise für Frankfurt, Köln, Wiesbaden & ganz Deutschland.</p>
               <ul className="space-y-2 mb-6">
                 <li className="flex items-center">
                   <span className="h-1.5 w-1.5 rounded-full bg-accent mr-2"></span>
@@ -126,7 +129,10 @@ export default function FreelancerPage() {
                   <span>Change Manager</span>
                 </li>
               </ul>
-              <Link href="/kontakt" className="text-accent hover:text-accent-light font-medium inline-flex items-center">
+              <Link
+                href="/kontakt"
+                className="text-accent hover:text-accent-light font-medium inline-flex items-center"
+              >
                 Mehr erfahren
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -157,7 +163,10 @@ export default function FreelancerPage() {
                   <span>UX/UI Designer</span>
                 </li>
               </ul>
-              <Link href="/kontakt" className="text-accent hover:text-accent-light font-medium inline-flex items-center">
+              <Link
+                href="/kontakt"
+                className="text-accent hover:text-accent-light font-medium inline-flex items-center"
+              >
                 Mehr erfahren
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -204,6 +213,7 @@ export default function FreelancerPage() {
           Zurück zur Startseite
         </Link>
       </div>
+      <CharlotteChatbot />
     </main>
   )
 }

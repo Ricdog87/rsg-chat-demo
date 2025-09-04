@@ -1,7 +1,8 @@
 import Link from "next/link"
 import Image from "next/image"
-import { CheckCircle, ArrowLeft } from 'lucide-react'
+import { CheckCircle, ArrowLeft } from "lucide-react"
 import type { Metadata } from "next"
+import { CharlotteChatbot } from "@/components/charlotte-chatbot"
 
 export const metadata: Metadata = {
   title: "Headhunting & Recruiting zum Festpreis – Deutschlandweit | Lacar Associate",
@@ -86,7 +87,9 @@ export default function OutplacementPage() {
                 2
               </div>
               <h3 className="text-xl font-bold mb-3">Bewerbungsoptimierung</h3>
-              <p className="text-gray-600">Unterlagen & Online-Profile für Berlin, Hamburg, München & mehr optimieren.</p>
+              <p className="text-gray-600">
+                Unterlagen & Online-Profile für Berlin, Hamburg, München & mehr optimieren.
+              </p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-md">
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold text-xl mb-4">
@@ -115,7 +118,10 @@ export default function OutplacementPage() {
             Wir begleiten Sie professionell in die nächste Rolle – deutschlandweit.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/kontakt" className="bg-accent hover:bg-accent-light text-white font-medium py-3 px-6 rounded-md">
+            <Link
+              href="/kontakt"
+              className="bg-accent hover:bg-accent-light text-white font-medium py-3 px-6 rounded-md"
+            >
               Beratungstermin vereinbaren
             </Link>
             <Link
@@ -134,6 +140,7 @@ export default function OutplacementPage() {
           Zurück zur Startseite
         </Link>
       </div>
+      <CharlotteChatbot />
     </main>
   )
 }

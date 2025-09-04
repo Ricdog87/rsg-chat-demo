@@ -1,7 +1,8 @@
 import Link from "next/link"
 import Image from "next/image"
-import { CheckCircle, ArrowLeft } from 'lucide-react'
+import { CheckCircle, ArrowLeft } from "lucide-react"
 import type { Metadata } from "next"
+import { CharlotteChatbot } from "@/components/charlotte-chatbot"
 
 export const metadata: Metadata = {
   title: "Headhunting & Recruiting zum Festpreis – Deutschlandweit | Lacar Associate",
@@ -151,6 +152,7 @@ export default function PersonalvermittlungPage() {
           Zurück zur Startseite
         </Link>
       </div>
+      <CharlotteChatbot />
     </main>
   )
 }

@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { CheckCircle2 } from "lucide-react"
+import { CharlotteChatbot } from "@/components/charlotte-chatbot"
 
 export const metadata: Metadata = {
   title: "Recruiting Branchen – Engineering, IT, Finance & Kaufmännisch | Lacar Associate",
@@ -174,6 +175,7 @@ export default function BranchenPage() {
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesJsonLd) }}
       />
+      <CharlotteChatbot />
     </main>
   )
 }

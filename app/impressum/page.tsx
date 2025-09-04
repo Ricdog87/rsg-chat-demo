@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft } from "lucide-react"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -77,8 +77,18 @@ export default function ImpressumPage() {
               Verbraucherstreitbeilegung/Universalschlichtungsstelle
             </h2>
             <p className="text-sm md:text-base">
-              Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
-              Verbraucherschlichtungsstelle teilzunehmen.
+              Wir nehmen an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teil. Zuständig ist
+              die Universalschlichtungsstelle des Zentrums für Schlichtung e.V., Straßburger Straße 8, 77694 Kehl am
+              Rhein (
+              <a
+                href="https://www.verbraucher-schlichter.de"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent hover:underline"
+              >
+                https://www.verbraucher-schlichter.de
+              </a>
+              ).
             </p>
           </section>
 

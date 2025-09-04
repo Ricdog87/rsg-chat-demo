@@ -10,6 +10,7 @@ import FAQSection from "@/components/faq-section"
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
 import HubspotChatbot from "@/components/hubspot-chatbot"
+import { CharlotteChatbot } from "@/components/charlotte-chatbot"
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
       <ContactSection />
       <Footer />
       <HubspotChatbot />
+      <CharlotteChatbot />
     </main>
   )
 }

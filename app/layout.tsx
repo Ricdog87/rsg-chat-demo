@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     sameAs: ["https://www.linkedin.com/company/lacar-associate/", "https://www.xing.com/companies/lacar-associate"],
     knowsAbout: ["Engineering Recruiting", "IT Recruiting", "Finance Recruiting", "Kaufmännisches Recruiting"],
   },
-    generator: 'v0.dev'
+    generator: 'v0.app'
 }
 
 export default function RootLayout({

@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import ContactSection from "@/components/contact-section"
+import { CharlotteChatbot } from "@/components/charlotte-chatbot"
 
 export const metadata: Metadata = {
   title: "Headhunting & Recruiting zum Festpreis – Deutschlandweit | Lacar Associate",
@@ -21,6 +22,7 @@ export default function KontaktPage() {
         </p>
       </div>
       <ContactSection />
+      <CharlotteChatbot />
     </main>
   )
 }
