@@ -56,23 +56,6 @@ export default function ImpressumPage() {
           </section>
 
           <section>
-            <h2 className="text-lg md:text-xl font-semibold mb-3 md:mb-4">EU-Streitschlichtung</h2>
-            <p className="mb-4 text-sm md:text-base">
-              Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
-              <a
-                href="https://ec.europa.eu/consumers/odr/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent hover:underline"
-              >
-                https://ec.europa.eu/consumers/odr/
-              </a>
-              .
-            </p>
-            <p className="text-sm md:text-base">Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
-          </section>
-
-          <section>
             <h2 className="text-lg md:text-xl font-semibold mb-3 md:mb-4">
               Verbraucherstreitbeilegung/Universalschlichtungsstelle
             </h2>
